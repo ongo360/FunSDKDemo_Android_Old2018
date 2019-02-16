@@ -2289,6 +2289,16 @@ public class FunSupport implements IFunSDKResult {
         }
     }
 
+    public void requestDevSleep(FunDevice funDevice) {
+        if (null != funDevice) {
+            if (funDevice.hasLogin()) {
+                requestDeviceLogout(funDevice);
+            }else {
+                FunSDK.DevLogout(getHandler(), funDevice.getDevSn(), funDevice.getId());
+            }
+        }
+    }
+
     @Override
     public int OnFunSDKResult(Message msg, MsgContent msgContent) {
         FunLog.d(TAG, "msg.what : " + msg.what);

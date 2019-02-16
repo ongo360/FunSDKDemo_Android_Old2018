@@ -93,17 +93,14 @@ public class DevWakeUpActivity extends ActivityDemo
                 }
                 break;
             case R.id.btnDevSleep:
-                if (funDevice.hasLogin()) {
-                    FunSupport.getInstance().requestDeviceLogout(funDevice);
-                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            FunSupport.getInstance().requestDeviceStatus(funDevice);
-                        }
-                    },2000);
-                }else {
-                    Toast.makeText(this,R.string.dev_auto_sleep_after,Toast.LENGTH_LONG).show();
-                }
+                showWaitDialog();
+                FunSupport.getInstance().requestDevSleep(funDevice);
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        FunSupport.getInstance().requestDeviceStatus(funDevice);
+                    }
+                },3000);
                 break;
             default:
                 break;
