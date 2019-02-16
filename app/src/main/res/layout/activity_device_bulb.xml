@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff3d8ec3" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate" />
+
+    
+    <ImageButton 
+        android:id="@+id/imgBulb"
+        android:layout_below="@id/layoutTop"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/bulb_image"
+        android:background="@color/transparent"
+        android:scaleType="fitCenter"
+        />
+    
+    <LinearLayout 
+        android:id="@+id/layoutColor"
+        android:layout_below="@id/imgBulb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:orientation="vertical"
+        >
+        
+        <SeekBar
+	        android:id="@+id/seekColorRed"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:maxHeight="6dp"
+	        android:minHeight="6dp"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp"
+	        android:progressDrawable="@drawable/bulb_color_seekbar_bg_red"
+	        android:thumb="@drawable/video_control_seekbar_thumb_bg" />
+        
+        <SeekBar
+	        android:id="@+id/seekColorGreen"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="5dp"
+	        android:maxHeight="6dp"
+	        android:minHeight="6dp"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp"
+	        android:progressDrawable="@drawable/bulb_color_seekbar_bg_green"
+	        android:thumb="@drawable/video_control_seekbar_thumb_bg" />
+        
+        <SeekBar
+	        android:id="@+id/seekColorBlue"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="5dp"
+	        android:maxHeight="6dp"
+	        android:minHeight="6dp"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp"
+	        android:progressDrawable="@drawable/bulb_color_seekbar_bg_blue"
+	        android:thumb="@drawable/video_control_seekbar_thumb_bg" />
+        
+        <SeekBar
+	        android:id="@+id/seekLuma"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="5dp"
+	        android:maxHeight="6dp"
+	        android:minHeight="6dp"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp"
+	        android:progressDrawable="@drawable/bulb_color_seekbar_bg_luma"
+	        android:thumb="@drawable/video_control_seekbar_thumb_bg" />
+        
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutTop"
+        android:footerDividersEnabled="true"
+        android:listSelector="@drawable/common_list_selector" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 移动侦测 -->
+
+            <RelativeLayout
+                android:id="@+id/layoutMotionDetection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                style="@style/setup_sub_layout" >
+
+                <TextView
+                    android:id="@+id/titleMotionDetection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_alarm_motion_detection"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/titleMotionDetectionTip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titleMotionDetection"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/device_alarm_motion_detection_tip"
+                    android:textColor="@color/demo_desc"
+                    android:textSize="10dp" />
+
+                <ImageButton
+                    android:id="@+id/btnSwitchMotionDetection"
+                    android:layout_width="48dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_switch_check" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/theme_color" />
+            
+            <LinearLayout
+                android:id="@+id/layoutOthers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <!-- 录像联动 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutMotionDetectionAlarmRecord"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/setup_sub_layout" >
+
+                    <TextView
+                        android:id="@+id/titleMotionDetectionAlarmRecord"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_func_record"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/titleMotionDetectionAlarmRecordTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleMotionDetectionAlarmRecord"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/device_alarm_func_record_motion_tip"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchMotionDetectionAlarmRecord"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 拍照联动 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutMotionDetectionAlarmCapture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/setup_sub_layout" >
+
+                    <TextView
+                        android:id="@+id/titleMotionDetectionAlarmCapture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_func_capture"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/titleMotionDetectionAlarmCaptureTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleMotionDetectionAlarmCapture"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/device_alarm_func_capture_motion_tip"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchMotionDetectionAlarmCapture"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 手机推送联动 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutMotionDetectionAlarmPushMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/setup_sub_layout" >
+
+                    <TextView
+                        android:id="@+id/titleMotionDetectionAlarmPushMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_func_pushmsg"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/titleMotionDetectionAlarmPushMsgTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleMotionDetectionAlarmPushMsg"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/device_alarm_func_pushmsg_motion_tip"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchMotionDetectionAlarmPushMsg"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 报警灵敏度 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutMotionDetectionAlarmLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/setup_sub_layout" >
+
+                    <TextView
+                        android:id="@+id/titleMotionDetectionAlarmLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_func_level"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/titleMotionDetectionAlarmLevelTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleMotionDetectionAlarmLevel"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/device_alarm_func_level_motion_tip"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+                    
+                    <Spinner
+                        android:id="@+id/spinnerMotionDetectionAlarmLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/spinner_ab_activated_holo_dark" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 视频遮挡 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutVideoBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    style="@style/setup_sub_layout" >
+
+                    <TextView
+                        android:id="@+id/titleVideoBlock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_video_block"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/titleVideoBlockTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleVideoBlock"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/device_alarm_video_block_tip"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchVideoBlock"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/theme_color" />
+
+                <!-- 录像联动 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutVideoBlockAlarmRecord"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/setup_sub_layout" >
+
+                    <TextView
+                        android:id="@+id/titleVideoBlockAlarmRecord"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_func_record"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/titleVideoBlockAlarmRecordTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleVideoBlockAlarmRecord"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/device_alarm_func_record_block_tip"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchVideoBlockAlarmRecord"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 拍照联动 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutVideoBlockAlarmCapture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/setup_sub_layout" >
+
+                    <TextView
+                        android:id="@+id/titleVideoBlockAlarmCapture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_func_capture"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/titleVideoBlockAlarmCaptureTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleVideoBlockAlarmCapture"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/device_alarm_func_capture_block_tip"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchVideoBlockAlarmCapture"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 手机推送联动 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutVideoBlockAlarmPushMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/setup_sub_layout" >
+
+                    <TextView
+                        android:id="@+id/titleVideoBlockAlarmPushMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_func_pushmsg"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/titleVideoBlockAlarmPushMsgTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleVideoBlockAlarmPushMsg"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/device_alarm_func_pushmsg_block_tip"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchVideoBlockAlarmPushMsg"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+                
+                <!-- 报警输入 -->
+				<LinearLayout 
+				    android:id="@+id/layoutAlarmInput"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:orientation="vertical"
+				    android:visibility="gone"
+				    >
+                <RelativeLayout
+                    android:id="@+id/layoutLocalIOAlarm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    style="@style/setup_sub_layout" >
+
+                    <TextView
+                        android:id="@+id/titleLocalIOAlarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_local_alarm"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchLocalIOAlarm"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/theme_color" />
+
+                <!-- 录像联动 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutVideoBlockAlarmRecord1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/setup_sub_layout" >
+
+                    <TextView
+                        android:id="@+id/titleLocalIOAlarmRecord"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_func_record"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchLocalIOAlarmRecord"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 拍照联动 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutLocalIOAlarmCapture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/setup_sub_layout" >
+
+                    <TextView
+                        android:id="@+id/titleLocalIOAlarmCapture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_func_capture"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchLocalIOAlarmCapture"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 手机推送联动 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutLocalIOAlarmPushMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/setup_sub_layout" >
+
+                    <TextView
+                        android:id="@+id/titleLocalIOAlarmPushMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_func_pushmsg"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchLocalIOAlarmPushMsg"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+                </RelativeLayout>
+				</LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+                
+                <RelativeLayout 
+                    android:id="@+id/layoutAlarmOutput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    style="@style/setup_sub_layout"
+                    >
+                    <TextView 
+                        android:id="@+id/titileAlarmoutText"
+                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_output"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp"
+                        />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/theme_color" />
+                <RelativeLayout 
+                    android:id="@+id/layoutAlarmOutStatus"
+                   android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/setup_sub_layout">
+                    <TextView 
+                        android:id="@+id/textAlarmOutStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_output_status"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp"
+                        />
+                    <ImageButton  
+                        android:id="@+id/btnSwitchAlarmOutStatus"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check"
+                        />
+                </RelativeLayout>
+                <View
+                   android:layout_width="match_parent"
+                   android:layout_height="0.5dp"
+                   android:background="@color/demo_desc" 
+                   />
+                <RelativeLayout 
+                    android:id="@+id/layoutAlarmOutType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/setup_sub_layout">
+                    <TextView 
+                        android:id="@+id/textAlarmOutType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_alarm_output_tipe"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp"
+                        />
+                    <Spinner
+                        android:id="@+id/spinnerAlarmOutType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/spinner_ab_activated_holo_dark" />
+                </RelativeLayout>
+                <View
+                   android:layout_width="match_parent"
+                   android:layout_height="0.5dp"
+                   android:background="@color/demo_desc" 
+                   />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

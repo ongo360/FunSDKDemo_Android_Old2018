@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        >
+
+        <com.lib.funsdk.support.widget.FunVideoView
+            android:id="@+id/funVideoView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/textVideoStat1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="#40000000"
+            android:textColor="#ffffffff"
+            android:textSize="14dp" />
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="2" >
+
+    <include
+        android:id="@+id/socket_control_background_rl"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1.1"
+        layout="@layout/fragment_socket_control" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.9" >
+
+        <ListView
+            android:id="@+id/socket_power_task_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/add_iv"
+            android:background="@color/white" />
+
+        <ImageButton
+            android:id="@+id/add_iv"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/socket_task_add" 
+            android:background="@color/transparent"
+            android:layout_marginBottom="5dip"/>
+    </RelativeLayout>
+
+</LinearLayout>

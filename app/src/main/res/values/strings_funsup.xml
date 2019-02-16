@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dev_type_monitor">Monitoring</string>
+    <string name="dev_type_intelligentsocket">Socket</string>
+    <string name="dev_type_scenelamp">Bulb</string>
+    <string name="dev_type_lampholder">Lamp holder</string>
+    <string name="dev_type_carmate">Car mate</string>
+	<string name="dev_type_bigeye">Big eye</string>
+	<string name="dev_type_smalleye">Rain point</string>
+	<string name="dev_type_boutiquerotot">Head turn</string>
+	<string name="dev_type_sportcamera">Motion camera</string>
+	<string name="dev_type_smallraindrops_fisheye">Rain point</string>
+	<string name="dev_type_lamp_fisheye">Bulb/Smart Bulb</string>
+	<string name="dev_type_minions">Minions</string>
+	<string name="dev_type_musicbox">Music box</string>
+	<string name="dev_type_speaker">Speaker</string>
+	<string name="dev_type_linkcenter">Link Center</string>
+	<string name="dev_type_dash_camera">Tachograph</string>
+	<string name="dev_type_powerstarip">Intelligence Socket</string>
+	<string name="dev_type_fish_fun">FishEye Moudle</string>
+	<string name="dev_type_ufo">UFO</string>
+	<string name="dev_type_idr">Intelligence Doorbell</string>
+	<string name="dev_type_bullet">E - Gun shape machine</string>
+	<string name="dev_type_drum">Drum Kit</string>
+	<string name="dev_type_camera">Camera</string>
+
+	<string name="dev_type_unknown">Unknown device</string>
+	
+	<string name="device_stauts_unknown">Querying</string>
+    <string name="device_stauts_online">On-Line</string>
+    <string name="device_stauts_offline">Off-Line</string>
+	<string name="device_stauts_sleep">Sleep</string>
+	<string name="device_can_not_wake_up">Can not wake up</string>
+	<string name="the_device_is_not_wakeup">The current device is offline or not awake</string>
+</resources>

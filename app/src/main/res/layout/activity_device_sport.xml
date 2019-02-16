@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:longClickable="true">
+
+    <RelativeLayout
+        android:id="@+id/layoutPlayWnd"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_marginTop="48dp"
+        android:background="#ff000000">
+
+        <com.lib.funsdk.support.widget.FunVideoView
+            android:id="@+id/funVideoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+        />
+
+        <TextView
+            android:id="@+id/textVideoStat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="#40000000"
+            android:textColor="#ffffffff"
+            android:textSize="14dp"/>
+
+        <RelativeLayout
+            android:id="@+id/layout_recording"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="28dp"
+            android:visibility="invisible">
+
+            <ImageView
+                android:id="@+id/img_recording"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/recording"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_recording"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="录制中"/>
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+            <LinearLayout
+                android:id="@+id/layoutVideoControl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#6c000000"
+
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnPlay"
+                    style="@style/video_control_button"
+                    android:background="@drawable/video_control_button_selector"
+                    android:text="@string/device_opt_play"
+                    android:textColor="@drawable/common_text_selector"/>
+
+                <Button
+                    android:id="@+id/btnStop"
+                    style="@style/video_control_button"
+                    android:background="@drawable/video_control_button_selector"
+                    android:text="@string/device_opt_stop"
+                    android:textColor="@drawable/common_text_selector"/>
+
+                <Button
+                    android:id="@+id/btnStream"
+                    style="@style/video_control_button"
+                    android:background="@drawable/video_control_button_selector"
+                    android:text="@string/media_stream_switch"
+                    android:textColor="@drawable/common_text_selector"/>
+
+                <Button
+                    android:id="@+id/btnCapture"
+                    style="@style/video_control_button"
+                    android:background="@drawable/video_control_button_selector"
+                    android:text="@string/device_opt_capture"
+                    android:textColor="@drawable/common_text_selector"/>
+
+                <Button
+                    android:id="@+id/btnRecord"
+                    style="@style/video_control_button"
+                    android:background="@drawable/video_control_button_selector"
+                    android:text="@string/device_opt_record"
+                    android:textColor="@drawable/common_text_selector"/>
+
+                <Button
+                    android:id="@+id/btnScreenRatio"
+                    style="@style/video_control_button"
+                    android:background="@drawable/video_control_button_selector"
+                    android:text="@string/device_opt_fullscreen"
+                    android:textColor="@drawable/common_text_selector"/>
+
+                <Button
+                    android:id="@+id/btnFishEyeInfo"
+                    style="@style/video_control_button"
+                    android:background="@drawable/video_control_button_selector"
+                    android:text="@string/device_opt_fisheye_info"
+                    android:textColor="@drawable/common_text_selector"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- 主/辅码流类型显示 -->
+
+        <TextView
+            android:id="@+id/textStreamStat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#80000000"
+            android:padding="5dp"
+            android:textColor="#ffffffff"
+            android:textSize="10dp"/>
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme"/>
+
+    <LinearLayout
+        android:id="@+id/layoutFunctionControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutPlayWnd"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layoutChannelBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/layoutPlayWnd"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1">
+            <LinearLayout
+                android:id="@+id/VoiceTalk"
+                android:layout_width="144dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/capture_iv"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/fragment_sports_direct_capture_sel"/>
+                <ImageButton
+                    android:id="@+id/video_iv"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/fragment_sports_direct_record" />
+            </LinearLayout>
+            <ImageButton
+                android:id="@+id/btnDevRecord"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24dp"
+                android:layout_toRightOf="@+id/VoiceTalk"
+                android:background="@color/transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icon_record"/>
+
+            <ImageButton
+                android:id="@+id/btnDevCapture"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignTop="@+id/btnDevRecord"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24dp"
+                android:layout_toLeftOf="@+id/VoiceTalk"
+                android:background="@color/transparent"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icon_devcapture"/>
+
+            <View
+                android:id="@+id/splitView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="#a000"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutDirectionControl"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/relativeLayout1"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:visibility="gone">
+
+            <ImageButton
+                android:id="@+id/ptz_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ptz_right"
+                android:layout_toLeftOf="@+id/ptz_up"
+                android:background="@drawable/ptzleft_selector"/>
+
+            <ImageButton
+                android:id="@+id/ptz_center"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_above="@+id/ptz_down"
+                android:layout_centerHorizontal="true"
+                android:background="@null"/>
+
+            <Button
+                android:id="@+id/btnGetPreset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="13dp"
+                android:layout_marginLeft="32dp"
+                android:layout_toRightOf="@+id/ptz_center"
+                android:text="@string/device_opt_get_preset"/>
+
+            <Button
+                android:id="@+id/btnSetPreset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btnGetPreset"
+                android:layout_alignLeft="@+id/btnGetPreset"
+                android:text="@string/device_opt_set_preset"/>
+
+            <ImageButton
+                android:id="@+id/ptz_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/btnGetPreset"
+                android:layout_toRightOf="@+id/ptz_left"
+                android:background="@drawable/ptzdown_selector"/>
+
+            <ImageButton
+                android:id="@+id/ptz_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/ptz_center"
+                android:layout_toLeftOf="@+id/ptz_center"
+                android:background="@drawable/ptzright_selector"/>
+
+            <ImageButton
+                android:id="@+id/ptz_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/ptz_right"
+                android:layout_toLeftOf="@+id/ptz_right"
+                android:background="@drawable/ptzup_selector"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

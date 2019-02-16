@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip"
+    android:paddingTop="50dip" >
+
+    <ImageView 
+        android:id="@+id/socket_control_image"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
+        android:layout_centerHorizontal="true"
+        />
+
+    <RadioGroup
+        android:id="@+id/socket_control_switch_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dip"
+        android:orientation="horizontal"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip"
+        >
+
+        <RadioButton
+            android:id="@+id/socket_control_switch_on_rb"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:button="@null"
+            android:drawableTop="@drawable/socket_switch_sel"
+            android:gravity="center_horizontal"
+            android:text="@string/device_opt_on"
+            android:textColor="@drawable/socket_control_text_selector"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/socket_control_switch_off_rb"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:button="@null"
+            android:drawableTop="@drawable/socket_switch_sel"
+            android:gravity="center_horizontal"
+            android:text="@string/device_opt_off"
+            android:textColor="@drawable/socket_control_text_selector"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/socket_control_switch_timing_rb"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:button="@null"
+            android:drawableTop="@drawable/socket_timing_sel"
+            android:gravity="center_horizontal"
+            android:text="@string/device_opt_timing"
+            android:textColor="@drawable/socket_control_text_selector"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/socket_control_switch_sensor_rb"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:button="@null"
+            android:drawableTop="@drawable/socket_auto_sel"
+            android:gravity="center_horizontal"
+            android:text="@string/device_opt_auto"
+            android:textColor="@drawable/socket_control_text_selector"
+            android:textSize="13sp" />
+    </RadioGroup>
+    
+</RelativeLayout>

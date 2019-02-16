@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" 
+    android:background="@color/bg_gray"
+    >
+
+    <ListView
+        android:id="@+id/listSavedUsers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/demo_desc"
+        android:dividerHeight="0.5dp"
+        android:listSelector="@drawable/common_list_selector" />
+
+</LinearLayout>

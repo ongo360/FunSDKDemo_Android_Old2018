@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    android:minHeight="60dp"
+    android:weightSum="2" >
+
+    <include
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_below="@+id/title_layout"
+        android:background="#dddbdb" />
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line" >
+
+        <LinearLayout
+            android:id="@+id/devinfo_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+            
+            <!-- 设备序列号 -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dip"
+                android:background="#d7d7d7" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="16dip"
+                android:paddingRight="16dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="@string/devices_socket_total_energy"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/normal_text_size" />
+
+                <TextView
+                    android:id="@+id/TotalEnergy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/demo_desc" />
+            </LinearLayout>
+            <!-- 设备硬件版本号 -->
+
+           <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dip"
+                android:background="#d7d7d7" />
+            <!-- 设备软件版本号 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="16dip"
+                android:paddingRight="16dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="@string/devices_socket_energy_mon"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/normal_text_size" />
+
+                <TextView
+                    android:id="@+id/EnergyOfThisMon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/demo_desc" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dip"
+                android:background="#d7d7d7" />
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="16dip"
+                android:paddingRight="16dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="@string/devices_socket_energy_recently"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/normal_text_size" />
+
+                <TextView
+                    android:id="@+id/EnergyRecently"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/demo_desc" />
+            </LinearLayout>
+            <!-- 设备型号 -->
+
+           <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dip"
+                android:background="#d7d7d7" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="16dip"
+                android:paddingRight="16dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="@string/devices_socket_total_time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/normal_text_size" />
+
+                <TextView
+                    android:id="@+id/TotalTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/demo_desc" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dip"
+                android:background="#d7d7d7" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="16dip"
+                android:paddingRight="16dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="@string/devices_socket_energy_mon"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/normal_text_size" />
+
+                <TextView
+                    android:id="@+id/TimeOfThisMon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/demo_desc" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dip"
+                android:background="#d7d7d7" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="16dip"
+                android:paddingRight="16dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="@string/devices_socket_time_recently"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/normal_text_size" />
+
+                <TextView
+                    android:id="@+id/TimeRecently"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/demo_desc" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dip"
+                android:background="#d7d7d7" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="16dip"
+                android:paddingRight="16dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:text="@string/devices_socket_device_type"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/normal_text_size" />
+
+                <TextView
+                    android:id="@+id/DeviceType"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/demo_desc" />
+            </LinearLayout>
+
+           <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dip"
+                android:background="#d7d7d7" />
+
+            <RelativeLayout
+                android:id="@+id/work_set_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:paddingBottom="10dip"
+                android:paddingLeft="16dip"
+                android:paddingRight="16dip"
+                android:paddingTop="10dip" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center_vertical"
+                        android:text="@string/devices_socket_device_power"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/normal_text_size" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/sv"
+                        android:layout_centerHorizontal="true"
+                        android:lineSpacingExtra="1dip"
+                        android:text="@string/devices_socket_devices_power_set"
+                        android:textColor="@color/xm_dlg_color_2"
+                        android:textScaleX="1.1"
+                        android:textSize="@dimen/too_small_text_size" />
+
+                    <TextView
+                        android:id="@+id/DevicePower"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:gravity="right|center_vertical"
+                        android:textColor="@color/demo_desc" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip" 
+    android:paddingTop="10dip"
+    android:paddingBottom="5dip">
+
+    <TextView
+        android:id="@+id/task_open_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/devices_socket_item_open_time"
+        android:textColor="#6a6a6a"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/task_open_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/task_open_time"
+        android:text="@string/devices_socket_item_open_day"
+        android:textColor="#6a6a6a"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/task_close_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/devices_socket_item_close_time"
+        android:textColor="#6a6a6a"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/task_close_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/task_close_time"
+        android:layout_below="@+id/task_close_time"
+        android:text="@string/devices_socket_item_close_day"
+        android:textColor="#6a6a6a"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/task_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/icon_round_next" />
+
+</RelativeLayout>

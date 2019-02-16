@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/EE_OK"
+        android:layout_centerInParent="true"/>
+    <Button
+        android:id="@+id/btn_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/btn_ok"
+        android:layout_alignTop="@id/btn_ok"
+        android:text="@string/setup_btn_left"
+        android:layout_marginRight="30dp"
+        />
+
+    <Button
+        android:id="@+id/btn_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btn_ok"
+        android:layout_alignTop="@id/btn_ok"
+        android:text="@string/setup_btn_right"
+        android:layout_marginLeft="30dp"
+        />
+    <Button
+        android:id="@+id/btn_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_ok"
+        android:layout_alignLeft="@id/btn_ok"
+        android:text="@string/setup_btn_up"
+        android:layout_marginBottom="30dp"
+        />
+    <Button
+        android:id="@+id/btn_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_ok"
+        android:layout_alignLeft="@id/btn_ok"
+        android:text="@string/setup_btn_down"
+        android:layout_marginTop="30dp"
+        />
+
+    <Button
+        android:id="@+id/btn_esc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setup_btn_esc"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="110dp"/>
+
+    <Button
+        android:id="@+id/btn_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setup_btn_menu"
+        android:layout_marginTop="110dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        />
+
+</RelativeLayout>

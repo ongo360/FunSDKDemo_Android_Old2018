@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutTop"
+        android:footerDividersEnabled="true"
+        android:listSelector="@drawable/common_list_selector" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/theme_color" />
+            
+            <!-- 曝光时间 -->
+            <RelativeLayout
+                android:id="@+id/layoutSetupExposureTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/setup_sub_layout" >
+
+                <TextView
+                    android:id="@+id/titleSetupExposureTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/device_setup_exposure_time"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+                
+                <Spinner
+                    android:id="@+id/setupExposureTimeSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/spinner_ab_activated_holo_dark" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc" />
+            
+             <RelativeLayout
+                android:id="@+id/layoutSetupSceneMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/setup_sub_layout" >
+
+                <TextView
+                    android:id="@+id/titleSetupSceneMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/device_setup_scene_mode"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+                
+                <Spinner
+                    android:id="@+id/setupSceneModeSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/spinner_ab_activated_holo_dark" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc" />
+
+            <RelativeLayout
+                android:id="@+id/layoutSetupExposureTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/setup_sub_layout" >
+
+                <TextView
+                    android:id="@+id/titleSetupElectronicSlowShutter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_setup_electronic_slow_shutter"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+                
+                <Spinner
+                    android:id="@+id/setupElectronicSlowShutterSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/spinner_ab_activated_holo_dark" />
+                
+                <TextView
+                    android:id="@+id/setupRecordModeTip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titleSetupElectronicSlowShutter"
+                    android:layout_toLeftOf="@id/setupElectronicSlowShutterSpinner"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/device_setup_electronic_slow_shutter_prompt"
+                    android:textColor="@color/demo_desc"
+                    android:textSize="10dp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc" />
+            
+            <RelativeLayout
+                android:id="@+id/layoutSetupColorMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/setup_sub_layout" >
+
+                <TextView
+                    android:id="@+id/titleSetupColorMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/device_setup_color_mode"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+                
+                <Spinner
+                    android:id="@+id/setupColorModeSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/spinner_ab_activated_holo_dark" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc" />
+            
+            <RelativeLayout
+                android:id="@+id/layoutSetupDefogging"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/setup_sub_layout" >
+
+                <TextView
+                    android:id="@+id/titleSetupDefogging"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_setup_exposure_time"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+                
+                <Spinner
+                    android:id="@+id/setupDefoggingSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/spinner_ab_activated_holo_dark" />
+                
+                <TextView
+                    android:id="@+id/setupRecordModeTip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titleSetupDefogging"
+                    android:layout_toLeftOf="@id/setupDefoggingSpinner"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/device_setup_defogging_prompt"
+                    android:textColor="@color/demo_desc"
+                    android:textSize="10dp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc" />
+            
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <RelativeLayout 
+        android:id="@+id/layoutDeviceSN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutTop"
+        android:background="@color/white"
+        >
+        
+        <!-- 
+        <ImageButton 
+            android:id="@+id/btnWifiList"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="fitCenter"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/common_button_selector_trans"
+            android:src="@drawable/icon_arrow_down"
+            android:padding="5dp"
+            />
+         -->
+        
+        <EditText
+	        android:id="@+id/editWifiSSID"
+	        android:layout_width="match_parent"
+	        android:layout_height="28dp"
+	        android:layout_margin="10dp"
+	        android:background="#00000000"
+	        android:gravity="center_vertical"
+	        android:hint="@string/device_opt_set_wifi_hint_ssid"
+	        android:singleLine="true"
+	        android:textColor="#ff101010"
+	        android:textColorHint="#ffe0e0e0"
+	        android:textSize="16dp" 
+	        android:editable="false"
+	        />
+        
+        <View 
+            android:id="@+id/divLine"
+            android:layout_below="@id/editWifiSSID"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/bg_gray"
+            />
+        <EditText
+	        android:id="@+id/editWifiPasswd"
+	        android:layout_below="@id/divLine"
+	        android:layout_width="match_parent"
+	        android:layout_height="28dp"
+	        android:layout_margin="10dp"
+	        android:background="#00000000"
+	        android:gravity="center_vertical"
+	        android:hint="@string/device_opt_set_wifi_hint_passwd"
+	        android:singleLine="true"
+	        android:textColor="#ff101010"
+	        android:textColorHint="#ffe0e0e0"
+	        android:textSize="16dp" />
+    </RelativeLayout>
+    
+    <Button
+        android:id="@+id/btnWifiQuickSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutDeviceSN"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/common_button_selector_white"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/device_opt_set_wifi"
+        android:textColor="@drawable/common_text_selector"
+        android:textSize="18dp" />
+
+    <TextView 
+        android:id="@+id/textWifiSettedDevices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnWifiQuickSetting"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        android:textSize="16dp"
+        android:textColor="@color/demo_desc"
+        />
+</RelativeLayout>

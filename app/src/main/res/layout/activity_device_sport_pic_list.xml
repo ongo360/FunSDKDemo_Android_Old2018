@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <RelativeLayout
+        android:id="@+id/layoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/theme_color"
+        >
+
+        <ImageButton
+            android:id="@+id/backBtnInTopLayout"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/transparent"
+            android:padding="12dp"
+            android:src="@drawable/icon_back"
+            android:scaleType="fitCenter"
+            />
+
+        <TextView
+            android:id="@+id/textViewInTopLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="#ffffffff"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            />
+
+        <LinearLayout
+            android:id="@+id/optionLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:paddingRight="12dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+
+            <Button
+                android:id="@+id/optionDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/theme_color"
+                android:text="删除"
+                android:textColor="#ffffffff"
+                android:textSize="20sp"
+                />
+
+            <Button
+                android:id="@+id/optionCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:background="@color/theme_color"
+                android:text="取消"
+                android:textColor="#ffffffff"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+	
+	<com.tonicartos.widget.stickygridheaders.StickyGridHeadersGridView
+        android:id="@+id/gridViewDevicePicture"
+        android:layout_below="@id/layoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:scrollbars="none"
+        android:numColumns="4"
+        android:listSelector="@drawable/common_list_selector"
+        />
+</RelativeLayout>

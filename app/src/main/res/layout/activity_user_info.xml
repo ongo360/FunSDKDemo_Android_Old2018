@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include
+		android:id="@+id/layoutTop"
+		layout="@layout/layout_top_navigate_theme"
+        />
+
+    <LinearLayout
+        android:id="@+id/layoutUserInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutTop"
+        android:paddingTop="@dimen/spacing_huge"
+        android:paddingLeft="@dimen/spacing_huge"
+        android:paddingRight="@dimen/spacing_huge"
+        android:orientation="vertical"
+        android:background="#ffffffff"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffffff"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/userIdTitle"
+                android:layout_width="@dimen/textview_width_wide"
+                android:layout_height="@dimen/textview_height_normal"
+                android:text="@string/user_info_id"
+                style="@style/user_info_normal_text"
+            />
+
+            <TextView
+                android:id="@+id/tvUserId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textview_height_normal"
+                android:layout_alignBottom="@id/userIdTitle"
+                android:layout_marginLeft="@dimen/spacing_small"
+                android:layout_toRightOf="@id/userIdTitle"
+                tools:text="169363"
+                style="@style/user_info_normal_text"
+                />
+
+        </RelativeLayout>
+
+        <include layout="@layout/split_line_horizontal"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffffff"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/userNameTitle"
+                android:layout_width="@dimen/textview_width_wide"
+                android:layout_height="@dimen/textview_height_normal"
+                android:text="@string/user_info_username"
+                style="@style/user_info_normal_text"
+                />
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textview_height_normal"
+                android:layout_alignBottom="@id/userNameTitle"
+                android:layout_marginLeft="@dimen/spacing_small"
+                android:layout_toRightOf="@id/userNameTitle"
+                tools:text="jijianfeng"
+                style="@style/user_info_normal_text"
+                />
+
+        </RelativeLayout>
+
+        <include layout="@layout/split_line_horizontal"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffffff"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/userEmailTitle"
+                android:layout_width="@dimen/textview_width_wide"
+                android:layout_height="@dimen/textview_height_normal"
+                android:text="@string/user_info_email"
+                style="@style/user_info_normal_text"
+                />
+
+            <TextView
+                android:id="@+id/tvUserEmail"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textview_height_normal"
+                android:layout_alignBottom="@id/userEmailTitle"
+                android:layout_marginLeft="@dimen/spacing_small"
+                android:layout_toRightOf="@id/userEmailTitle"
+                tools:text="xm@hatcloud.me"
+                style="@style/user_info_normal_text"
+                />
+
+        </RelativeLayout>
+
+        <include layout="@layout/split_line_horizontal"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffffff"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/userPhoneTitle"
+                android:layout_width="@dimen/textview_width_wide"
+                android:layout_height="@dimen/textview_height_normal"
+                android:text="@string/user_info_phone"
+                style="@style/user_info_normal_text"
+                />
+
+            <TextView
+                android:id="@+id/tvUserPhone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textview_height_normal"
+                android:layout_alignBottom="@id/userPhoneTitle"
+                android:layout_marginLeft="@dimen/spacing_small"
+                android:layout_toRightOf="@id/userPhoneTitle"
+                tools:text="18604099720"
+                style="@style/user_info_normal_text"
+                />
+
+        </RelativeLayout>
+
+        <include layout="@layout/split_line_horizontal"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffffff"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/userSexTitle"
+                android:layout_width="@dimen/textview_width_wide"
+                android:layout_height="@dimen/textview_height_normal"
+                android:text="@string/user_info_sex"
+                style="@style/user_info_normal_text"
+                />
+
+            <TextView
+                android:id="@+id/tvUserSex"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textview_height_normal"
+                android:layout_alignBottom="@id/userSexTitle"
+                android:layout_marginLeft="@dimen/spacing_small"
+                android:layout_toRightOf="@id/userSexTitle"
+                tools:text="男"
+                style="@style/user_info_normal_text"
+                />
+
+        </RelativeLayout>
+
+        <include layout="@layout/split_line_horizontal"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffffff"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/userRegTimeTitle"
+                android:layout_width="@dimen/textview_width_wide"
+                android:layout_height="@dimen/textview_height_normal"
+                android:text="@string/user_info_reg_time"
+                style="@style/user_info_normal_text"
+                />
+
+            <TextView
+                android:id="@+id/tvUserRegTime"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textview_height_normal"
+                android:layout_alignBottom="@id/userRegTimeTitle"
+                android:layout_marginLeft="@dimen/spacing_small"
+                android:layout_toRightOf="@id/userRegTimeTitle"
+                tools:text="2016/04/12"
+                style="@style/user_info_normal_text"
+                />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/userLogoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_below="@id/layoutUserInfo"
+        android:background="@drawable/common_button_selector_white"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/user_logout"
+        android:textColor="@drawable/common_text_selector"
+        android:textSize="18dp" />
+
+</RelativeLayout>

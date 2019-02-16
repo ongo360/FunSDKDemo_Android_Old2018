@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <TextView
+        android:id="@+id/nativepassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="LocalPassword"
+        android:textColor="@color/theme_color"
+        android:layout_below="@id/layoutTop"
+        android:textSize="20sp" />
+
+    <include layout="@layout/line" />
+
+    <RelativeLayout
+        android:id="@+id/saveswitch"
+        style="@style/setup_sub_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nativepassword"
+        android:background="@color/white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15dp"
+            android:text="@string/device_setup_encode_audio"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/debugswitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_switch_check" />
+    </RelativeLayout>
+    
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/user_set_debug_info"
+        android:layout_below="@+id/saveswitch"/>
+
+</RelativeLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_top_navigate_theme"
+        android:id="@+id/layoutTop" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        >
+
+        <Button
+            android:id="@+id/btnGetDeviceState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/get_device_state"/>
+
+        <TextView
+            android:id="@+id/textDeviceState"
+            style="@style/text_system_info_title"
+            android:text="@string/device_state"
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:layout_marginRight="20dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btnDevWakeUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wake_up_device"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/btnDevSleep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sleep_device"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+</LinearLayout>

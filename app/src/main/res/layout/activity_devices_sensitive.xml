@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+   <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dip"
+        android:layout_below="@+id/layoutTop"
+        android:background="#dddbdb" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        android:background="@color/white"
+        android:layout_marginTop="10dip"
+        android:paddingBottom="10dip"
+        android:paddingLeft="16dip"
+        android:paddingRight="16dip"
+        android:paddingTop="10dip" >
+
+        <LinearLayout
+            android:id="@+id/sensitive_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/sensitive_level_sp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/device_setup_auto_sense"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/device_alarm_func_level_motion_tip"
+                android:textColor="@color/xm_dlg_color_2"
+                android:textSize="@dimen/too_small_text_size" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/sensitive_level_sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/spinner_ab_activated_holo_dark" />
+
+    </RelativeLayout>
+</RelativeLayout>

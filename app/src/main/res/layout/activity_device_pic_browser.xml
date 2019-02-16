@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_background">
+
+    <include
+        layout="@layout/layout_top_navigate"
+        android:id="@+id/title_layout"
+        />
+
+    <RelativeLayout
+        android:id="@+id/bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/grey_bottom_menu"
+        >
+
+        <Button
+            android:id="@+id/btn_jpeg_to_mp4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:padding="8dp"
+            android:background="@drawable/common_button_selector_blue"
+            android:text="@string/device_sport_camera_jpeg_to_mp4"
+            android:textColor="@color/white"
+            android:textSize="12dp"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/title_layout"
+        android:layout_above="@id/bottom_menu"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/img_pic_browser"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            />
+        <ImageView
+            android:id="@+id/iv_play_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/playback_play_normal"
+            android:visibility="gone"/>
+        <ImageView
+            android:id="@+id/iv_play_replay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/playback_replay"
+            android:visibility="gone"/>
+        <RelativeLayout
+            android:id="@+id/layout_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="?android:attr/progressBarStyleHorizontal"
+                />
+            <TextView
+                android:id="@+id/progress_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="1/2"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/layout_progress"
+            android:layout_centerHorizontal="true"
+            android:text="@string/device_sport_camera_long_click_to_preview"
+            android:textSize="@dimen/font_large"
+            android:textColor="@color/white"
+            />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

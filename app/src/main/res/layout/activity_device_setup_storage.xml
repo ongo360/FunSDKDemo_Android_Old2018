@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutTop"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/theme_color" />
+
+        <!-- 存储容量 -->
+
+        <RelativeLayout
+            style="@style/setup_sub_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/titleStorageCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/device_setup_storage_capacity"
+                android:textColor="@color/demo_title"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/textStorageCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/demo_desc"
+                android:textSize="16dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/demo_desc" />
+
+        <RelativeLayout
+            style="@style/setup_sub_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/titleStorageRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="@string/device_setup_storage_record"
+                android:textColor="@color/demo_title"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/textStorageRecord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/demo_desc"
+                android:textSize="16dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="35dp"
+            android:background="@color/demo_desc" />
+
+        <RelativeLayout
+            style="@style/setup_sub_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/titleStorageSnapshot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="@string/device_setup_storage_snapshot"
+                android:textColor="@color/demo_title"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/textStorageSnapshot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/demo_desc"
+                android:textSize="16dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/demo_desc" />
+
+        <RelativeLayout
+            style="@style/setup_sub_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/titleStorageRemain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/device_setup_storage_remain"
+                android:textColor="@color/demo_title"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/textStorageRemain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/demo_desc"
+                android:textSize="16dp" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/demo_desc" />
+
+       <RelativeLayout
+           style="@style/setup_sub_layout"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           >
+
+           <TextView
+               android:id="@+id/tvRecordFull"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerVertical="true"
+               android:text="@string/device_setup_storage_record_full"
+               android:textColor="@color/demo_title"
+               android:textSize="16dp" />
+
+           <RadioGroup
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentRight="true"
+               android:orientation="horizontal" >
+
+               <RadioButton
+                   android:id="@+id/rbRecordStop"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@string/device_setup_storage_record_stop" />
+
+               <RadioButton
+                   android:id="@+id/rbRecordCycle"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@string/device_setup_storage_record_cycle" />
+           </RadioGroup>
+       </RelativeLayout>
+
+		<View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/demo_desc" />
+
+
+        <Button
+            android:id="@+id/btnStorageFormat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/common_button_selector_blue"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/device_setup_storage_format"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+    </LinearLayout>
+
+</RelativeLayout>

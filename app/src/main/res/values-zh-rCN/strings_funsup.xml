@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dev_type_monitor">监控设备</string>
+    <string name="dev_type_intelligentsocket">智能插座</string>
+    <string name="dev_type_scenelamp">情景灯泡</string>
+    <string name="dev_type_lampholder">智能灯座</string>
+    <string name="dev_type_carmate">汽车伴侣</string>
+	<string name="dev_type_bigeye">大眼睛行车记录仪</string>
+	<string name="dev_type_smalleye">小雨点</string>
+	<string name="dev_type_boutiquerotot">雄迈摇头机</string>
+	<string name="dev_type_sportcamera">运动摄像机</string>
+	<string name="dev_type_smallraindrops_fisheye">鱼眼小雨点</string>
+	<string name="dev_type_lamp_fisheye">鱼眼灯泡/全景智能灯泡</string>
+	<string name="dev_type_minions">小黄人</string>
+	<string name="dev_type_musicbox">WiFi音乐盒</string>
+	<string name="dev_type_speaker">WiFi音响</string>
+	<string name="dev_type_linkcenter">智联中心</string>
+    <string name="dev_type_dash_camera">勇士行车记录仪</string>
+    <string name="dev_type_powerstarip">智能插排</string>
+    <string name="dev_type_fish_fun">鱼眼模组</string>
+    <string name="dev_type_ufo">飞碟设备</string>
+    <string name="dev_type_idr">智能门铃</string>
+    <string name="dev_type_bullet">E型枪机</string>
+    <string name="dev_type_drum">架子鼓</string>
+    <string name="dev_type_camera">摄像机</string>
+
+	<string name="dev_type_unknown">未知设备,请联系厂家</string>
+	
+	<string name="device_stauts_unknown">状态查询中</string>
+    <string name="device_stauts_online">在线</string>
+    <string name="device_stauts_offline">离线</string>
+    <string name="device_stauts_sleep">休眠</string>
+    <string name="device_can_not_wake_up">不可唤醒</string>
+    <string name="the_device_is_not_wakeup">当前设备处于离线或者是不可唤醒状态</string>
+</resources>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/capture_containter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include layout="@layout/layout_top_navigate_theme"
+        android:id="@+id/layoutTop" />
+
+    <RelativeLayout
+        android:id="@+id/captureViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutTop" >
+
+        <SurfaceView
+            android:id="@+id/capture_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/top_mask"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/scan_mask"
+            android:contentDescription="@string/app_name" />
+
+        <RelativeLayout
+            android:id="@+id/capture_crop_layout"
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:layout_below="@id/top_mask"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/scan_capture"
+            android:contentDescription="@string/app_name" >
+
+            <ImageView
+                android:id="@+id/capture_scan_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_margin="5dp"
+                android:background="@drawable/scan_line"
+                android:contentDescription="@string/app_name" />
+            
+            <TextView
+                android:id="@+id/capture_error_nocamera" 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="#ffffffff"
+                android:layout_centerInParent="true"
+                android:text="@string/scan_qr_code_failed_open_camera"
+                android:visibility="gone"
+                />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/bottom_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/capture_crop_layout"
+            android:background="@drawable/scan_mask"
+            android:contentDescription="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/left_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom_mask"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/top_mask"
+            android:layout_toLeftOf="@id/capture_crop_layout"
+            android:background="@drawable/scan_mask"
+            android:contentDescription="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/right_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom_mask"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/top_mask"
+            android:layout_toRightOf="@id/capture_crop_layout"
+            android:background="@drawable/scan_mask"
+            android:contentDescription="@string/app_name" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/result_view"
+        android:layout_width="fill_parent"
+        android:layout_height="140dip"
+        android:layout_alignParentBottom="true"
+        android:background="#333333" >
+
+        <ImageView
+            android:id="@+id/barcode_image_view"
+            android:layout_width="100dip"
+            android:layout_height="100dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="4dip"
+            android:layout_marginLeft="10dip"
+            android:adjustViewBounds="true"
+            android:background="@color/white"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/LeftLine"
+            android:layout_width="30dip"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="2dip"
+            android:layout_marginTop="2dip"
+            android:layout_toRightOf="@id/barcode_image_view"
+            />
+
+        <RelativeLayout
+            android:id="@+id/button_panel"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@id/LeftLine" >
+
+            <TextView
+                android:id="@+id/Name"
+                android:layout_width="wrap_content"
+                android:layout_height="24dip"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="2dip"
+                android:text="@string/device_system_info_sn"
+                android:textColor="@color/demo_desc"
+                android:textSize="18dip" />
+
+            <TextView
+                android:id="@+id/DeviceName"
+                android:layout_width="wrap_content"
+                android:layout_height="24dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginTop="2dip"
+                android:layout_toRightOf="@id/Name"
+                android:text=""
+                android:textColor="@color/demo_desc"
+                android:textSize="18dip" />
+
+            <LinearLayout
+                android:id="@+id/result_button_view"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Name"
+                android:layout_marginTop="10dip"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/result_button_ok"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/common_confirm"
+                    android:textSize="18dip" />
+
+                <Button
+                    android:id="@+id/result_button_retry"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/common_retry"
+                    android:textSize="18dip" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    
+</RelativeLayout>

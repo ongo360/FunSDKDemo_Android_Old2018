@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/theme_color"
+        >
+
+        <ImageButton
+            android:id="@+id/backBtnInTopLayout"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/transparent"
+            android:padding="12dp"
+            android:src="@drawable/icon_back"
+            android:scaleType="fitCenter"
+            />
+
+        <TextView
+            android:id="@+id/textViewInTopLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="#ffffffff"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            />
+
+        <ImageButton
+            android:id="@+id/ib_date_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_date"
+            android:background="@null"
+            android:paddingRight="12dip"
+            android:paddingLeft="12dip"
+            android:scaleType="centerInside"
+            />
+
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_pic_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        >
+
+        <RadioButton
+            android:id="@+id/rb_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/device_pic_type_all"
+            />
+        <RadioButton
+            android:id="@+id/rb_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/device_pic_type_alarm"
+            />
+        <RadioButton
+            android:id="@+id/rb_manual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/device_pic_type_manual"
+            />
+        <RadioButton 
+            android:id="@+id/rb_picData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="日期"/>
+
+    </RadioGroup>
+
+    <ListView
+        android:id="@+id/lv_images"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutTop"
+        android:layout_above="@id/rg_pic_type"
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <ImageView 
+        android:id="@+id/imgDeviceQRCode"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/layoutTop"
+        android:layout_margin="10dp"
+        />
+
+    <Button
+        android:id="@+id/defealtconfig"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_button_shape"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/device_system_info_defealtconfig"
+        android:textColor="@drawable/common_text_selector"
+        />
+    
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/imgDeviceQRCode"
+        android:layout_above="@+id/defealtconfig"
+        >
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc"
+                />
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="horizontal"
+            	android:padding="12dp"
+                >
+                
+                <TextView 
+                    style="@style/text_system_info_title"
+                    android:text="@string/device_system_info_sn"
+                    />
+                <TextView 
+                    android:id="@+id/textDeviceSN"
+                    style="@style/text_system_info_value"
+                    />
+            </LinearLayout>
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc"
+                />
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="horizontal"
+            	android:padding="12dp"
+                >
+                
+                <TextView 
+                    style="@style/text_system_info_title"
+                    android:text="@string/device_system_info_model"
+                    />
+                <TextView 
+                    android:id="@+id/textDeviceModel"
+                    style="@style/text_system_info_value"
+                    />
+            </LinearLayout>
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc"
+                />
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="horizontal"
+            	android:padding="12dp"
+                >
+                
+                <TextView 
+                    style="@style/text_system_info_title"
+                    android:text="@string/device_system_info_hw_ver"
+                    />
+                <TextView 
+                    android:id="@+id/textDeviceHWVer"
+                    style="@style/text_system_info_value"
+                    />
+            </LinearLayout>
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc"
+                />
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="horizontal"
+            	android:padding="12dp"
+                >
+                
+                <TextView 
+                    style="@style/text_system_info_title"
+                    android:text="@string/device_system_info_sw_ver"
+                    />
+                <TextView 
+                    android:id="@+id/textDeviceSWVer"
+                    style="@style/text_system_info_value"
+                    />
+            </LinearLayout>
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc"
+                />
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="horizontal"
+            	android:padding="12dp"
+                >
+                
+                <TextView 
+                    style="@style/text_system_info_title"
+                    android:text="@string/device_system_info_pub_date"
+                    />
+                <TextView 
+                    android:id="@+id/textDevicePubDate"
+                    style="@style/text_system_info_value"
+                    android:onClick="syncTime"
+                    />
+            </LinearLayout>
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc"
+                />
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="horizontal"
+            	android:padding="12dp"
+                >
+                
+                <TextView 
+                    style="@style/text_system_info_title"
+                    android:text="@string/device_system_info_pub_time"
+                    />
+                <com.lib.funsdk.support.widget.TimeTextView
+                    android:id="@+id/textDevicePubTime"
+                    style="@style/text_system_info_value"
+                    android:onClick="syncTime"
+                    />
+            </LinearLayout>
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc"
+                />
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="horizontal"
+            	android:padding="12dp"
+                >
+                
+                <TextView 
+                    style="@style/text_system_info_title"
+                    android:text="@string/device_system_info_run_time"
+                    />
+                <TextView 
+                    android:id="@+id/textDeviceRunTime"
+                    style="@style/text_system_info_value"
+                    />
+            </LinearLayout>
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc"
+                />
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="horizontal"
+            	android:padding="12dp"
+                >
+                
+                <TextView 
+                    style="@style/text_system_info_title"
+                    android:text="@string/device_system_info_nat_code"
+                    />
+                <TextView 
+                    android:id="@+id/textDeviceNatCode"
+                    style="@style/text_system_info_value"
+                    />
+            </LinearLayout>
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc"
+                />
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="horizontal"
+            	android:padding="12dp"
+                >
+                
+                <TextView 
+                    style="@style/text_system_info_title"
+                    android:text="@string/device_system_info_nat_status"
+                    />
+                <TextView 
+                    android:id="@+id/textDeviceNatStatus"
+                    style="@style/text_system_info_value"
+                    />
+            </LinearLayout>
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc"
+                />
+            
+            <LinearLayout 
+                android:id="@+id/device_update"
+                android:layout_width="match_parent"
+            	android:layout_height="wrap_content"
+            	android:orientation="horizontal"
+            	android:padding="12dp"
+            	android:onClick="onUpdate"
+            	android:clickable="false"
+                >
+                
+                <TextView 
+                    style="@style/text_system_info_title"
+                    android:text="@string/device_system_info_upgrade"
+                    />
+                <TextView 
+                    android:id="@+id/textDeviceUpgrade"
+                    style="@style/text_system_info_value"
+                    android:text="Checkking"
+                    />
+            </LinearLayout>
+            
+            <View 
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc"
+                />
+            
+        </LinearLayout>
+        
+    </ScrollView>
+
+</RelativeLayout>

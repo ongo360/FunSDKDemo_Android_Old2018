@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutTop"
+        android:footerDividersEnabled="true"
+        android:listSelector="@drawable/common_list_selector" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/theme_color" />
+            
+            <!-- 预录时间 -->
+            <RelativeLayout
+                android:id="@+id/layoutSetupRecordPre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/setup_sub_layout" >
+  
+                <TextView
+                    android:id="@+id/setupRecordPreTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_setup_record_prerecord"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+
+				<TextView
+                    android:id="@+id/setupRecordPreValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+				
+	            <SeekBar
+	                android:id="@+id/setupRecordPreSeekbar"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_below="@+id/setupRecordPreTitle"
+	                android:layout_marginLeft="15dp"
+	                android:layout_marginRight="15dp"
+	                android:layout_marginTop="5dp"
+	                android:max="30"
+	                android:progress="0" />
+                
+                <TextView
+                    android:id="@+id/setupRecordPreTip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/setupRecordPreSeekbar"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/device_setup_record_prerecord_prompt"
+                    android:textColor="@color/demo_desc"
+                    android:textSize="10dp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc" />
+            
+            <!-- 录制长度 -->
+            <RelativeLayout
+                android:id="@+id/layoutSetupRecordLength"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/setup_sub_layout" >
+  
+                <TextView
+                    android:id="@+id/setupRecordLengthTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_setup_record_length"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+
+				<TextView
+                    android:id="@+id/setupRecordLengthValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+				
+	            <SeekBar
+	                android:id="@+id/setupRecordLengthSeekbar"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_below="@+id/setupRecordLengthTitle"
+	                android:layout_marginLeft="15dp"
+	                android:layout_marginRight="15dp"
+	                android:layout_marginTop="5dp"
+	                android:max="15"
+	                android:progress="0" />
+                
+                <TextView
+                    android:id="@+id/setupRecordLengthTip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/setupRecordLengthSeekbar"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/device_setup_record_length_prompt"
+                    android:textColor="@color/demo_desc"
+                    android:textSize="10dp" />
+            </RelativeLayout>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc" />
+            
+            <!-- 录像方式 -->
+
+            <RelativeLayout
+                android:id="@+id/layoutSetupRecordMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/setup_sub_layout" >
+
+                <TextView
+                    android:id="@+id/titleSetupRecordMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_setup_record_mode"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+                
+                <Spinner
+                    android:id="@+id/setupRecordModeSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/spinner_ab_activated_holo_dark" />
+                
+                <TextView
+                    android:id="@+id/setupRecordModeTip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titleSetupRecordMode"
+                    android:layout_toLeftOf="@id/setupRecordModeSpinner"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/device_setup_record_mode_prompt"
+                    android:textColor="@color/demo_desc"
+                    android:textSize="10dp" />
+            </RelativeLayout>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc" />
+            
+            <!-- 录像音频 -->
+            <RelativeLayout
+                android:id="@+id/layoutSetupRecordAudio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/setup_sub_layout" 
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/titleSetupRecordAudio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_setup_record_audio"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+
+                <ImageButton
+                    android:id="@+id/setupRecordAudioBtn"
+                    android:layout_width="48dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_switch_check" />
+                
+                <TextView
+                    android:id="@+id/setupRecordAudioTip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titleSetupRecordAudio"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/device_setup_record_audio_prompt"
+                    android:textColor="@color/demo_desc"
+                    android:textSize="10dp" />
+            </RelativeLayout>
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc" />
+            
+            <RelativeLayout
+                android:id="@+id/layoutSetupRecordCloud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/setup_sub_layout"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/titleSetupRecordCloud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/device_setup_record_cloud"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+                
+                <Spinner
+                    android:id="@+id/setupRecordCloudSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/spinner_ab_activated_holo_dark" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/layoutRecordCloudUnderLine"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc"
+				android:visibility="gone" />
+            
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

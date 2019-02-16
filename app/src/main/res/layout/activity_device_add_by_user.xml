@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <RelativeLayout 
+        android:id="@+id/layoutDeviceSN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutTop"
+        android:background="@color/white"
+        >
+        <LinearLayout 
+            android:id="@+id/layoutDeviceType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            >
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/demo_title"
+                android:textSize="16dp"
+                android:text="@string/device_type"
+                />
+            <Spinner 
+	            android:id="@+id/spinnerDeviceType"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="10dp"
+	            />
+        </LinearLayout>
+        
+        <View 
+            android:id="@+id/divLine"
+            android:layout_below="@id/layoutDeviceType"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/bg_gray"
+            />
+        
+        <ImageButton
+	        android:id="@+id/btnScanCode"
+	        android:layout_below="@id/divLine"
+	        android:layout_width="28dp"
+	        android:layout_height="28dp"
+	        android:layout_margin="10dp"
+	        android:layout_alignParentRight="true"
+	        android:background="#00000000"
+	        android:gravity="center_vertical"
+	        android:scaleType="fitCenter"
+	        android:src="@drawable/input_sn_core"
+	        />
+        
+        <EditText
+	        android:id="@+id/editDeviceSN"
+	        android:layout_below="@id/divLine"
+	        android:layout_toLeftOf="@id/btnScanCode"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="10dp"
+	        android:background="#00000000"
+	        android:hint="@string/device_login_sn"
+	        android:singleLine="true"
+	        android:textColor="#ff101010"
+	        android:textColorHint="#ffe0e0e0"
+	        android:textSize="16dp" />
+    </RelativeLayout>
+    
+    <Button
+        android:id="@+id/devAddBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutDeviceSN"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/common_button_selector_white"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/device_opt_add"
+        android:textColor="@drawable/common_text_selector"
+        android:textSize="18dp" />
+    
+    <TextView 
+        android:id="@+id/textTip"
+        android:layout_below="@id/devAddBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/demo_title"
+        android:text="@string/device_opt_add_tip"
+        android:padding="5dp"
+        />
+    <ListView 
+        android:id="@+id/listOtherDevices"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textTip"
+        android:background="#fff0f0f0"
+        android:listSelector="@drawable/common_list_selector"
+        />
+
+</RelativeLayout>

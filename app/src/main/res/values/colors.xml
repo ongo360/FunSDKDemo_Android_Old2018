@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#ffffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="demo_title">#ff0d0d0d</color>
+    <color name="demo_desc">#ff636363</color>
+    <color name="xm_dlg_color_1">#fe5353</color>
+    <color name="item_pressed">#80888888</color>
+    <color name="item_selected">#80e97425</color>
+    <color name="timer_red">#fe5353</color>
+    <color name="bg_gray">#ffe5e5e5</color>
+    <color name="black">#000000</color>
+    <color name="passw_changing">#676361</color>
+    <color name="passw_weak">#FF416B</color>
+    <color name="passw_medium">#FFBC50</color>
+    <color name="passw_strong">#24DC55</color>
+    <color name="theme_color">#ffe97425</color>
+    <color name="xm_dlg_color_4">#333333</color>
+    <color name="color_gray_light_open">#a6a6a6</color>
+    <color name="color_gray_open">#636363</color>
+    <color name="color_gray_close">#c8c8c8</color>
+    <color name="title_text_bg_gray">#505050</color>
+    <color name="blue_like">#2f5b93</color>
+    <color name="bg_socket_power">#ff3d8ec3</color>
+    <color name="bg_socket_usb">#ff5c60aa</color>
+    <color name="bg_socket_light">#ff00b2ca</color>
+    <color name="green_like">#7dc762</color>
+    <color name="bg_socket_capture">#ff15a779</color>
+    <color name="red_primary_color">#F44336</color>
+    <color name="black_background">#353738</color>
+    <color name="grey_bottom_menu">#454748</color>
+    <color name="red_text">#a84338</color>
+    <color name="thumbnail_bg_color">#384044</color>
+    <color name="xm_dlg_color_2">#727272</color>
+    <color name="record_normal_color">#6e99c3</color>
+    <color name="record_alarm_color">#e3868f</color>
+    <color name="record_key_color">#00bfa5</color>
+    <color name="record_manual">#f5a22b</color>
+    <!-- 灰色 -->
+    <color name="grey">#808080</color>
+    <color name="text_color">#3b96f1</color>
+    <color name="input_line_color">#5da0e4</color>
+    <color name="little_grey">#cccccc</color>
+    <color name="c_pop_win_bg">#cc000000</color>
+    <color name="title_blue">#59aef5</color>
+
+    <color name="theme">#2c8dfa</color>
+    
+</resources>

@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:layout_marginBottom="@dimen/title_height"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dip"
+        android:background="#fafafa" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/dimen_size_5"
+                android:paddingLeft="@dimen/dimen_size_5"
+                android:paddingRight="@dimen/dimen_size_5"
+                android:paddingTop="@dimen/dimen_size_5" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_size_10"
+                    android:layout_marginTop="@dimen/dimen_size_10"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimen_size_15"
+                        android:text="@string/dev_socket_data_switch"
+                        android:textColor="#323232"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <CheckBox
+                        android:id="@+id/timeset_en"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dimen_size_15"
+                        android:button="@drawable/dev_socket_on_off_sel"
+                        android:checked="true" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:background="#fafafa" />
+
+                <RadioGroup
+                    android:id="@+id/repeat_picke"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/repeat_repet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/checkbox_red_sel"
+                        android:drawablePadding="5dip"
+                        android:text="@string/dev_socket_data_choseweek"
+                        android:textColor="#323232"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <RadioButton
+                        android:id="@+id/repeat_only"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dip"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/checkbox_red_sel"
+                        android:drawablePadding="5dip"
+                        android:text="@string/dev_socket_data_choseone"
+                        android:textColor="#323232"
+                        android:textSize="@dimen/text_size_16" />
+                </RadioGroup>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dip"
+                    android:layout_marginTop="15dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/open_time_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimen_size_15"
+                        android:fontFamily="HelveticaNeue-Light"
+                        android:text="@string/dev_socket_data_opentime"
+                        android:textColor="#323232"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <ImageButton
+                        android:id="@+id/open_time_en"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dimen_size_15"
+                        android:background="@drawable/checkbox_pressed"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/open_time_en"
+                        android:layout_toRightOf="@+id/open_time_title" >
+
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1.0" />
+
+                        <TextView
+                            android:id="@+id/open_time"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="3.0"
+                            android:background="@drawable/socket_task_time_gray_shape"
+                            android:gravity="center"
+                            android:text="@string/dev_socket_data_open"
+                            android:textColor="@color/theme_color"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1.0" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:background="#fafafa" />
+
+                <LinearLayout
+                    android:id="@+id/repeat_week_l"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/week1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:fontFamily="HelveticaNeue-Light"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="@string/dev_socket_data_week"
+                        android:textColor="#323232"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:weightSum="8" >
+
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="0dp"
+                            android:layout_weight="1"
+                            android:fontFamily="HelveticaNeue-Light"
+                            android:gravity="center"
+                            android:text="@string/dev_socket_data_begin"
+                            android:textColor="#323232"
+                            android:textSize="14sp" />
+
+                        <Button
+                            android:id="@+id/day1"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_1"
+                            android:textColor="@drawable/text_clours_selector" />
+
+                        <Button
+                            android:id="@+id/day2"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_2"
+                            android:textColor="@drawable/text_clours_selector" />
+
+                        <Button
+                            android:id="@+id/day3"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_3"
+                            android:textColor="@drawable/text_clours_selector" />
+
+                        <Button
+                            android:id="@+id/day4"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_4"
+                            android:textColor="@drawable/text_clours_selector" />
+
+                        <Button
+                            android:id="@+id/day5"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_5"
+                            android:textColor="@drawable/text_clours_selector" />
+
+                        <Button
+                            android:id="@+id/day6"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_6"
+                            android:textColor="@drawable/text_clours_selector" />
+
+                        <Button
+                            android:id="@+id/day7"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_7"
+                            android:textColor="@drawable/text_clours_selector" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dip"
+                    android:layout_marginBottom="5dip"
+                    android:background="#fafafa" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/close_time_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimen_size_15"
+                        android:fontFamily="HelveticaNeue-Light"
+                        android:gravity="center"
+                        android:text="@string/dev_socket_data_closetime"
+                        android:textColor="#323232"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <ImageButton
+                        android:id="@+id/close_time_en"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dimen_size_15"
+                        android:background="@drawable/checkbox_pressed"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="15dip"
+                        android:layout_marginTop="15dip"
+                        android:layout_toLeftOf="@+id/close_time_en"
+                        android:layout_toRightOf="@+id/close_time_title" >
+
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1.0" />
+
+                        <TextView
+                            android:id="@+id/close_time"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="3.0"
+                            android:background="@drawable/socket_task_time_gray_shape"
+                            android:gravity="center"
+                            android:text="@string/dev_socket_data_close"
+                            android:textColor="@color/theme_color"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1.0" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_size_5"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/repeat_week_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/repeat_week_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/week2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:fontFamily="HelveticaNeue-Light"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="@string/dev_socket_data_week"
+                        android:textColor="#323232"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:weightSum="8" >
+
+                        <TextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="0dp"
+                            android:layout_weight="1"
+                            android:fontFamily="HelveticaNeue-Light"
+                            android:gravity="center"
+                            android:text="@string/dev_socket_data_end"
+                            android:textColor="#323232"
+                            android:textSize="14sp" />
+
+                        <Button
+                            android:id="@+id/day1_s"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_1"
+                            android:textColor="@drawable/text_clours_selector" />
+
+                        <Button
+                            android:id="@+id/day2_s"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_2"
+                            android:textColor="@drawable/text_clours_selector" />
+
+                        <Button
+                            android:id="@+id/day3_s"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_3"
+                            android:textColor="@drawable/text_clours_selector" />
+
+                        <Button
+                            android:id="@+id/day4_s"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_4"
+                            android:textColor="@drawable/text_clours_selector" />
+
+                        <Button
+                            android:id="@+id/day5_s"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_5"
+                            android:textColor="@drawable/text_clours_selector" />
+
+                        <Button
+                            android:id="@+id/day6_s"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_6"
+                            android:textColor="@drawable/text_clours_selector" />
+
+                        <Button
+                            android:id="@+id/day7_s"
+                            android:layout_width="0.4dip"
+                            android:layout_height="32dp"
+                            android:layout_weight="0.97"
+                             android:layout_marginLeft="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/socket_task_date_bg"
+                            android:text="@string/week_num_7"
+                            android:textColor="@drawable/text_clours_selector" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/timerset_ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="@dimen/dimen_size_25"
+                    android:background="@drawable/socket_commit_white_edge_gray_sel"
+                    android:gravity="center"
+                    android:padding="8dip"
+                    android:text="@string/common_confirm"
+                    android:textColor="@color/theme_color"
+                    android:textSize="16dip" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutTop"
+        android:footerDividersEnabled="true"
+        android:listSelector="@drawable/common_list_selector" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/theme_color" />
+           
+            <!-- 状态灯设置 -->
+            <RelativeLayout
+                android:id="@+id/layoutCameraFlip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/setup_sub_layout" >
+
+                <TextView
+                    android:id="@+id/titleCameraFlip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_setup_status_indicator"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+
+                <ImageButton
+                    android:id="@+id/btnSwitchBanLed"
+                    android:layout_width="48dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_switch_check" />
+                
+                <TextView
+                    android:id="@+id/titleCameraFlipTip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titleCameraFlip"
+                    android:layout_toLeftOf="@id/btnSwitchBanLed"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/device_setup_status_indicator_prompt"
+                    android:textColor="@color/demo_desc"
+                    android:textSize="10dp" />
+            </RelativeLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

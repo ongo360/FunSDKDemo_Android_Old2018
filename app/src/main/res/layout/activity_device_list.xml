@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <ExpandableListView
+        android:id="@+id/listViewDevice"
+        android:layout_below="@id/layoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:scrollbars="none"
+        android:listSelector="@drawable/common_list_selector"
+        android:groupIndicator="@null"
+        />
+
+</RelativeLayout>

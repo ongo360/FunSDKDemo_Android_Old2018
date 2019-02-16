@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutTop"
+        android:footerDividersEnabled="true"
+        android:listSelector="@drawable/common_list_selector" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/theme_color" />
+
+            <!-- 图像上/下翻转前面的清晰度设置,如果设备类型是插座,隐藏之 -->
+            <LinearLayout
+                android:id="@+id/layoutOthers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <!-- 清晰度 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutCameraDefinition"
+                    style="@style/setup_sub_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/titleCameraDefinition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/device_setup_camera_definition"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerCameraDefinition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/spinner_ab_activated_holo_dark" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc" />
+
+            <!-- 图像上下翻转 -->
+
+            <RelativeLayout
+                android:id="@+id/layoutCameraFlip"
+                style="@style/setup_sub_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/titleCameraFlip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/device_setup_camera_flip"
+                    android:textColor="@color/demo_title"
+                    android:textSize="16dp" />
+
+                <ImageButton
+                    android:id="@+id/btnSwitchCameraFlip"
+                    android:layout_width="48dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_switch_check" />
+
+                <TextView
+                    android:id="@+id/titleCameraFlipTip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titleCameraFlip"
+                    android:layout_marginTop="2dp"
+                    android:layout_toLeftOf="@id/btnSwitchCameraFlip"
+                    android:text="@string/device_setup_camera_flip_prompt"
+                    android:textColor="@color/demo_desc"
+                    android:textSize="10dp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/demo_desc" />
+
+            <!-- 图像上/下翻转后面的其他设置项,如果设备类型是插座,隐藏之 -->
+            <LinearLayout
+                android:id="@+id/layoutOther"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <!-- 图像左右翻转 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutCameraMirror"
+                    style="@style/setup_sub_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/titleCameraMirror"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_setup_camera_mirror"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchCameraMirror"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+
+                    <TextView
+                        android:id="@+id/titleCameraMirrorTip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleCameraMirror"
+                        android:layout_marginTop="2dp"
+                        android:layout_toLeftOf="@id/btnSwitchCameraMirror"
+                        android:text="@string/device_setup_camera_mirror_prompt"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 自定义水印开关 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutCameraOSD"
+                    style="@style/setup_sub_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/titleCameraOSD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_setup_camera_osd_switch"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchCameraOSD"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+
+                    <TextView
+                        android:id="@+id/titleCameraOSDTip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleCameraOSD"
+                        android:layout_marginTop="2dp"
+                        android:layout_toLeftOf="@id/btnSwitchCameraOSD"
+                        android:text="@string/device_setup_camera_osd_switch_prompt"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+                
+                <!-- 自定义时间水印开关 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutCameraTimeOSD"
+                    style="@style/setup_sub_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/timetitleCameraOSD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_setup_camera_osd_timeswitch"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp" />
+
+                    <ImageButton
+                        android:id="@+id/btntimeSwitchCameraOSD"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+
+                    <TextView
+                        android:id="@+id/timetitleCameraOSDTip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/timetitleCameraOSD"
+                        android:layout_marginTop="2dp"
+                        android:layout_toLeftOf="@id/btntimeSwitchCameraOSD"
+                        android:text="@string/device_setup_camera_osd_timeswitch_prompt"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 自定义文字水印 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutCameraOSDContent"
+                    style="@style/setup_sub_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/titleCameraOSDContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_setup_camera_osd"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp" />
+
+                    <EditText
+                        android:id="@+id/editCameraOSDContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40dp"
+                        android:layout_toRightOf="@id/titleCameraOSDContent"
+                        android:background="@drawable/common_editor_bg"
+                        android:gravity="right|center_vertical"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/demo_title"
+                        android:textSize="14dp" />
+                    <TextView
+				        android:id="@+id/osd_tv"
+				        android:layout_width="wrap_content"
+				        android:layout_height="24px"
+				        android:background="#FFFFFF"
+				        android:enabled="false"
+				        android:focusable="false"
+				        android:gravity="top|start"
+				        android:padding="0dp"
+				        android:text=""
+				        android:textColor="#000000"
+				        android:textSize="18px"
+				        android:visibility="invisible" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/theme_color" />
+
+                <!-- 背光补偿 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutCameraBLCMode"
+                    style="@style/setup_sub_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/titleCameraBLCMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_setup_camera_blcmode"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchCameraBLCMode"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+
+                    <TextView
+                        android:id="@+id/titleCameraBLCModeTip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleCameraBLCMode"
+                        android:layout_marginTop="2dp"
+                        android:layout_toLeftOf="@id/btnSwitchCameraBLCMode"
+                        android:text="@string/device_setup_camera_blcmode_prompt"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 宽动态 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutCameraWideDynamic"
+                    style="@style/setup_sub_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/titleCameraWideDynamic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_setup_camera_wide_dynamic"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchCameraWideDynamic"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+
+                    <TextView
+                        android:id="@+id/titleCameraWideDynamicTip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleCameraWideDynamic"
+                        android:layout_marginTop="2dp"
+                        android:layout_toLeftOf="@id/btnSwitchCameraWideDynamic"
+                        android:text="@string/device_setup_camera_wide_dynamic_prompt"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 降噪 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutCameraNoiseReduction"
+                    style="@style/setup_sub_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/titleCameraNoiseReduction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_setup_camera_noise_reduction"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerCameraNoiseReduction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/spinner_ab_activated_holo_dark" />
+
+                    <TextView
+                        android:id="@+id/titleCameraNoiseReductionTip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleCameraNoiseReduction"
+                        android:layout_marginTop="2dp"
+                        android:layout_toLeftOf="@id/spinnerCameraNoiseReduction"
+                        android:text="@string/device_setup_camera_noise_reduction_prompt"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 电子防抖 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutCameraAntiShake"
+                    style="@style/setup_sub_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/titleCameraAntiShake"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_setup_camera_anti_shake"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnSwitchCameraAntiShake"
+                        android:layout_width="48dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_switch_check" />
+
+                    <TextView
+                        android:id="@+id/titleCameraAntiShakeTip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/titleCameraAntiShake"
+                        android:layout_marginTop="2dp"
+                        android:layout_toLeftOf="@id/btnSwitchCameraAntiShake"
+                        android:text="@string/device_setup_camera_anti_shake_prompt"
+                        android:textColor="@color/demo_desc"
+                        android:textSize="10dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+
+                <!-- 测光模式 -->
+
+                <RelativeLayout
+                    android:id="@+id/layoutCameraMetering"
+                    style="@style/setup_sub_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/titleCameraMetering"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_setup_camera_metering"
+                        android:textColor="@color/demo_title"
+                        android:textSize="16dp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerCameraMetering"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/spinner_ab_activated_holo_dark" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/demo_desc" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
