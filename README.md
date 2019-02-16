@@ -1,6 +1,6 @@
 # 【低功耗设备状态获取及唤醒操作】
 
-<img src="https://gitlab.xmcloud.io/demo/FunSDKDemo_Android_Old2018/blob/master/wakeup.png" width="200" height="200">
+![Demo效果图](https://gitlab.xmcloud.io/demo/FunSDKDemo_Android_Old2018/blob/master/wakeup.png)
 
 > ## 【FunSupport封装FunSDK后调用说明】
 >> **状态获取**：``` FunSupport.getInstance().requestDeviceStatus ``` <br>
