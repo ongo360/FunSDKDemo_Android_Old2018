@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.basic.G;
 import com.example.funsdkdemo.MyApplication;
+import com.example.funsdkdemo.utils.XUtils;
 import com.lib.ECONFIG;
 import com.lib.EDEV_ATTR;
 import com.lib.EDEV_JSON_ID;
@@ -46,7 +47,13 @@ import com.lib.funsdk.support.utils.DeviceWifiManager;
 import com.lib.funsdk.support.utils.MyUtils;
 import com.lib.funsdk.support.utils.SharedParamMng;
 import com.lib.funsdk.support.utils.StringUtils;
+import com.lib.sdk.bean.DSTimeBean;
+import com.lib.sdk.bean.DayLightTimeBean;
 import com.lib.sdk.bean.DownloadInfo;
+import com.lib.sdk.bean.HandleConfigData;
+import com.lib.sdk.bean.JsonConfig;
+import com.lib.sdk.bean.LocationBean;
+import com.lib.sdk.bean.TimeZoneBean;
 import com.lib.sdk.struct.H264_DVR_FILE_DATA;
 import com.lib.sdk.struct.H264_DVR_FINDINFO;
 import com.lib.sdk.struct.ManualSnapModeJP;
@@ -64,6 +71,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import static com.lib.EUIMSG.DEV_SLEEP;
 
@@ -2299,6 +2307,21 @@ public class FunSupport implements IFunSDKResult {
         }
     }
 
+    //同步时区
+    public void requestSyncDevZone(FunDevice funDevice,int zone) {
+        TimeZoneBean timeZoneBean = new TimeZoneBean();
+        timeZoneBean.timeMin = zone;
+        timeZoneBean.FirstUserTimeZone = 0;
+        FunSDK.DevSetConfigByJson(getHandler(), funDevice.getDevSn(),
+                JsonConfig.SYSTEM_TIMEZONE,
+                HandleConfigData.getSendData(JsonConfig.SYSTEM_TIMEZONE,
+                        "0x1", timeZoneBean),
+                -1, 5000, funDevice.getId());
+        FunSDK.DevGetConfigByJson(getHandler(),funDevice.getDevSn(),
+                JsonConfig.GENERAL_LOCATION,
+                1024,-1,5000,funDevice.getId());
+    }
+
     @Override
     public int OnFunSDKResult(Message msg, MsgContent msgContent) {
         FunLog.d(TAG, "msg.what : " + msg.what);
@@ -2803,7 +2826,7 @@ public class FunSupport implements IFunSDKResult {
             }
             break;
 
-            case EUIMSG.DEV_GET_JSON:    // 设备配置信息
+            case EUIMSG.DEV_GET_JSON: // 设备配置信息
             case EUIMSG.DEV_CMD_EN: {
 
                 FunLog.i(TAG, "EUIMSG.DEV_GET_JSON");
@@ -2828,7 +2851,6 @@ public class FunSupport implements IFunSDKResult {
                         break;
                     }
                     requestDeviceConfigDone(funDevice, msgContent.str);
-
                     if (msg.arg1 < 0) {
                         for (OnFunListener l : mListeners) {
                             if (l instanceof OnFunDeviceOptListener) {
@@ -2841,8 +2863,47 @@ public class FunSupport implements IFunSDKResult {
                         String json = G.ToString(msgContent.pData);
                         FunLog.i(TAG, "EUIMSG.DEV_GET_JSON --> json: " + json);
                         FunLog.i(TAG, "configName = " + msgContent.str);
-                        if (DeviceGetJson.onParse(funDevice, msgContent.str, json)) {
 
+                        if (StringUtils.contrast(msgContent.str, JsonConfig.GENERAL_LOCATION)) {
+                            //如果是同步时区的话 需要设置夏令时的
+                            HandleConfigData data = new HandleConfigData();
+                            if (data.getDataObj(G.ToString(msgContent.pData), LocationBean.class)) {
+                                LocationBean locationBean = (LocationBean) data.getObj();
+                                if (locationBean != null) {
+                                    DayLightTimeBean dayLightTimeBean = XUtils.getDayLightTimeInfo(TimeZone.getDefault());
+                                    if (dayLightTimeBean != null) {
+                                        if (dayLightTimeBean.useDLT) {
+                                            locationBean.setdSTRule("On");
+                                            DSTimeBean dstStart = new DSTimeBean();
+                                            dstStart.setYear(dayLightTimeBean.year);
+                                            dstStart.setMonth(dayLightTimeBean.beginMonth);
+                                            dstStart.setDay(dayLightTimeBean.beginDay);
+                                            DSTimeBean dstEnd = new DSTimeBean();
+                                            dstEnd.setYear(dayLightTimeBean.beginMonth > dayLightTimeBean.endMonth
+                                                    ? dayLightTimeBean.year + 1 : dayLightTimeBean.year);
+                                            dstEnd.setMonth(dayLightTimeBean.endMonth);
+                                            dstEnd.setDay(dayLightTimeBean.endDay);
+                                            locationBean.setdSTStart(dstStart);
+                                            locationBean.setdSTEnd(dstEnd);
+                                        } else {
+                                            locationBean.setdSTRule("Off");
+                                        }
+                                    }
+                                    FunSDK.DevSetConfigByJson(getHandler(), funDevice.getDevSn(),
+                                            JsonConfig.GENERAL_LOCATION,
+                                            HandleConfigData.getSendData(JsonConfig.GENERAL_LOCATION,
+                                                    "0x02", locationBean),
+                                            -1, 5000, funDevice.getId());
+                                }
+                            }
+
+                            for (OnFunListener l : mListeners) {
+                                if (l instanceof OnFunDeviceOptListener) {
+                                    ((OnFunDeviceOptListener) l)
+                                            .onDeviceGetConfigSuccess(funDevice, msgContent.str, msgContent.seq);
+                                }
+                            }
+                        }else if (DeviceGetJson.onParse(funDevice, msgContent.str, json)) {
                             // 此处特殊处理,如果是SystemInfo,msg.arg2是连接方式
                             if (SystemInfo.CONFIG_NAME.equals(msgContent.str)) {
                                 funDevice.setNetConnectType(msg.arg2);

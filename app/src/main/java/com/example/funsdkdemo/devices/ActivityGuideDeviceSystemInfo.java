@@ -1,7 +1,6 @@
 package com.example.funsdkdemo.devices;
 
 
-
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
@@ -363,22 +362,12 @@ public class ActivityGuideDeviceSystemInfo extends ActivityDemo
 			
 			@Override
             public void onClick(DialogInterface dialog, int which) {
-//				if(FunSupport.getInstance().getLoginType()== FunLoginType.LOGIN_BY_AP||
-//						FunSupport.getInstance().getLoginType()== FunLoginType.LOGIN_BY_LOCAL){					
-//					onTimeSyn();	
-					Calendar cal = Calendar.getInstance(Locale.getDefault());
-					String sysTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",
-					Locale.getDefault()).format(cal.getTime());
-					OPTimeSetting devtimeInfo = (OPTimeSetting)mFunDevice.checkConfig(OPTimeSetting.CONFIG_NAME);
-						devtimeInfo.setmSysTime(sysTime);
-						
-					showWaitDialog();
-					
-					FunSupport.getInstance().requestDeviceSetConfig(mFunDevice, devtimeInfo);
-//				}
-//				else{
-//					Toast.makeText(ActivityGuideDeviceSystemInfo.this, R.string.device_time_in_AP_or_local_mode, Toast.LENGTH_SHORT).show();
-//				}
+				showWaitDialog();
+				Calendar cal = Calendar.getInstance(Locale.getDefault());
+				String sysTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",
+				Locale.getDefault()).format(cal.getTime());
+				syncDevTime(sysTime);
+				syncDevZone(cal);
 			}
 		});
 		
@@ -390,6 +379,26 @@ public class ActivityGuideDeviceSystemInfo extends ActivityDemo
 		});
 		AlertDialog ad = builder.create();
 		ad.show();
+	}
+
+	//同步设备时间（这个时间同步 设备端如果开启了NTP服务器同步的话，
+	// 这个设置是不起作通的，因为设备会到服务器那边同步时间，
+	// 所以这个时候只需要同步时区就可以了）
+	private void syncDevTime(String sysTime) {
+		OPTimeSetting devtimeInfo = (OPTimeSetting)mFunDevice.checkConfig(OPTimeSetting.CONFIG_NAME);
+		devtimeInfo.setmSysTime(sysTime);
+
+		FunSupport.getInstance().requestDeviceSetConfig(mFunDevice, devtimeInfo);
+	}
+
+	//同步设备时区
+	private void syncDevZone(Calendar calendar) {
+		if (calendar == null) {
+			return;
+		}
+		float zoneOffset = (float) calendar.get(java.util.Calendar.ZONE_OFFSET);
+		float zone = (float) (zoneOffset / 60.0 / 60.0 / 1000.0);// 时区，东时区数字为正，西时区为负
+		FunSupport.getInstance().requestSyncDevZone(mFunDevice, (int) (-zone * 60));
 	}
 
     private void DeviceDefaltConfig(){
