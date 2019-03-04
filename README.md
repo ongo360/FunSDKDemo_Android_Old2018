@@ -51,4 +51,68 @@
     //如果设备有多个客户端同时连接的情况下，调用下方的接口不能保证设备会进入休眠状态
     FunSDK.DevLogout 
     ``` <br>
+    
+
+# 【时区同步及夏令时设置】
+
+
+> ## 【FunSupport封装FunSDK后调用说明】
+>> **状态获取**：``` FunSupport.getInstance().requestSyncDevZone ``` <br>
+
+> ## 或
+
+> ## 【FunSDK调用说明】
+>> **设置时区**：``` FunSDK.DevSetConfigByJson ``` <br>
+**JsonName**: ``` "System.TimeZone"``` <br>
+**Json数据**: ```
+    {
+       	"System.TimeZone":	{
+       		"FirstUserTimeZone":	0,
+       		"timeMin":	-480
+       	},
+       	"Name":	"System.TimeZone",
+       	"SessionID":	"0x0000000066"
+   }
+    ``` <br>
+>> **获取夏令时**:```FunSDK.DevGetConfigByJson ```<br>
+**JsonName**:``` "General.Location" ``` <br>
+**Json数据**``` 
+    {
+   	"Name":	"General.Location",
+   	"SessionID":	"0x000000006e"
+   }
+    ``` <br>
+>> **设置夏令时**:``` FunSDK.DevSetConfigByJson ``` <br>
+**JsonName**:``` "General.Location" ``` <br>
+**Json数据**: ```
+    {
+     "General.Location":	{
+     	"DSTEnd":	{
+     		"Day":	4,
+     		"Hour":	0,
+     		"Minute":	0,
+     		"Month":	11,
+     		"Week":	0,
+     		"Year":	2019
+     	},
+     	"DSTRule":	"Off",
+     	"DSTStart":	{
+     		"Day":	11,
+     		"Hour":	0,
+     		"Minute":	0,
+     		"Month":	3,
+     		"Week":	0,
+     		"Year":	2019
+     	},
+     	"DateFormat":	"YYMMDD",
+     	"DateSeparator":	"-",
+     	"Language":	"SimpChinese",
+     	"TimeFormat":	"24",
+     	"VideoFormat":	"PAL",
+     	"WorkDay":	62
+     },
+     "Name":	"General.Location",
+     "SessionID":	"0x000000006e"
+    }
+    ``` <br>
 
