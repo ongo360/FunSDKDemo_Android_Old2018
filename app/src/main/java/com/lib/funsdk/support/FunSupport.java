@@ -1326,6 +1326,7 @@ public class FunSupport implements IFunSDKResult {
             mTmpSNLoginDeviceList.add(funDevice);
         }
         System.out.println("TTTTT----->>>password = " + loginPsd);
+        FunSDK.DevSetLocalPwd(funDevice.getDevSn(),loginName,loginPsd);
         int result = FunSDK.DevLogin(getHandler(),
                 funDevice.getDevSn(),
                 loginName, loginPsd,
