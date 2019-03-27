@@ -173,7 +173,7 @@
     <string name="device_opt_com_data_send">发送</string>
     <string name="device_opt_com_data_empty">命令为空</string>
     <string name="device_system_info">关于设备</string>
-    <string name="device_smart_433">433 智能设备</string>
+    <string name="device_smart_device">智联控制</string>
      <string name="device_system_info_deviceupdate">硬件升级检测</string>
     <string name="device_system_info_sn">序列号</string>
     <string name="device_system_info_model">设备型号</string>

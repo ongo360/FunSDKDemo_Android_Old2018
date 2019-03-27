@@ -173,7 +173,7 @@
     <string name="device_opt_com_data_send">Send</string>
     <string name="device_opt_com_data_empty">Command empty</string>
     <string name="device_system_info">About Device</string>
-    <string name="device_smart_433">433 Device</string>
+    <string name="device_smart_device">Sensor Config</string>
     <string name="device_system_info_deviceupdate">Device Update</string>
     <string name="device_system_info_sn">Serial number</string>
     <string name="device_system_info_model">Equipment model</string>

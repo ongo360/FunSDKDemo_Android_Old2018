@@ -115,12 +115,7 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
                         HandleConfigData handleConfigData = new HandleConfigData();
                         if(handleConfigData.getDataObj(G.ToString(msgContent.pData), GetAllDevListBean.class)) {
                             getAllDevListBeans = (List<GetAllDevListBean>) handleConfigData.getObj();
-                            if (getAllDevListBeans != null) {
-                                for (int i = 0; i < getAllDevListBeans.size(); ++i) {
-                                    getInquiryStatus(getAllDevListBeans.get(i).DevID,i);
-                                }
-                                adapter.notifyDataSetChanged();
-                            }
+                            adapter.notifyDataSetChanged();
                         }
                     }
                 }else if (JsonConfig.OPERATION_CMD_INQUIRY_STATUS.equals(msgContent.str)) {
@@ -152,7 +147,7 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
                     if (message.arg1 >= 0) {
                         GetAllDevListBean bean = getAllDevListBeans.get(msgContent.seq);
                         if (bean != null) {
-                            bean.setFunctionStatus(operationStatus);
+                            bean.setAlarmStatus(operationStatus);
                         }
                         adapter.notifyDataSetChanged();
                         showToast(getString(R.string.change_status_s));
@@ -181,10 +176,10 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
                 OPConsumerProCmdBean.getCmdJson(JsonConfig.OPERATION_CMD_GET,"","").getBytes(), -1, 0);
     }
 
-    private void getInquiryStatus(String devId,int position) {
-        FunSDK.DevCmdGeneral(userId, funDevice.getDevSn(), OPConsumerProCmdBean.JSON_ID, JsonConfig.OPERATION_CMD_INQUIRY_STATUS, -1, 60000,
-                OPConsumerProCmdBean.getCmdJson(JsonConfig.OPERATION_CMD_INQUIRY_STATUS, devId,"").getBytes(), -1, position);
-    }
+//    private void getInquiryStatus(String devId,int position) {
+//        FunSDK.DevCmdGeneral(userId, funDevice.getDevSn(), OPConsumerProCmdBean.JSON_ID, JsonConfig.OPERATION_CMD_INQUIRY_STATUS, -1, 60000,
+//                OPConsumerProCmdBean.getCmdJson(JsonConfig.OPERATION_CMD_INQUIRY_STATUS, devId,"").getBytes(), -1, position);
+//    }
 
     private void deleteDev(String devId,int position) {
         FunSDK.DevCmdGeneral(userId, funDevice.getDevSn(), OPConsumerProCmdBean.JSON_ID, JsonConfig.OPERATION_CMD_DEL, -1, 60000,
@@ -252,18 +247,18 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
             final GetAllDevListBean data = getAllDevListBeans.get(position);
             if (data != null) {
                 String text = data.DevName + ":";
-                if (data.getFunctionStatus() == SDKCONST.Switch.Close) {
+                if (data.getAlarmStatus() == SDKCONST.Switch.Close) {
                     text += FunSDK.TS("Close");
-                }else if (data.getFunctionStatus() == SDKCONST.Switch.Open) {
+                }else if (data.getAlarmStatus() == SDKCONST.Switch.Open) {
                     text += FunSDK.TS("Open");
-                }else if (data.getFunctionStatus() == SDKCONST.Switch.Pause) {
+                }else if (data.getAlarmStatus() == SDKCONST.Switch.Pause) {
                     text += FunSDK.TS("Pause");
                 }
                 viewHolder.textView.setText(text);
                 viewHolder.btnChangeStatus.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        changeStatus(data.DevID,position,data.getFunctionStatus() == SDKCONST.Switch.Open
+                        changeStatus(data.DevID,position,data.getAlarmStatus() == SDKCONST.Switch.Open
                                 ? SDKCONST.Switch.Close : SDKCONST.Switch.Open);
                     }
                 });
