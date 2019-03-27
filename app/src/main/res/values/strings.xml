@@ -173,6 +173,7 @@
     <string name="device_opt_com_data_send">Send</string>
     <string name="device_opt_com_data_empty">Command empty</string>
     <string name="device_system_info">About Device</string>
+    <string name="device_smart_433">433 Device</string>
     <string name="device_system_info_deviceupdate">Device Update</string>
     <string name="device_system_info_sn">Serial number</string>
     <string name="device_system_info_model">Equipment model</string>
@@ -637,4 +638,17 @@
     <string name="dev_sleep_success">Device sleep success</string>
     <string name="dev_sleep_failed">Device sleep failed</string>
     <string name="dev_auto_sleep_after">The device does not log in and will automatically sleep.</string>
+    <string name="add_device">Add Device</string>
+    <string name="delete_s">Delete Success</string>
+    <string name="delete_f">Delete Failed</string>
+    <string name="change_status_s">Change status success</string>
+    <string name="change_status_f">Change status failed</string>
+    <string name="change_status">Change status</string>
+    <string name="delete">Delete</string>
+    <string name="input_device_name">Please enter the device name</string>
+    <string name="change_dev_name_s">Change device name success</string>
+    <string name="change_dev_name_f">Change device name failed</string>
+    <string name="add_device_s">Add device success</string>
+    <string name="add_device_f">Add device failed</string>
+    <string name="change_dev_name">Change device name</string>
 </resources>

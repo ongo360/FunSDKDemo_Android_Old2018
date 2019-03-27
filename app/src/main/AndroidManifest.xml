@@ -393,6 +393,7 @@
         </activity>
         <activity android:name=".devices.wakeup.DevWakeUpActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".devices.ActivityGuideDeviceSmart433" />
 
 
         <service android:name="com.example.funsdkdemo.ServiceGuidePushAlarmNotification">

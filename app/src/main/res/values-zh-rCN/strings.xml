@@ -173,6 +173,7 @@
     <string name="device_opt_com_data_send">发送</string>
     <string name="device_opt_com_data_empty">命令为空</string>
     <string name="device_system_info">关于设备</string>
+    <string name="device_smart_433">433 智能设备</string>
      <string name="device_system_info_deviceupdate">硬件升级检测</string>
     <string name="device_system_info_sn">序列号</string>
     <string name="device_system_info_model">设备型号</string>
@@ -644,4 +645,15 @@
     <string name="dev_sleep_success">设备休眠成功</string>
     <string name="dev_sleep_failed">设备休眠失败</string>
     <string name="dev_auto_sleep_after">设备在没有登录的情况下，会自动休眠</string>
+    <string name="add_device">添加设备</string>
+    <string name="delete_s">删除成功</string>
+    <string name="delete_f">删除失败</string>
+    <string name="change_status_s">状态改变成功</string>
+    <string name="change_status_f">状态改变失败</string>
+    <string name="change_status">改变状态</string>
+    <string name="delete">删除</string>
+    <string name="input_device_name">请输入设备名</string>
+    <string name="change_dev_name_s">修改设备名成功</string>
+    <string name="change_dev_name_f">修改设备名失败</string>
+    <string name="change_dev_name">修改设备名</string>
 </resources>

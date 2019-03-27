@@ -68,7 +68,6 @@ public class JsonConfig {
 	public static final String OPERATION_NEW_START_UPGRADE = "OPStartUpgradeReq";// ÐÂ°æ±¾ÔÆÉý¼¶ÏÂÔØÇëÇó
 	public static final String OPERATION_FTPTEST = "OPFTPTest";
 	public static final String OPERATION_SET_LOGO = "OPLogoSetting";
-	public static final String OPERATION_CONSUMER_PRO_CMD = "OPConsumerProCmd";
 	public static final String OPERATION_DDNSAPPLY = "OPDDNSAPPLY"; // ddns
 																	// apply°´¼ü¹¦ÄÜ
 
@@ -90,5 +89,24 @@ public class JsonConfig {
 	public static final String CFG_KEY_SEF_DEFINE = "System.KeySefDefine";
 	public static final String AddSubDevice = "RFDevice.Add";
 	public static final String ControlSubDevice = "RFDevice.Set";
+
+	//以下为智联中心相关命令
+	public static final String OPERATION_CONSUMER_PRO_CMD = "OPConsumerProCmd";
+	public static final String OPERATION_CMD_GET = "GetAllDevList";
+	public static final String OPERATION_CMD_ADD = "StartAddDev";
+	public static final String OPERATION_CMD_STOP = "StopAddDev";
+	public static final String OPERATION_CMD_DEL = "DeleteDev";
+	public static final String OPERATION_CMD_RENAME = "ChangeDevName";
+	public static final String OPERATION_CMD_STATUS = "ChangeDevStatus";
+	public static final String OPERATION_CMD_CUR_MODE = "GetModeConfig"; //获取当前模式下传感器
+	public static final String OPERATION_CMD_MODE_LIST = "GetAllModeList";//获取所模式列表
+	public static final String OPERATION_CMD_MODE_RENAME = "ChangeModeName";
+	public static final String OPERATION_CMD_CHANGE_MODE = "ChangeMode";
+	public static final String OPERATION_CMD_GET_LINK_STATE = "GetLinkState";  //获取在线设备
+	public static final String OPERATION_CMD_INQUIRY_STATUS = "InquiryStatus"; //获取信息
+	public static final String OPERATION_CMD_CONSOR_ALARM = "SetConsSensorAlarm";//设置智联设备报警联动
+	public static final String OPERATION_CMD_GET_CONSOR_ALARM = "Consumer.SensorAlarm";//获取智联报警联动
+	public static final String OPERATION_CMD_SET_SWITCH_STATE = "ChangeSwitchState";//改变墙壁开关状态
+	public static final String OPERATION_CMD_SET_CURTAIN_STATE = "ChangeCurtainState";//改变窗帘状态
 
 }

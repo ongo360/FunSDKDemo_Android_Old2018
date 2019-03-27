@@ -604,4 +604,65 @@ public class DeviceWifiManager {
 		int CLASSIFY_XMJP = 0;
 		int CLASSIFY_OEM = 1;
 	}
+
+	/**
+	 * 感应器类型
+	 *
+	 * @author XMuser
+	 */
+	public interface SENSOR_TYPE {
+		/**
+		 * 433设备的移动侦测
+		 */
+		int DEV_433_DETECT = 0;
+		/**
+		 * 智联插座
+		 */
+		int SOCKET_TYPE = 0x64;
+		/**
+		 * 红外遥控
+
+		 */
+		int REMOTE_TYPE = 0x65;
+		/**
+		 * 墙壁开关
+		 */
+		int WALLSWITCH_TYPE = 0x66;
+		/**
+		 * //窗帘控制器
+		 */
+		int CURTAINS_TYPE = 0x67;
+		/**
+		 * //灯带控制器
+		 */
+		int LIGHT_TYPE = 0x68;
+		/**
+		 * 智联按钮
+		 */
+		int BUTTON_TYPE = 0x69;
+		/**
+		 * 门磁传感器
+		 */
+		int LINKCENTER_MAGNETOMETER = 0x6e;
+		/**
+		 * 人体红外传感器
+		 */
+		int LINKCENTER_BODY_INFRARED = 0x6f;
+		/**
+		 * 水浸传感器
+		 */
+		int LINKCENTER_WATER_IMMERSION = 0x70;
+		/**
+		 * 环境传感器
+		 */
+		int LINKCENTER_ENVIRONMENT = 0x71;
+		/**
+		 * 燃气传感器
+		 */
+		int LINKCENTER_FUEL_GAS = 0x72;
+		/**
+		 * 烟雾传感器
+		 */
+		int LINKCENTER_SMOKE = 0x73;
+	}
 }

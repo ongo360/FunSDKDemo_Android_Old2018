@@ -366,8 +366,8 @@ public class ActivityGuideDeviceSystemInfo extends ActivityDemo
 				Calendar cal = Calendar.getInstance(Locale.getDefault());
 				String sysTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",
 				Locale.getDefault()).format(cal.getTime());
-				syncDevTime(sysTime);
 				syncDevZone(cal);
+				syncDevTime(sysTime);
 			}
 		});
 		
