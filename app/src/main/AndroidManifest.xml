@@ -154,7 +154,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceCamera"
+            android:name="com.example.funsdkdemo.devices.monitor.ActivityGuideDeviceCamera"
             android:configChanges="orientation|keyboardHidden|screenLayout|keyboard|screenSize"
             >
             <intent-filter>
@@ -202,7 +202,7 @@
             </intent-filter>
         </activity>
         <activity 
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSetupEncode"
+            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupEncode"
             android:screenOrientation="portrait"
             >
             <intent-filter >
@@ -210,7 +210,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSetupAlarm"
+            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupAlarm"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -218,7 +218,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSetupRecord"
+            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupRecord"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -226,7 +226,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSetupCamera"
+            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupCamera"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             >
@@ -235,7 +235,7 @@
             </intent-filter>
         </activity>
          <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSetupExpert"
+            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupExpert"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -243,7 +243,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSetupStorage"
+            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupStorage"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -251,7 +251,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceChangePassw"
+            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceChangePassw"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustUnspecified|stateHidden"
             >
@@ -278,7 +278,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSetup"
+            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetup"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -286,7 +286,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDevicePreview"
+            android:name="com.example.funsdkdemo.devices.monitor.ActivityGuideDevicePreview"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -294,7 +294,7 @@
             </intent-filter>
         </activity>
          <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSetupAlarmCenter"
+            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupAlarmCenter"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -302,7 +302,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSystemInfo"
+            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSystemInfo"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -320,14 +320,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceDevFrontCtr"
+        <activity android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceDevFrontCtr"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSystemFunction"
+            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSystemFunction"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -360,7 +360,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideMediaRealPlay">
+            android:name="com.example.funsdkdemo.devices.monitor.ActivityGuideMediaRealPlay">
             </activity>
 
         <activity android:name=".ActivityGuideUserForgetPassw"/>
@@ -378,8 +378,8 @@
         </activity>
         <activity android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSocketSetting"></activity>
 	<activity android:name="com.example.funsdkdemo.devices.ActivityGuideDevicesSocketAboutWork"></activity>
-        <activity android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSPVMNCfgJson"></activity>
-        <activity android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSetupJson"></activity>
+        <activity android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSPVMNCfgJson"></activity>
+        <activity android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupJson"></activity>
 	<activity android:name="com.example.funsdkdemo.devices.ActivityGuideDevicesSettingStatusLed"></activity>
         <activity android:name="com.example.funsdkdemo.devices.ActivityGuideDevicesSocketSensitiveSetting"></activity>
         
@@ -387,16 +387,16 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceSetupCameraFishEye"
+        <activity android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupCameraFishEye"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
         <activity android:name=".devices.wakeup.DevWakeUpActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".devices.ActivityGuideDeviceSmart433" />
+        <activity android:name=".devices.settings.ActivityGuideDeviceSmart433" />
 
 
-        <service android:name="com.example.funsdkdemo.ServiceGuidePushAlarmNotification">
+        <service android:name="com.example.funsdkdemo.alarm.ServiceGuidePushAlarmNotification">
             <intent-filter>
                 <action android:name="com.example.funsdkdemo.ServiceGuidePushAlarmNotification" >
                 </action>
@@ -404,7 +404,7 @@
             </intent-filter>
         </service>
         
-        <service android:name="com.example.funsdkdemo.ServiceGuideLanAlarmNotification">
+        <service android:name="com.example.funsdkdemo.alarm.ServiceGuideLanAlarmNotification">
             <intent-filter>
                 <action android:name="com.example.funsdkdemo.ServiceGuideLanAlarmNotification" >
                 </action>

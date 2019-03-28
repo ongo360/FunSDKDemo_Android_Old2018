@@ -1,4 +1,4 @@
-package com.example.funsdkdemo;
+package com.example.funsdkdemo.alarm;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.widget.Toast;
 
+import com.example.funsdkdemo.R;
 import com.example.funsdkdemo.devices.ActivityGuideDeviceAlarmResult;
 import com.lib.funsdk.support.FunAlarmNotification;
 import com.lib.funsdk.support.FunLog;
@@ -178,16 +180,18 @@ public class ServiceGuidePushAlarmNotification extends Service implements OnFunL
 		}
 	}
 	
-	private void notifyDeviceAlarm(FunDevice funDev) {
+	private void notifyDeviceAlarm(FunDevice funDev,AlarmInfo alarmInfo) {
 		//mNotifyManager.cancel(funDev.getId());
-		if ( null == funDev ) {
+		if ( null == funDev) {
 			return;
 		}
 		
 		FunLog.i(TAG, "notifyDeviceAlarm : " + funDev.getDevSn() + ", " + funDev.getId());
-		
 		String title = getResources().getString(R.string.device_alarm_notification);
-		
+		if (alarmInfo != null) {
+			title = alarmInfo.getEvent();
+		}
+		Toast.makeText(this,title,Toast.LENGTH_LONG).show();
 		Intent newIntent = new Intent(this, ActivityGuideDeviceAlarmResult.class);
 		newIntent.putExtra("FUN_DEVICE_ID", funDev.getId());
 		newIntent.putExtra("FUN_DEVICE_SN", funDev.getDevSn());
@@ -243,9 +247,9 @@ public class ServiceGuidePushAlarmNotification extends Service implements OnFunL
 	}
 	
 	@Override
-	public void onDeviceAlarmReceived(FunDevice funDevice) {
+	public void onDeviceAlarmReceived(FunDevice funDevice,AlarmInfo alarmInfo) {
 		// 收到设备报警
-		notifyDeviceAlarm(funDevice);
+		notifyDeviceAlarm(funDevice,alarmInfo);
 	}
 
 	@Override

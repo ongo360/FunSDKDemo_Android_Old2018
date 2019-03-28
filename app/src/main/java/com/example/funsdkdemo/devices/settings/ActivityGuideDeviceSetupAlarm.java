@@ -1,4 +1,4 @@
-package com.example.funsdkdemo.devices;
+package com.example.funsdkdemo.devices.settings;
 
 
 import android.os.Bundle;
@@ -303,7 +303,7 @@ public class ActivityGuideDeviceSetupAlarm extends ActivityDemo implements OnCli
 			
 			// 报警输出
 			AlarmOut alarmOut = (AlarmOut) mFunDevice.getConfig(AlarmOut.CONFIG_NAME);
-			if (alarmOut != null) {
+			if (alarmOut != null && mFunDevice.CurrChannel < alarmOut.Alarms.size()) {
 				AlarmOutInfo alarmOutInfo = alarmOut.Alarms.get(mFunDevice.CurrChannel);
 				boolean b = alarmOutInfo.AlarmOutStatus.equals("OPEN");
 				mBtnSwitchAlarmOutStatus.setSelected(b);
@@ -491,7 +491,7 @@ public class ActivityGuideDeviceSetupAlarm extends ActivityDemo implements OnCli
 			}
 			
 			AlarmOut out = (AlarmOut) mFunDevice.getConfig(AlarmOut.CONFIG_NAME);
-			if (out != null) {
+			if (out != null && mFunDevice.CurrChannel >= 0 && mFunDevice.CurrChannel < out.Alarms.size()) {
 				AlarmOutInfo info = out.Alarms.get(mFunDevice.CurrChannel);
 				info.AlarmOutStatus = mBtnSwitchAlarmOutStatus.isSelected() ? "OPEN" : "CLOSE";
 				info.AlarmOutType = getStringOfAlarmOutType(mSpinnerAlarmOutType.getSelectedItemPosition());

@@ -1,6 +1,4 @@
-package com.example.funsdkdemo;
-
-import java.util.List;
+package com.example.funsdkdemo.alarm;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -8,11 +6,11 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 
+import com.example.funsdkdemo.R;
 import com.example.funsdkdemo.devices.ActivityGuideDeviceAlarmResult;
 import com.lib.funsdk.support.FunLog;
 import com.lib.funsdk.support.FunSupport;
@@ -24,6 +22,8 @@ import com.lib.funsdk.support.config.AlarmInfo;
 import com.lib.funsdk.support.models.FunDevStatus;
 import com.lib.funsdk.support.models.FunDevice;
 import com.lib.sdk.struct.H264_DVR_FILE_DATA;
+
+import java.util.List;
 
 
 /**
@@ -104,15 +104,18 @@ public class ServiceGuideLanAlarmNotification extends Service implements OnFunDe
 		}
 	}
 
-	private void notifyDeviceAlarm(FunDevice funDev) {
+	private void notifyDeviceAlarm(FunDevice funDev,AlarmInfo alarmInfo) {
 		//mNotifyManager.cancel(funDev.getId());
 		if ( null == funDev ) {
 			return;
 		}
 		
 		FunLog.i(TAG, "notifyDeviceAlarm : " + funDev.getDevSn() + ", " + funDev.getId());
-		
+
 		String title = getResources().getString(R.string.device_alarm_notification);
+		if (alarmInfo != null) {
+			title = alarmInfo.getEvent();
+		}
 		
 		Intent newIntent = new Intent(this, ActivityGuideDeviceAlarmResult.class);
 		newIntent.putExtra("FUN_DEVICE_ID", funDev.getId());
@@ -212,10 +215,10 @@ public class ServiceGuideLanAlarmNotification extends Service implements OnFunDe
 	/**
 	 * ****************************************************************
 	 */
-	
+
 	@Override
-	public void onDeviceAlarmReceived(FunDevice funDevice) {
-		
+	public void onDeviceAlarmReceived(FunDevice funDevice, AlarmInfo alarmInfo) {
+
 	}
 
 	@Override
@@ -235,7 +238,7 @@ public class ServiceGuideLanAlarmNotification extends Service implements OnFunDe
 	public void onDeviceLanAlarmReceived(FunDevice funDevice,
 			AlarmInfo alarmInfo) {
 		// 收到设备报警
-		notifyDeviceAlarm(funDevice);
+		notifyDeviceAlarm(funDevice,alarmInfo);
 	}
 
 	@Override

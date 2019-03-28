@@ -41,6 +41,8 @@ import com.example.common.DialogInputPasswd;
 import com.example.common.UIFactory;
 import com.example.funsdkdemo.ActivityDemo;
 import com.example.funsdkdemo.R;
+import com.example.funsdkdemo.devices.monitor.ActivityGuideDevicePreview;
+import com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetup;
 import com.lib.EPTZCMD;
 import com.lib.FunSDK;
 import com.lib.funsdk.support.FunDevicePassword;

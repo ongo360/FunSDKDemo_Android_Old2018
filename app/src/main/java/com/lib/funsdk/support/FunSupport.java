@@ -3303,11 +3303,16 @@ public class FunSupport implements IFunSDKResult {
                 FunLog.e(TAG, TAG + "EUIMSG.MC_ON_AlarmCb");
 
                 FunDevice funDev = findDeviceBySn(msgContent.str);
+                AlarmInfo alarmInfo = null;
+                if (msgContent.pData != null) {
+                    alarmInfo = new AlarmInfo();
+                    alarmInfo.onParse(G.ToString(msgContent.pData));
+                }
                 if (null != funDev) {
                     // 收到设备报警
                     for (OnFunListener l : mListeners) {
                         if (l instanceof OnFunDeviceAlarmListener) {
-                            ((OnFunDeviceAlarmListener) l).onDeviceAlarmReceived(funDev);
+                            ((OnFunDeviceAlarmListener) l).onDeviceAlarmReceived(funDev,alarmInfo);
                         }
                     }
                 }

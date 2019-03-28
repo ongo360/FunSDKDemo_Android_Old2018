@@ -1,4 +1,4 @@
-package com.example.funsdkdemo.devices;
+package com.example.funsdkdemo.devices.monitor;
 
 import com.example.funsdkdemo.ActivityGuide;
 import com.example.funsdkdemo.ActivityGuideDeviceListAP;

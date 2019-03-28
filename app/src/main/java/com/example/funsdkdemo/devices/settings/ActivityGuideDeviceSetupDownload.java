@@ -1,4 +1,4 @@
-package com.example.funsdkdemo.devices;
+package com.example.funsdkdemo.devices.settings;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;

@@ -1,4 +1,4 @@
-package com.example.funsdkdemo.devices;
+package com.example.funsdkdemo.devices.monitor;
 
 import android.annotation.SuppressLint;
 import android.media.MediaPlayer;

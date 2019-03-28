@@ -132,7 +132,7 @@
     <string name="device_opt_433">433 add</string>
     <string name="device_opt_433_setting">433 control</string>
     <string name="device_opt_wake_up">Wake Up</string>
-    <string name="device_opt_alarm">Alarm</string>
+    <string name="device_opt_alarm">Alarm Push</string>
     <string name="device_opt_transcom">Serial</string>
     <string name="device_opt_play">Play</string>
     <string name="device_opt_stop">Stop</string>
@@ -150,7 +150,7 @@
     <string name="device_opt_record_list">Record</string>
     <string name="device_opt_alarm_push">Alarm push</string>
     <string name="device_opt_alarm_notify">Alarm notice</string>
-    <string name="device_opt_alarm_config">Setting</string>
+    <string name="device_opt_alarm_config">Alarm Setting</string>
     <string name="device_lan_alarm_test">Alarm of LAN</string>
     <string name="device_opt_add">ADD</string>
     <string name="device_opt_add_success">Add device successful</string>

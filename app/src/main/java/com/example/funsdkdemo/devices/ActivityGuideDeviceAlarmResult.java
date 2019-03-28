@@ -1,11 +1,6 @@
 package com.example.funsdkdemo.devices;
 
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.Intent;
@@ -25,6 +20,7 @@ import com.basic.G;
 import com.example.funsdkdemo.ActivityDemo;
 import com.example.funsdkdemo.ListAdapterDeviceAlarmInfo;
 import com.example.funsdkdemo.R;
+import com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupAlarm;
 import com.lib.Mps.XPMS_SEARCH_ALARMINFO_REQ;
 import com.lib.funsdk.support.FunAlarmNotification;
 import com.lib.funsdk.support.FunError;
@@ -32,6 +28,11 @@ import com.lib.funsdk.support.FunSupport;
 import com.lib.funsdk.support.OnFunDeviceAlarmListener;
 import com.lib.funsdk.support.config.AlarmInfo;
 import com.lib.funsdk.support.models.FunDevice;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 
 public class ActivityGuideDeviceAlarmResult extends ActivityDemo implements OnClickListener, OnFunDeviceAlarmListener, OnItemClickListener {
@@ -249,9 +250,8 @@ public class ActivityGuideDeviceAlarmResult extends ActivityDemo implements OnCl
 	}
 
 	@Override
-	public void onDeviceAlarmReceived(FunDevice funDevice) {
-		// TODO Auto-generated method stub
-		
+	public void onDeviceAlarmReceived(FunDevice funDevice, AlarmInfo alarmInfo) {
+
 	}
 
 	@Override

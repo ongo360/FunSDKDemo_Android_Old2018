@@ -8,6 +8,8 @@ import android.os.Message;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.funsdkdemo.alarm.ServiceGuideLanAlarmNotification;
+import com.example.funsdkdemo.alarm.ServiceGuidePushAlarmNotification;
 import com.lib.funsdk.support.FunSupport;
 import com.lib.funsdk.support.OnFunLoginListener;
 

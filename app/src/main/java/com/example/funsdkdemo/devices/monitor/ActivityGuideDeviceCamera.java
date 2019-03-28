@@ -1,4 +1,4 @@
-package com.example.funsdkdemo.devices;
+package com.example.funsdkdemo.devices.monitor;
 
 
 import android.annotation.SuppressLint;
@@ -42,6 +42,12 @@ import com.example.common.DialogInputPasswd;
 import com.example.common.UIFactory;
 import com.example.funsdkdemo.ActivityDemo;
 import com.example.funsdkdemo.R;
+import com.example.funsdkdemo.devices.ActivityDeviceFishEyeInfo;
+import com.example.funsdkdemo.devices.ActivityGuideDevicePictureList;
+import com.example.funsdkdemo.devices.ActivityGuideDeviceRecordList;
+import com.example.funsdkdemo.devices.ActivityGuideDeviceSportPicList;
+import com.example.funsdkdemo.devices.monitor.ActivityGuideDevicePreview;
+import com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetup;
 import com.lib.EPTZCMD;
 import com.lib.FunSDK;
 import com.lib.funsdk.support.FunDevicePassword;

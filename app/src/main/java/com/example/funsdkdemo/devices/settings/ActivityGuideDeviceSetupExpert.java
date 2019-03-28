@@ -1,4 +1,4 @@
-package com.example.funsdkdemo.devices;
+package com.example.funsdkdemo.devices.settings;
 
 import java.util.ArrayList;
 import java.util.List;

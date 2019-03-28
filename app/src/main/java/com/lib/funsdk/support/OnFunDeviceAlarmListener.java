@@ -1,14 +1,14 @@
 package com.lib.funsdk.support;
 
-import java.util.List;
-
 import com.lib.funsdk.support.config.AlarmInfo;
 import com.lib.funsdk.support.models.FunDevice;
+
+import java.util.List;
 
 public interface OnFunDeviceAlarmListener extends OnFunListener {
 
 	// 设备状态发生变化
-	void onDeviceAlarmReceived(final FunDevice funDevice);
+	void onDeviceAlarmReceived(final FunDevice funDevice,AlarmInfo alarmInfo);
 	
 	// 搜索历史报警消息成功
 	void onDeviceAlarmSearchSuccess(final FunDevice funDevice, final List<AlarmInfo> infos);

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.funsdkdemo.devices.ActivityGuideDeviceBulb;
-import com.example.funsdkdemo.devices.ActivityGuideDeviceCamera;
+import com.example.funsdkdemo.devices.monitor.ActivityGuideDeviceCamera;
 import com.example.funsdkdemo.devices.ActivityGuideDeviceSocket;
 import com.example.funsdkdemo.devices.ActivityGuideDeviceSport;
 import com.lib.funsdk.support.models.FunDevType;
@@ -64,10 +64,10 @@ public class DeviceActivitys {
 	}
 	
 	public static void startDeviceActivity(Context context, FunDevice funDevice) {
-		Class<?> a = sDeviceActivityMap.get(funDevice.devType);
-		if ( null != a ) {
+		Class<?> _class = sDeviceActivityMap.get(funDevice.devType);
+		if ( null != _class ) {
 			Intent intent = new Intent();
-			intent.setClass(context, a);
+			intent.setClass(context, _class);
 			intent.putExtra("FUN_DEVICE_ID", funDevice.getId());
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			context.startActivity(intent);

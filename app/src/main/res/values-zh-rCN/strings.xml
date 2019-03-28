@@ -132,7 +132,7 @@
     <string name="device_opt_control">控制</string>
     <string name="device_opt_setwifi">设置WiFi</string>
     <string name="device_opt_remove">移除</string>
-    <string name="device_opt_alarm">报警</string>
+    <string name="device_opt_alarm">报警推送</string>
     <string name="device_opt_transcom">串口</string>
     <string name="device_opt_play">播放</string>
     <string name="device_opt_stop">停止</string>

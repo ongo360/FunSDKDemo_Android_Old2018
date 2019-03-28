@@ -12,6 +12,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import com.example.funsdkdemo.ActivityGuide;
 import com.example.funsdkdemo.DemoModule;
 import com.example.funsdkdemo.R;
+import com.example.funsdkdemo.devices.settings.ActivityGuideDeviceChangePassw;
+import com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupAlarm;
+import com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupCamera;
+import com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSystemInfo;
 import com.lib.funsdk.support.FunSupport;
 import com.lib.funsdk.support.models.FunDevice;
 /*
