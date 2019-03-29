@@ -656,4 +656,8 @@
     <string name="change_dev_name_s">修改设备名成功</string>
     <string name="change_dev_name_f">修改设备名失败</string>
     <string name="change_dev_name">修改设备名</string>
+    <string name="wall_switch_one">墙壁开关1</string>
+    <string name="wall_switch_two">墙壁开关2</string>
+    <string name="wall_switch_three">墙壁开关3</string>
+    <string name="change_alarm_status">改变报警状态</string>
 </resources>

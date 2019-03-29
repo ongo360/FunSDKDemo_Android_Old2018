@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,11 +30,13 @@ import com.lib.funsdk.support.config.JsonConfig;
 import com.lib.funsdk.support.models.FunDevice;
 import com.lib.funsdk.support.sensor.ISensorTips;
 import com.lib.funsdk.support.sensor.SensorCommon;
+import com.lib.funsdk.support.utils.DeviceWifiManager;
 import com.lib.sdk.bean.GetAllDevListBean;
 import com.lib.sdk.bean.HandleConfigData;
 import com.lib.sdk.bean.InquiryStatusBean;
 import com.lib.sdk.bean.OPConsumerProCmdBean;
 import com.lib.sdk.bean.OPConsumerProCmdBeanV2;
+import com.lib.sdk.bean.OPWallSwitchCmdBean;
 import com.lib.sdk.bean.StringUtils;
 
 import java.util.List;
@@ -42,7 +45,7 @@ import java.util.List;
  * @author hws
  * @name FunSDKDemo_Android_Old2018
  * @class name：com.example.funsdkdemo.devices
- * @class 433设备
+ * @class 智联设备
  * @time 2019-03-26 17:49
  */
 public class ActivityGuideDeviceSmart433 extends ActivityDemo
@@ -55,6 +58,7 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
     private int userId;
     private int operationStatus;
     private String operationDevName;
+    private int operationWallStatus;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +120,14 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
                         if(handleConfigData.getDataObj(G.ToString(msgContent.pData), GetAllDevListBean.class)) {
                             getAllDevListBeans = (List<GetAllDevListBean>) handleConfigData.getObj();
                             adapter.notifyDataSetChanged();
+                            for (int i = 0; i < getAllDevListBeans.size(); ++i) {
+                                GetAllDevListBean bean = getAllDevListBeans.get(i);
+                                if (bean != null) {
+                                    getInquiryStatus(bean.DevID,i);
+                                }
+                            }
                         }
+
                     }
                 }else if (JsonConfig.OPERATION_CMD_INQUIRY_STATUS.equals(msgContent.str)) {
                     if (message.arg1 >= 0) {
@@ -165,6 +176,17 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
                     }else {
                         showToast(getString(R.string.change_status_f));
                     }
+                }else if (StringUtils.contrast(msgContent.str,JsonConfig.OPERATION_CMD_SET_SWITCH_STATE)) {
+                    if (message.arg1 >= 0) {
+                        GetAllDevListBean bean = getAllDevListBeans.get(msgContent.seq);
+                        if (bean != null) {
+                            bean.setFunctionStatus(operationWallStatus);
+                        }
+                        adapter.notifyDataSetChanged();
+                        showToast(getString(R.string.change_status_s));
+                    }else {
+                        showToast(getString(R.string.change_status_f));
+                    }
                 }
                 break;
         }
@@ -176,10 +198,10 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
                 OPConsumerProCmdBean.getCmdJson(JsonConfig.OPERATION_CMD_GET,"","").getBytes(), -1, 0);
     }
 
-//    private void getInquiryStatus(String devId,int position) {
-//        FunSDK.DevCmdGeneral(userId, funDevice.getDevSn(), OPConsumerProCmdBean.JSON_ID, JsonConfig.OPERATION_CMD_INQUIRY_STATUS, -1, 60000,
-//                OPConsumerProCmdBean.getCmdJson(JsonConfig.OPERATION_CMD_INQUIRY_STATUS, devId,"").getBytes(), -1, position);
-//    }
+    private void getInquiryStatus(String devId,int position) {
+        FunSDK.DevCmdGeneral(userId, funDevice.getDevSn(), OPConsumerProCmdBean.JSON_ID, JsonConfig.OPERATION_CMD_INQUIRY_STATUS, -1, 60000,
+                OPConsumerProCmdBean.getCmdJson(JsonConfig.OPERATION_CMD_INQUIRY_STATUS, devId,"").getBytes(), -1, position);
+    }
 
     private void deleteDev(String devId,int position) {
         FunSDK.DevCmdGeneral(userId, funDevice.getDevSn(), OPConsumerProCmdBean.JSON_ID, JsonConfig.OPERATION_CMD_DEL, -1, 60000,
@@ -196,6 +218,13 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
         this.operationDevName = devName;
         FunSDK.DevCmdGeneral(userId, funDevice.getDevSn(), OPConsumerProCmdBean.JSON_ID, JsonConfig.OPERATION_CMD_RENAME, -1, 60000,
                 OPConsumerProCmdBean.getCmdJson(JsonConfig.OPERATION_CMD_RENAME, devId,devName).getBytes(), -1, position);
+    }
+
+    private void changeWallSwitchState(String devId,int wallSwitchPos,int state,int position) {
+        this.operationWallStatus = state;
+        int ignoreMask = 0xFF ^ (0x1 << wallSwitchPos);
+        FunSDK.DevCmdGeneral(userId, funDevice.getDevSn(), OPConsumerProCmdBean.JSON_ID, JsonConfig.OPERATION_CMD_SET_SWITCH_STATE, -1, 60000,
+                OPWallSwitchCmdBean.getCmdJson(devId, state,ignoreMask).getBytes(), -1, position);
     }
 
     @Override
@@ -240,6 +269,10 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
                 viewHolder.btnChangeStatus = view.findViewById(R.id.btnChangeStatus);
                 viewHolder.btnChangeDevName = view.findViewById(R.id.btnChangeDevName);
                 viewHolder.btnDelete = view.findViewById(R.id.btnDelete);
+                viewHolder.btnWallSwitchOne = view.findViewById(R.id.wall_switch_one);
+                viewHolder.btnWallSwitchTwo = view.findViewById(R.id.wall_switch_two);
+                viewHolder.btnWallSwitchThree = view.findViewById(R.id.wall_switch_three);
+                viewHolder.llWallSwitch = view.findViewById(R.id.ll_wall_switch);
                 view.setTag(viewHolder);
             }else {
                 viewHolder = (ViewHolder) view.getTag();
@@ -294,6 +327,50 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
                         inputDialog.show();
                     }
                 });
+                if (data.DevType == DeviceWifiManager.SENSOR_TYPE.WALLSWITCH_TYPE) {
+                    viewHolder.llWallSwitch.setVisibility(View.VISIBLE);
+                    viewHolder.btnWallSwitchOne.setText((data.getFunctionStatus() & 0x01) > 0 ? "On" : "Off");
+                    viewHolder.btnWallSwitchTwo.setText((data.getFunctionStatus() & 0x02) > 0 ? "On" : "Off");
+                    viewHolder.btnWallSwitchThree.setText((data.getFunctionStatus() & 0x04) > 0 ? "On" : "Off");
+                    viewHolder.btnWallSwitchOne.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            int state;
+                            if ((data.getFunctionStatus() & 0x01) > 0) {
+                                state = data.getFunctionStatus() & ~(0x01 << 0);
+                            }else {
+                                state = data.getFunctionStatus() | (0x01 << 0);
+                            }
+                            changeWallSwitchState(data.DevID,0,state,position);
+                        }
+                    });
+                    viewHolder.btnWallSwitchTwo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            int state;
+                            if ((data.getFunctionStatus() & 0x02) > 0) {
+                                state = data.getFunctionStatus() & ~(0x01 << 1);
+                            }else {
+                                state = data.getFunctionStatus() | (0x01 << 1);
+                            }
+                            changeWallSwitchState(data.DevID,1,state,position);
+                        }
+                    });
+                    viewHolder.btnWallSwitchThree.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            int state;
+                            if ((data.getFunctionStatus() & 0x04) > 0) {
+                                state = data.getFunctionStatus() & ~(0x01 << 2);
+                            }else {
+                                state = data.getFunctionStatus() | (0x01 << 2);
+                            }
+                            changeWallSwitchState(data.DevID,2,state,position);
+                        }
+                    });
+                }else {
+                    viewHolder.llWallSwitch.setVisibility(View.GONE);
+                }
             }
             return view;
         }
@@ -303,6 +380,10 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
             Button btnChangeStatus;
             Button btnDelete;
             Button btnChangeDevName;
+            LinearLayout llWallSwitch;
+            Button btnWallSwitchOne;
+            Button btnWallSwitchTwo;
+            Button btnWallSwitchThree;
         }
     }
 }

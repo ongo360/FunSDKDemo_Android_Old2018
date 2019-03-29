@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:orientation="vertical"
     android:paddingLeft="20dp"
@@ -16,7 +17,7 @@
         android:id="@+id/btnChangeStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/change_status"/>
+        android:text="@string/change_alarm_status"/>
     <Button
         android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
@@ -27,4 +28,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/change_dev_name"/>
+    <LinearLayout
+        android:id="@+id/ll_wall_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+        <Button
+            android:id="@+id/wall_switch_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wall_switch_one"/>
+        <Button
+            android:id="@+id/wall_switch_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wall_switch_two"/>
+        <Button
+            android:id="@+id/wall_switch_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wall_switch_three"/>
+    </LinearLayout>
 </LinearLayout>

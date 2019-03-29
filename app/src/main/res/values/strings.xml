@@ -643,7 +643,6 @@
     <string name="delete_f">Delete Failed</string>
     <string name="change_status_s">Change status success</string>
     <string name="change_status_f">Change status failed</string>
-    <string name="change_status">Change status</string>
     <string name="delete">Delete</string>
     <string name="input_device_name">Please enter the device name</string>
     <string name="change_dev_name_s">Change device name success</string>
@@ -651,4 +650,8 @@
     <string name="add_device_s">Add device success</string>
     <string name="add_device_f">Add device failed</string>
     <string name="change_dev_name">Change device name</string>
+    <string name="wall_switch_one">Wall switch I</string>
+    <string name="wall_switch_two">Wall switch II</string>
+    <string name="wall_switch_three">Wall switch III</string>
+    <string name="change_alarm_status">Change alarm status</string>
 </resources>

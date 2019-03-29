@@ -87,7 +87,7 @@ public class ActivityGuideMain extends ActivityGuide implements OnFunLoginListen
 	protected void onDestroy() {
 		
 		FunSupport.getInstance().removeOnFunLoginListener(this);
-		MyApplication.getInstance().exit();
+		((MyApplication)getApplication()).exit();
 		super.onDestroy();
 	}
 

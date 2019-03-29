@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.funsdkdemo.R;
 import com.example.funsdkdemo.devices.ActivityGuideDeviceAlarmResult;
+import com.lib.FunSDK;
 import com.lib.funsdk.support.FunAlarmNotification;
 import com.lib.funsdk.support.FunLog;
 import com.lib.funsdk.support.FunSupport;
@@ -20,6 +22,9 @@ import com.lib.funsdk.support.OnFunDeviceAlarmListener;
 import com.lib.funsdk.support.OnFunLoginListener;
 import com.lib.funsdk.support.config.AlarmInfo;
 import com.lib.funsdk.support.models.FunDevice;
+import com.lib.funsdk.support.utils.Define;
+import com.lib.funsdk.support.utils.SPUtil;
+import com.lib.sdk.bean.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -188,8 +193,30 @@ public class ServiceGuidePushAlarmNotification extends Service implements OnFunL
 		
 		FunLog.i(TAG, "notifyDeviceAlarm : " + funDev.getDevSn() + ", " + funDev.getId());
 		String title = getResources().getString(R.string.device_alarm_notification);
-		if (alarmInfo != null) {
-			title = alarmInfo.getEvent();
+		if (alarmInfo.getLinkCenterExt() != null) {
+			/**
+			 * 智联中心推送
+			 */
+			if(StringUtils.contrast(alarmInfo.getEvent(),"433Alarm")
+					|| StringUtils.contrast(alarmInfo.getEvent(),"ConsSensorAlarm")){ //普通433传感器推送
+				title = alarmInfo.getEvent();
+			} else if(StringUtils.contrast(alarmInfo.getEvent(),"DoorLockNotify")
+					|| StringUtils.contrast(alarmInfo.getEvent(),"DoorLockAlarm")
+					|| StringUtils.contrast(alarmInfo.getEvent(),"DoorLockCall")){ //门锁报警
+				if(StringUtils.contrast(alarmInfo.getEvent(),"DoorLockNotify")
+						|| StringUtils.contrast(alarmInfo.getEvent(),"DoorLockCall")) {
+					title = alarmInfo.getEvent() + "(Notification message)";
+				}else if (StringUtils.contrast(alarmInfo.getEvent(),"DoorLockAlarm")) {
+					title = alarmInfo.getEvent() + "(Exception message)";
+				}
+			}
+			title += alarmInfo.getLinkCenterExt().toString();
+		}else {
+			if (StringUtils.contrast(alarmInfo.getEvent(), "VideoMotion")) {
+				title = "Motion Detection";
+			} else if (StringUtils.contrast(alarmInfo.getEvent(), "VideoAnalyze")) {
+				title = "intelligent analysis";
+			}
 		}
 		Toast.makeText(this,title,Toast.LENGTH_LONG).show();
 		Intent newIntent = new Intent(this, ActivityGuideDeviceAlarmResult.class);
