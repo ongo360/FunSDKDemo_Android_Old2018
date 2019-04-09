@@ -660,4 +660,9 @@
     <string name="wall_switch_two">墙壁开关2</string>
     <string name="wall_switch_three">墙壁开关3</string>
     <string name="change_alarm_status">改变报警状态</string>
+    <string name="function_switch_status">功能开关状态</string>
+    <string name="unlock">解锁</string>
+    <string name="door_lock_open_s">解锁成功</string>
+    <string name="door_lock_open_f">解锁失败</string>
+    <string name="device_doorlock">门锁</string>
 </resources>

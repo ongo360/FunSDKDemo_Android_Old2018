@@ -139,8 +139,6 @@ public class TalkManager implements OnFunDeviceTalkListener {
 				mOPTalk.Action = "PauseUpload";
 			}
             
-//			FunSDK.DevCmdGeneral(GetId(), info.sn, 1430, OPTalk.CLASSNAME, 0, 0,
-//					mOPTalk.getSendMsg().getBytes(), -1, 0);
 			FunSupport.getInstance().requestDeviceCmdGeneral(mFunDevice, mOPTalk);
         }
 

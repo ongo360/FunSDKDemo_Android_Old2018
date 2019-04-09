@@ -79,6 +79,10 @@ public class ActivityGuideDeviceSetup extends ActivityGuide {
 		// 智联设备
 		mGuideModules.add(new DemoModule(-1, R.string.device_smart_device, -1,
 				ActivityGuideDeviceSmart433.class));
+
+		// 门锁配置
+		mGuideModules.add(new DemoModule(-1, R.string.device_doorlock, -1,
+				ActivityGuideDeviceDoorLock.class));
 	}
 
 	@Override

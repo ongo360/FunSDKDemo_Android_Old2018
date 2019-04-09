@@ -273,6 +273,7 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
                 viewHolder.btnWallSwitchTwo = view.findViewById(R.id.wall_switch_two);
                 viewHolder.btnWallSwitchThree = view.findViewById(R.id.wall_switch_three);
                 viewHolder.llWallSwitch = view.findViewById(R.id.ll_wall_switch);
+                viewHolder.btnFunctionSwitch = view.findViewById(R.id.function_switch);
                 view.setTag(viewHolder);
             }else {
                 viewHolder = (ViewHolder) view.getTag();
@@ -329,6 +330,7 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
                 });
                 if (data.DevType == DeviceWifiManager.SENSOR_TYPE.WALLSWITCH_TYPE) {
                     viewHolder.llWallSwitch.setVisibility(View.VISIBLE);
+                    viewHolder.btnFunctionSwitch.setVisibility(View.GONE);
                     viewHolder.btnWallSwitchOne.setText((data.getFunctionStatus() & 0x01) > 0 ? "On" : "Off");
                     viewHolder.btnWallSwitchTwo.setText((data.getFunctionStatus() & 0x02) > 0 ? "On" : "Off");
                     viewHolder.btnWallSwitchThree.setText((data.getFunctionStatus() & 0x04) > 0 ? "On" : "Off");
@@ -369,7 +371,14 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
                         }
                     });
                 }else {
+                    viewHolder.btnFunctionSwitch.setVisibility(View.VISIBLE);
                     viewHolder.llWallSwitch.setVisibility(View.GONE);
+                    viewHolder.btnFunctionSwitch.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                        }
+                    });
                 }
             }
             return view;
@@ -381,6 +390,7 @@ public class ActivityGuideDeviceSmart433 extends ActivityDemo
             Button btnDelete;
             Button btnChangeDevName;
             LinearLayout llWallSwitch;
+            Button btnFunctionSwitch;
             Button btnWallSwitchOne;
             Button btnWallSwitchTwo;
             Button btnWallSwitchThree;

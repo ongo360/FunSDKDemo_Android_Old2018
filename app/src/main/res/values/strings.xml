@@ -654,4 +654,9 @@
     <string name="wall_switch_two">Wall switch II</string>
     <string name="wall_switch_three">Wall switch III</string>
     <string name="change_alarm_status">Change alarm status</string>
+    <string name="function_switch_status">Function switch status</string>
+    <string name="unlock">Unlock</string>
+    <string name="door_lock_open_s">Unlocking success</string>
+    <string name="door_lock_open_f">Unlocking failed</string>
+    <string name="device_doorlock">Doorlock</string>
 </resources>

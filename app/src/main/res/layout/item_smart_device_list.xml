@@ -51,4 +51,9 @@
             android:layout_height="wrap_content"
             android:text="@string/wall_switch_three"/>
     </LinearLayout>
+    <Button
+        android:id="@+id/function_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wall_switch_one"/>
 </LinearLayout>

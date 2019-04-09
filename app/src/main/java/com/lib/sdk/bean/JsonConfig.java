@@ -107,4 +107,11 @@ public class JsonConfig {
 	public static final String OPTALK = "OPTalk";// 对讲控制
 	public static final String OPCOMPRESSPIC = "OPCompressPic";
 	public static final String CFG_DETECT_ANALYZE = "Detect.Analyze";
+
+	public static final String DOOR_LOCK_CMD = "OPDoorLockProCmd"; //配置头Name,与普通433区分（见OPERATION_CONSUMER_PRO_CMD）
+	public static final String DOOR_LOCK_SET_TEMP_PSD= "SetTmpPasswd";//设置临时密码
+	public static final String DOOR_LOCK_UNLOCK = "RemoteUnlock";//远程开锁
+	public static final String DOOR_LOCK_USER_INFO= "GetUsrInfo";//门锁密码、指纹、门卡等用户信息
+	public static final String DOOR_LOCK_CHANGE_NAME = "ChangeUsrName";//修改密码、指纹、门卡的用户昵称
+	public static final String DOOR_LOCK_IS_ADDED = "Consumer.IsDoorLockAdded"; //是否已添加门铃
 }
