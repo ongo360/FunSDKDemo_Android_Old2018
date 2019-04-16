@@ -520,46 +520,34 @@ public class DeviceWifiManager {
 			return -1;
 		if (isStartsWith(ssid, "robot_") || isStartsWith(ssid, "Robot_")
 				|| isStartsWith(ssid, "NVR_") || isStartsWith(ssid, "DVR_")
-				|| isStartsWith(ssid, "IPC_") || isStartsWith(ssid, "IPC")) {
+				|| isStartsWith(ssid, "IPC_") || isStartsWith(ssid, "IPC")
+				|| isStartsWith(ssid, "camera_")) {
 			return DEVICE_TYPE.MONITOR;
-		}
-		if (isStartsWith(ssid, "socket_") || isStartsWith(ssid, "xmjp_socket_")) {
+		}else if (isStartsWith(ssid, "socket_") || isStartsWith(ssid, "xmjp_socket_")) {
 			return DEVICE_TYPE.SOCKET;
-		}
-		if (isStartsWith(ssid, "xmjp_bulb_")) {
+		}else if (isStartsWith(ssid, "xmjp_bulb_")) {
 			return DEVICE_TYPE.BULB;
-		}
-		if (isStartsWith(ssid, "xmjp_bulbsocket_")) {
+		} else if (isStartsWith(ssid, "xmjp_bulbsocket_")) {
 			return DEVICE_TYPE.BULB_SOCKET;
-		}
-		if (isStartsWith(ssid, "car_") || isStartsWith(ssid, "xmjp_car_")) {
+		}else if (isStartsWith(ssid, "car_") || isStartsWith(ssid, "xmjp_car_")) {
 			return DEVICE_TYPE.CAR;
-		}
-		if (isStartsWith(ssid, "beye_") || isStartsWith(ssid, "xmjp_beye_")) {
+		}else if (isStartsWith(ssid, "beye_") || isStartsWith(ssid, "xmjp_beye_")) {
 			return DEVICE_TYPE.BEYE;
-		}
-		if (isStartsWith(ssid, "seye_") || isStartsWith(ssid, "xmjp_seye_")) {
+		}else if (isStartsWith(ssid, "seye_") || isStartsWith(ssid, "xmjp_seye_")) {
 			return DEVICE_TYPE.SEYE;
-		}
-		if (isStartsWith(ssid, "xmjp_robot_")) {
+		}else if (isStartsWith(ssid, "xmjp_robot_")) {
 			return DEVICE_TYPE.ROBOT;
-		}
-		if (isStartsWith(ssid, "xmjp_mov_") || isStartsWith(ssid, "xmjp_spt_")|| isStartsWith(ssid, "xmjp_dcam_")|| isStartsWith(ssid, "xmjp_maf_")) {
+		}else if (isStartsWith(ssid, "xmjp_mov_") || isStartsWith(ssid, "xmjp_spt_")|| isStartsWith(ssid, "xmjp_dcam_")|| isStartsWith(ssid, "xmjp_maf_")) {
 			return DEVICE_TYPE.MOV;
-		}
-		if (isStartsWith(ssid, "feye_") || isStartsWith(ssid, "xmjp_feye_")) {
+		}else if (isStartsWith(ssid, "feye_") || isStartsWith(ssid, "xmjp_feye_")) {
 			return DEVICE_TYPE.FEYE;
-		}
-		if (isStartsWith(ssid, "xmjp_fbulb_")) {
+		}else if (isStartsWith(ssid, "xmjp_fbulb_")) {
 			return DEVICE_TYPE.FBULB;
-		}
-		if (isStartsWith(ssid, "xmjp_BOB_")) {
+		}else if (isStartsWith(ssid, "xmjp_BOB_")) {
 			return DEVICE_TYPE.BOB;
-		}
-		if (isStartsWith(ssid, "xmjp_musicbox_")) {
+		}else if (isStartsWith(ssid, "xmjp_musicbox_")) {
 			return DEVICE_TYPE.MUSIC_BOX;
-		}
-		if (isStartsWith(ssid, "xmjp_speaker")) {
+		}else if (isStartsWith(ssid, "xmjp_speaker")) {
 			return DEVICE_TYPE.SPEAKER;
 		}
 		return DEVICE_TYPE.MONITOR;
