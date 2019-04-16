@@ -61,10 +61,17 @@ public class DeviceActivitys {
 		// 智能门铃
 		sDeviceActivityMap.put(FunDevType.EE_DEV_IDR,
                 ActivityGuideDeviceCamera.class);
+
+		// 智能门铃
+		sDeviceActivityMap.put(FunDevType.EE_DEV_IDR,
+				ActivityGuideDeviceCamera.class);
 	}
 	
 	public static void startDeviceActivity(Context context, FunDevice funDevice) {
 		Class<?> _class = sDeviceActivityMap.get(funDevice.devType);
+		if (_class == null) {
+			_class = ActivityGuideDeviceCamera.class;
+		}
 		if ( null != _class ) {
 			Intent intent = new Intent();
 			intent.setClass(context, _class);

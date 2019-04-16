@@ -7,7 +7,6 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.view.View;
 
-import com.example.funsdkdemo.MyApplication;
 import com.lib.funsdk.support.FunPath;
 import com.lib.funsdk.support.utils.Define.EncrypType;
 import com.lib.sdk.struct.H264_DVR_FINDINFO;
@@ -19,7 +18,7 @@ import java.net.UnknownHostException;
 
 public class MyUtils {
 	/**
-	 * 
+	 *
 	 * @param capabilities
 	 * @return
 	 */
@@ -70,15 +69,15 @@ public class MyUtils {
 			return EncrypType.NONE;
 		}
 	}
-	
-	public static String formatIpAddress(int ip ) {
+
+	public static String formatIpAddress(int ip) {
 		byte[] ipAddress = new byte[4];
 		InetAddress myaddr;
 		try {
-			ipAddress[3] = (byte)((ip >> 24) & 0xff);
-			ipAddress[2] = (byte)((ip >> 16) & 0xff);
-			ipAddress[1] = (byte)((ip >> 8) & 0xff);
-			ipAddress[0] = (byte)(ip & 0xff);
+			ipAddress[3] = (byte) ((ip >> 24) & 0xff);
+			ipAddress[2] = (byte) ((ip >> 16) & 0xff);
+			ipAddress[1] = (byte) ((ip >> 8) & 0xff);
+			ipAddress[0] = (byte) (ip & 0xff);
 			myaddr = InetAddress.getByAddress(ipAddress);
 			String hostaddr = myaddr.getHostAddress();
 			return hostaddr;
@@ -88,23 +87,14 @@ public class MyUtils {
 		}
 		return "";
 	}
-	
+
 	public static String getMpsPushToken(Context context) {
-		try {
-			// 获取手机IMEI
-			String imei = ((TelephonyManager) context.getSystemService(
-					Context.TELEPHONY_SERVICE)).getDeviceId();
-			
-			if ( null == imei ) {
-				return null;
-			}
-			
-			return imei + "funsdkdemo";
-		} catch (Exception e) {
-			e.printStackTrace();
+		String imei = ((TelephonyManager) context.getSystemService(
+				Context.TELEPHONY_SERVICE)).getDeviceId();
+		if ( null == imei ) {
+			return null;
 		}
-		
-		return null;
+		return imei + "funsdkdemo";
 	}
 	
 	// 返回值为是否开启了wifi

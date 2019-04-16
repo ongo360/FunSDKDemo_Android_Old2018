@@ -84,7 +84,7 @@ public class ActivityGuideDeviceDoorLock extends ActivityDemo
     public void onUnlock(View view) {
         OPDoorLockProCmd cmd = new OPDoorLockProCmd();
         cmd.Cmd = JsonConfig.DOOR_LOCK_UNLOCK;
-        cmd.Arg2 = "111111";//密码
+        cmd.Arg2 = "111111";//开锁的密码
         FunSDK.DevCmdGeneral(userId,
                 funDevice.getDevSn(),
                 OPDoorLockProCmd.JSON_ID,
