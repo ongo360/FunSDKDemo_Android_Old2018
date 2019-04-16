@@ -507,7 +507,7 @@ public class DeviceWifiManager {
 				|| isStartsWith(ssid, "IPC_") || isStartsWith(ssid, "IPC")
 				|| isStartsWith(ssid, "Car") || isStartsWith(ssid, "BOB_")
 				|| isStartsWith(ssid, "socket_") || isStartsWith(ssid, "xmjp_")
-				|| isStartsWith(ssid, "feye_");
+				|| isStartsWith(ssid, "feye_") || isStartsWith(ssid, "camera_") ;
 	}
 
 	/**
