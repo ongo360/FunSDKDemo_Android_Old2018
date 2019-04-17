@@ -665,4 +665,8 @@
     <string name="door_lock_open_s">解锁成功</string>
     <string name="door_lock_open_f">解锁失败</string>
     <string name="device_doorlock">门锁</string>
+    <string name="flip">翻转</string>
+    <string name="get_config_f">获取配置失败</string>
+    <string name="flip_s">翻转成功</string>
+    <string name="flip_f">翻转失败</string>
 </resources>

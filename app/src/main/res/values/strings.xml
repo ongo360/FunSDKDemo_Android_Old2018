@@ -659,4 +659,6 @@
     <string name="door_lock_open_s">Unlocking success</string>
     <string name="door_lock_open_f">Unlocking failed</string>
     <string name="device_doorlock">Doorlock</string>
+    <string name="flip">Flip</string>
+    <string name="get_config_f">Get config failed</string>
 </resources>

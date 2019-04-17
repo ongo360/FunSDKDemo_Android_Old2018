@@ -17,10 +17,10 @@ public class CameraParamExBean {
 	public int LowLuxMode;
 	public int Ldc;
 	public int AeMeansure;
+	public int CorridorMode;// 0 正常 1 90度 2 180度 3 270度
 
 	public class BroadTrends {
 		public int AutoGain;
 		public int Gain;
 	}
-
 }
