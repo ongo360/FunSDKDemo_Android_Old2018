@@ -145,6 +145,7 @@ public class ActivityGuideDeviceDoorLock extends ActivityDemo
                 0);
     }
 
+    //翻转
     public void onFlip(View view) {
         //首先要判断该设备是否支持翻转 通过能力集判断  SupportCorridorMode;//是否支持走廊模式，就是90度旋转
         FunSDK.DevGetConfigByJson(userId, funDevice.getDevSn(),

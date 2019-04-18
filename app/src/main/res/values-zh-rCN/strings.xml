@@ -669,4 +669,5 @@
     <string name="get_config_f">获取配置失败</string>
     <string name="flip_s">翻转成功</string>
     <string name="flip_f">翻转失败</string>
+    <string name="talk_by_double_direction">双向对讲开启</string>
 </resources>

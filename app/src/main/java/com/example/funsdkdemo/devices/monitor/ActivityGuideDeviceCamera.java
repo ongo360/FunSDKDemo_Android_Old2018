@@ -30,6 +30,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -83,7 +84,7 @@ public class ActivityGuideDeviceCamera
 							OnFunDeviceOptListener, 
 							OnPreparedListener, 
 							OnErrorListener, 
-							OnInfoListener {
+							OnInfoListener{
 
 	
 	private RelativeLayout mLayoutTop = null;
@@ -108,6 +109,7 @@ public class ActivityGuideDeviceCamera
 	private Button mBtnGetPreset = null;
 	private Button mBtnSetPreset = null;
 	private View mSplitView = null;
+	private CheckBox mCbDoubleTalk = null;
 	private RelativeLayout mLayoutRecording = null;
 
 	private LinearLayout mLayoutControls = null;
@@ -146,7 +148,7 @@ public class ActivityGuideDeviceCamera
 	private boolean mCanToPlay = false;
 
 	public String NativeLoginPsw; //本地密码
-	
+	private boolean mIsDoubleTalkPress;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -197,6 +199,7 @@ public class ActivityGuideDeviceCamera
 		mBtnGetPreset = (Button) findViewById(R.id.btnGetPreset);
 		mBtnSetPreset = (Button) findViewById(R.id.btnSetPreset);
 		mSplitView = findViewById(R.id.splitView);
+		mCbDoubleTalk = findViewById(R.id.cb_double_talk_switch);
 
 		mLayoutDirectionControl = (RelativeLayout) findViewById(R.id.layoutDirectionControl);
 		mPtz_up = (ImageButton) findViewById(R.id.ptz_up);
@@ -211,7 +214,7 @@ public class ActivityGuideDeviceCamera
 		mBtnDevRecord.setOnClickListener(this);
 		mBtnGetPreset.setOnClickListener(this);
 		mBtnSetPreset.setOnClickListener(this);
-
+		mCbDoubleTalk.setOnClickListener(this);
 		mPtz_up.setOnTouchListener(onPtz_up);
 		mPtz_down.setOnTouchListener(onPtz_down);
 		mPtz_left.setOnTouchListener(onPtz_left);
@@ -255,7 +258,32 @@ public class ActivityGuideDeviceCamera
 
 		showVideoControlBar();
 
-		mTalkManager = new TalkManager(mFunDevice);
+		mTalkManager = new TalkManager(mFunDevice.getDevSn(), new TalkManager.OnTalkButtonListener() {
+			@Override
+			public boolean isPressed() {
+				return false;
+			}
+
+			@Override
+			public void onUpdateUI() {
+
+			}
+
+			@Override
+			public void OnCreateLinkResult(int Result) {
+
+			}
+
+			@Override
+			public void OnCloseTalkResult(int Result) {
+
+			}
+
+			@Override
+			public void OnVoiceOperateResult(int Type, int result) {
+
+			}
+		});
 
 		mCanToPlay = false;
 
@@ -302,13 +330,9 @@ public class ActivityGuideDeviceCamera
 
 	@Override
 	protected void onPause() {
-
-		stopTalk(0);
-        CloseVoiceChannel(0);
-
+		destroyTalk();
+		closeVoiceChannel(0);
 		stopMedia();
-//		 pauseMedia();
-
 		super.onPause();
 	}
 
@@ -390,12 +414,13 @@ public class ActivityGuideDeviceCamera
 			break;
             case R.id.Btn_Talk_Switch:
             {
-                OpenVoiceChannel();
+                openVoiceChannel();
             }
             break;
-            case R.id.btn_quit_voice:
+			case R.id.cb_double_talk_switch://双向对讲开关
+            case R.id.btn_quit_voice://退出对讲开关
             {
-                CloseVoiceChannel(500);
+				closeVoiceChannel(500);
             }
             break;
 		case R.id.btnDevCapture: // 远程设备图像列表
@@ -753,7 +778,7 @@ public class ActivityGuideDeviceCamera
 		intent.putExtra("FUNDEVICE_ID", mFunDevice.getId());
 		intent.setClass(this, ActivityGuideDevicePreview.class);
 		startActivityForResult(intent, 0);
-	} 
+	}
 
 	private class OnVideoViewTouchListener implements OnTouchListener {
 
@@ -949,9 +974,22 @@ public class ActivityGuideDeviceCamera
 		public boolean onTouch(View arg0, MotionEvent arg1) {
 			try {
 				if (arg1.getAction() == MotionEvent.ACTION_DOWN) {
-					startTalk();
-				} else if (arg1.getAction() == MotionEvent.ACTION_UP) {
-					stopTalk(500);
+					if (mCbDoubleTalk.isChecked()) {
+						if (!mIsDoubleTalkPress) {
+							startTalkByDoubleDirection();
+							mBtnVoiceTalk.setBackgroundResource(R.drawable.icon_voice_talk_selected);
+							mIsDoubleTalkPress = true;
+						}else {
+							stopTalkByDoubleDirection();
+							mBtnVoiceTalk.setBackgroundResource(R.drawable.icon_voice_talk);
+							mIsDoubleTalkPress = false;
+						}
+					}else {
+						startTalkByHalfDuplex();
+					}
+				} else if (!mCbDoubleTalk.isChecked()
+							&& arg1.getAction() == MotionEvent.ACTION_UP) {
+					stopTalkByHalfDuplex();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -960,21 +998,52 @@ public class ActivityGuideDeviceCamera
 		}
 	};
 
-	private void startTalk() {
+	/**
+	 * 开启单向对讲
+	 */
+	private void startTalkByHalfDuplex() {
 		if (mTalkManager != null && mHandler != null && mFunVideoView != null) {
-			mTalkManager.onStartThread();
-            mTalkManager.setTalkSound(false);
+			mTalkManager.startTalkByHalfDuplex();
 		}
 	}
 
-	private void stopTalk(int delayTime) {
+	/**
+	 * 关闭单向对讲
+	 */
+	private void stopTalkByHalfDuplex() {
 		if (mTalkManager != null && mHandler != null && mFunVideoView != null) {
-			mTalkManager.onStopThread();
-            mTalkManager.setTalkSound(true);
+			mTalkManager.stopTalkByHalfDuplex();
 		}
 	}
 
-    private void OpenVoiceChannel(){
+	/**
+	 * 开启双向对讲
+	 */
+	private void startTalkByDoubleDirection() {
+		if (mTalkManager != null && mHandler != null && mFunVideoView != null) {
+			mTalkManager.startTalkByDoubleDirection();
+		}
+	}
+
+	/**
+	 * 关闭双向对讲
+	 */
+	private void stopTalkByDoubleDirection() {
+		if (mTalkManager != null && mHandler != null && mFunVideoView != null) {
+			mTalkManager.stopTalkByDoubleDirection();
+		}
+	}
+
+	private void destroyTalk() {
+		if (mTalkManager != null) {
+			mTalkManager.stopTalkThread();
+			mTalkManager.sendStopTalkCommand();
+		}
+		mIsDoubleTalkPress = false;
+		mBtnVoiceTalk.setBackgroundResource(R.drawable.icon_voice_talk);
+	}
+
+    private void openVoiceChannel(){
 
         if (mBtnVoice.getVisibility() == View.VISIBLE) {
             TranslateAnimation ani = new TranslateAnimation(0, 0, UIFactory.dip2px(this, 100), 0);
@@ -982,15 +1051,11 @@ public class ActivityGuideDeviceCamera
             mBtnVoiceTalk.setAnimation(ani);
             mBtnVoiceTalk.setVisibility(View.VISIBLE);
             mBtnVoice.setVisibility(View.GONE);
-
             mFunVideoView.setMediaSound(false);			//关闭本地音频
-
-            mTalkManager.onStartTalk();
-			mTalkManager.setTalkSound(true);
         }
     }
 
-    private void CloseVoiceChannel(int delayTime){
+    private void closeVoiceChannel(int delayTime){
 
         if (mBtnVoiceTalk.getVisibility() == View.VISIBLE) {
             TranslateAnimation ani = new TranslateAnimation(0, 0, 0, UIFactory.dip2px(this, 100));
@@ -998,8 +1063,7 @@ public class ActivityGuideDeviceCamera
             mBtnVoiceTalk.setAnimation(ani);
             mBtnVoiceTalk.setVisibility(View.GONE);
             mBtnVoice.setVisibility(View.VISIBLE);
-
-            mTalkManager.onStopTalk();
+			destroyTalk();
             mHandler.sendEmptyMessageDelayed(MESSAGE_OPEN_VOICE, delayTime);
         }
     }

@@ -240,7 +240,32 @@ public class ActivityGuideDeviceSport
 
 		showVideoControlBar();
 
-		mTalkManager = new TalkManager(mFunDevice);
+		mTalkManager = new TalkManager(mFunDevice.getDevSn(), new TalkManager.OnTalkButtonListener() {
+			@Override
+			public boolean isPressed() {
+				return false;
+			}
+
+			@Override
+			public void onUpdateUI() {
+
+			}
+
+			@Override
+			public void OnCreateLinkResult(int Result) {
+
+			}
+
+			@Override
+			public void OnCloseTalkResult(int Result) {
+
+			}
+
+			@Override
+			public void OnVoiceOperateResult(int Type, int result) {
+
+			}
+		});
 
 		mCanToPlay = false;
 
@@ -929,10 +954,39 @@ public class ActivityGuideDeviceSport
 		}
 	};
 
-	private void startTalk() {
+	/**
+	 * 开启单向对讲
+	 */
+	private void startTalkByHalfDuplex() {
 		if (mTalkManager != null && mHandler != null && mFunVideoView != null) {
-			mTalkManager.onStartThread();
-            mTalkManager.setTalkSound(false);
+			mTalkManager.startTalkByHalfDuplex();
+		}
+	}
+
+	/**
+	 * 关闭单向对讲
+	 */
+	private void stopTalkByHalfDuplex() {
+		if (mTalkManager != null && mHandler != null && mFunVideoView != null) {
+			mTalkManager.stopTalkByHalfDuplex();
+		}
+	}
+
+	/**
+	 * 开启双向对讲
+	 */
+	private void startTalkByDoubleDirection() {
+		if (mTalkManager != null && mHandler != null && mFunVideoView != null) {
+			mTalkManager.startTalkByDoubleDirection();
+		}
+	}
+
+	/**
+	 * 关闭双向对讲
+	 */
+	private void stopTalkByDoubleDirection() {
+		if (mTalkManager != null && mHandler != null && mFunVideoView != null) {
+			mTalkManager.stopTalkByDoubleDirection();
 		}
 	}
 

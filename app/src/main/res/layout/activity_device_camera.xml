@@ -159,7 +159,12 @@
             android:layout_below="@+id/layoutPlayWnd"
             android:layout_marginTop="5dp"
             android:layout_weight="1" >
-
+            <CheckBox
+                android:id="@+id/cb_double_talk_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/talk_by_double_direction"
+                android:layout_centerHorizontal="true"/>
             <RelativeLayout
                 android:id="@+id/VoiceTalk"
                 android:layout_width="100dp"
@@ -167,6 +172,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:background="@color/transparent"
+                android:layout_below="@+id/cb_double_talk_switch"
                 >
                 <Button
                     android:id="@+id/Btn_Talk_Switch"
