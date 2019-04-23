@@ -19,7 +19,6 @@ import com.lib.EUIMSG;
 import com.lib.FunSDK;
 import com.lib.IFunSDKResult;
 import com.lib.MsgContent;
-import com.lib.decoder.DecoderManaer;
 import com.lib.funsdk.support.FunError;
 import com.lib.funsdk.support.FunLog;
 import com.lib.funsdk.support.FunPath;
@@ -41,6 +40,8 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import static com.lib.EFUN_ATTR.EOA_MEDIA_YUV_USER;
 
 //import com.android.gl2jni.GL2JNIView;
 
@@ -90,8 +91,8 @@ public class FunVideoView extends LinearLayout implements IFunSDKResult {
 	private boolean mIsFishEyeEnable = false;
 	
 	private SDK_FishEyeFrame mFishEyeFrame = null;
-	
-	
+	private boolean mIsGetYUVData;
+	private OnYUVDataListener mOnYUVDataListener;
 	public FunVideoView(Context context) {
 		super(context);
         mContext = context;
@@ -271,6 +272,13 @@ public class FunVideoView extends LinearLayout implements IFunSDKResult {
 		mPlayStat = STAT_PLAYING;
 		openVideo();
 	}
+
+	public void getYuvData(OnYUVDataListener listener) {
+		mOnYUVDataListener = listener;
+		mPlayStat = STAT_PLAYING;
+		mIsGetYUVData = true;
+		openVideo();
+	}
 	
 	/**
 	 * 通过设备的IP(如果是AP连接设备)或者设备的序列号SN(如果是互联网连接设备)播放设备视频
@@ -445,6 +453,10 @@ public class FunVideoView extends LinearLayout implements IFunSDKResult {
 						mStreamType.getTypeId(), mSufaceView, 0);
 //                FunSDK.SetIntAttr(mPlayerHandler, EFUN_ATTR.EOA_SET_MEDIA_DATA_USER, getUserId());
 //                FunSDK.MediaSetFluency(mPlayerHandler, SDKCONST.EDECODE_TYPE.EDECODE_REAL_TIME_STREAM0, 0); //设置流畅度（实时<-->流畅）
+				if (mIsGetYUVData) {
+					//传入EOA_MEDIA_YUV_USER 表示不显示直接输出YUV数据 对应的是EUIMSG.ON_YUV_DATA:
+					FunSDK.SetIntAttr(mPlayerHandler, EOA_MEDIA_YUV_USER, mUserID);
+				}
 			}
 			mIsPlaying = true;
 		} else if ( mVideoUrl.startsWith("time://") ) {
@@ -834,8 +846,11 @@ public class FunVideoView extends LinearLayout implements IFunSDKResult {
                 }
             }
         	break;
-		case 5524:	// YUV CallBack, FunSDK.MediaRealPlay()时View传null就会回到YUV数据
+            case EUIMSG.ON_YUV_DATA:	// YUV CallBack, FunSDK.MediaRealPlay()时View传null就会回到YUV数据
 			{
+				if (mOnYUVDataListener != null) {
+					mOnYUVDataListener.onYUVData(msgContent.pData,msg.arg2,msgContent.arg3);
+				}
 //				FunLog.i(TAG, "__frame_count = " + __frame_count);
 //				if ( null != msgContent.pData && __frame_count ++ == 100 ) {
 //					try {
@@ -866,4 +881,7 @@ public class FunVideoView extends LinearLayout implements IFunSDKResult {
 	}
 	
 //	static int __frame_count = 0;
+	public interface OnYUVDataListener {
+    	void onYUVData(byte[] data,int width,int height);
+	}
 }

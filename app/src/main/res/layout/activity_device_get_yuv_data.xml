@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+	android:orientation="vertical">
+
+    <include
+        android:id="@+id/layoutTop"
+        layout="@layout/layout_top_navigate_theme" />
+
+	<Button
+		android:id="@+id/start_get_yuv_data"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:text="@string/start_get_yuv_data"
+		android:onClick="onStartGetYUV"/>
+
+	<Button
+		android:id="@+id/stop_get_yuv_data"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:text="@string/stop_get_yuv_data"
+		android:onClick="onStopGetYUV"/>
+
+	<Button
+		android:id="@+id/save_yuv_data"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:text="@string/start_save_yuv_data_to_file"
+		android:onClick="onSaveYUV"/>
+
+	<Button
+		android:id="@+id/yuv_data_into_image_display"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:text="@string/yuv_data_to_bmp"
+		android:onClick="onYUVToImage"
+		android:visibility="gone"/>
+
+	<TextView
+		android:id="@+id/tv_state"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" />
+</LinearLayout>

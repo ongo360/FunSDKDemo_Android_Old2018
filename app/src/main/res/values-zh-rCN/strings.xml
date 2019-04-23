@@ -670,4 +670,19 @@
     <string name="flip_s">翻转成功</string>
     <string name="flip_f">翻转失败</string>
     <string name="talk_by_double_direction">双向对讲开启</string>
+    <string name="start_get_yuv_data">开始获取YUV数据</string>
+    <string name="stop_get_yuv_data">停止获取YUV数据</string>
+    <string name="start_save_yuv_data_to_file">开始保存YUV数据到文件中</string>
+    <string name="stop_save_yuv_data_to_file">停止保存YUV数据到文件中</string>
+    <string name="yuv_data_to_bmp">YUV数据转成图片显示</string>
+    <string name="start_play_success">开始播放成功</string>
+    <string name="start_play_failed">开始播放失败</string>
+    <string name="get_yuv_success">获取YUV数据成功</string>
+    <string name="get_yuv_failed">获取YUV数据失败</string>
+    <string name="get_buffer_success">缓冲数据成功</string>
+    <string name="get_buffer_failed">缓冲数据失败</string>
+    <string name="save_yuv">保存YUV数据到</string>
+    <string name="get_yuv_data">获取YUV数据</string>
+    <string name="permission_request">权限申请</string>
+    <string name="all_permission">授权SD卡读写权限、定位（用于快速配置获取WiFi）权限、摄像头权限和录音（用于对讲）权限</string>
 </resources>

@@ -662,4 +662,19 @@
     <string name="flip">Flip</string>
     <string name="get_config_f">Get config failed</string>
     <string name="talk_by_double_direction">Two-way Talk Opening</string>
+    <string name="start_get_yuv_data">Start Get Yuv Data</string>
+    <string name="stop_get_yuv_data">Stop Get Yuv Data</string>
+    <string name="start_save_yuv_data_to_file">Start Save Yuv Data File</string>
+    <string name="stop_save_yuv_data_to_file">Stop Save Yuv Data File</string>
+    <string name="yuv_data_to_bmp">Yuv Data into Image Display</string>
+    <string name="start_play_success">Start Play Success</string>
+    <string name="start_play_failed">Start Play Failed</string>
+    <string name="get_yuv_success">Get YUV Data Success</string>
+    <string name="get_yuv_failed">Get YUV Data Failed</string>
+    <string name="get_buffer_success">Get Buffer Success</string>
+    <string name="get_buffer_failed">Get Buffer Failed</string>
+    <string name="save_yuv">Save YUV Data into</string>
+    <string name="get_yuv_data">Get YUV Data</string>
+    <string name="permission_request">Permission Request</string>
+    <string name="all_permission">Authorize SD Card Read and Write Rights, Location (Used for Fast Configuration to Acquire WiFi) Rights, Camera Rights and Recording (Used for Interview) Rights</string>
 </resources>

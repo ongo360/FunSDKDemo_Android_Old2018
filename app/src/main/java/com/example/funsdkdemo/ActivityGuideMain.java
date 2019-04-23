@@ -1,5 +1,6 @@
 package com.example.funsdkdemo;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,8 +8,11 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 
+import com.example.funsdkdemo.dialog.PermissionDialog;
 import com.lib.funsdk.support.FunSupport;
 import com.lib.funsdk.support.OnFunLoginListener;
+import com.tbruyelle.rxpermissions2.Permission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +22,9 @@ public class ActivityGuideMain extends ActivityGuide implements OnFunLoginListen
 	private static List<DemoModule> mGuideModules = new ArrayList<DemoModule>();
 	
 	private Button mBtnUserStat = null;
-	
+	private PermissionDialog mPermissionDialog;
+	private RxPermissions rxPermissions;
+
 	static {
 		
 		// 1.用户相关
@@ -81,6 +87,11 @@ public class ActivityGuideMain extends ActivityGuide implements OnFunLoginListen
 		FunSupport.getInstance().registerOnFunLoginListener(this);
 		
 		refreshLoginStat(FunSupport.getInstance().hasLogin());
+
+		rxPermissions = new RxPermissions(this);
+
+		checkPermission(getString(R.string.all_permission), Manifest.permission.WRITE_EXTERNAL_STORAGE,
+				Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CAMERA,Manifest.permission.RECORD_AUDIO);
 	}
 
 	@Override
@@ -128,5 +139,78 @@ public class ActivityGuideMain extends ActivityGuide implements OnFunLoginListen
 		intent.setClass(this, ActivityGuideUserInfo.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(intent);
+	}
+
+	private boolean checkPermission(final String permissionTitle, final String... permission) {
+		try{
+			final boolean[] result = new boolean[1];
+			rxPermissions.requestEach(permission).subscribe(new io.reactivex.functions.Consumer<Permission>() {
+				@Override
+				public void accept(final Permission permission) throws Exception {
+					if (permission.granted) {
+						result[0] = true;
+						permissionGranted(permission);
+					} else if (permission.shouldShowRequestPermissionRationale) {
+						result[0] = false;
+						if (mPermissionDialog == null) {
+							mPermissionDialog = new PermissionDialog();
+						}
+						if (!mPermissionDialog.isAdded()) {
+							mPermissionDialog.setTitle(permissionTitle);
+							mPermissionDialog.setOperateListener(new PermissionDialog.OperateListener() {
+								@Override
+								public void onCancel() {
+									result[0] = false;
+									permissionResult(false,permission);
+								}
+
+								@Override
+								public void onConfirm() {
+									permissionResult(true,permission);
+									result[0] = true;
+								}
+							});
+							mPermissionDialog.show(getSupportFragmentManager(), "mPermissionDialog");
+						}
+					} else {
+						// Need to go to the settings
+						if (mPermissionDialog == null) {
+							mPermissionDialog = new PermissionDialog();
+						}
+						if (!mPermissionDialog.isAdded()) {
+							mPermissionDialog.setTitle(permissionTitle);
+							mPermissionDialog.setOperateListener(new PermissionDialog.OperateListener() {
+								@Override
+								public void onCancel() {
+									result[0] = false;
+									permissionResult(false,permission);
+								}
+
+								@Override
+								public void onConfirm() {
+									permissionResult(true,permission);
+									result[0] = true;
+								}
+							});
+							mPermissionDialog.show(getSupportFragmentManager(), "mPermissionDialog");
+						}
+
+					}
+				}
+			});
+			return result[0];
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+
+	private void permissionGranted(Permission permission) {
+
+	}
+
+	private void permissionResult(boolean isSuccess,Permission permission){
+
 	}
 }

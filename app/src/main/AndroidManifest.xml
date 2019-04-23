@@ -33,10 +33,9 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- 如果您使用了友盟自动更新提醒功能，需添加这个权限，为了将更新的APK临时存在SD卡里 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-
     <application
         android:name="com.example.funsdkdemo.MyApplication"
         android:allowBackup="true"
@@ -395,6 +394,7 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".devices.settings.ActivityGuideDeviceSmart433" />
         <activity android:name=".devices.settings.ActivityGuideDeviceDoorLock" />
+        <activity android:name=".devices.settings.ActivityGuideDeviceGetYUVData" />
 
 
         <service android:name="com.example.funsdkdemo.alarm.ServiceGuidePushAlarmNotification">

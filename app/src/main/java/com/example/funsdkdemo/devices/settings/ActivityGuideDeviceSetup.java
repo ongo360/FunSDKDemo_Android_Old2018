@@ -83,6 +83,9 @@ public class ActivityGuideDeviceSetup extends ActivityGuide {
 		// 门锁配置
 		mGuideModules.add(new DemoModule(-1, R.string.device_doorlock, -1,
 				ActivityGuideDeviceDoorLock.class));
+
+		//获取YUV数据
+		mGuideModules.add(new DemoModule(-1,R.string.get_yuv_data,-1,ActivityGuideDeviceGetYUVData.class));
 	}
 
 	@Override

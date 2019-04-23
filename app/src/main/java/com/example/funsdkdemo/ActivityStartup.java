@@ -1,10 +1,10 @@
 package com.example.funsdkdemo;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -13,7 +13,7 @@ import com.example.funsdkdemo.alarm.ServiceGuidePushAlarmNotification;
 import com.lib.funsdk.support.FunSupport;
 import com.lib.funsdk.support.OnFunLoginListener;
 
-public class ActivityStartup extends Activity implements OnFunLoginListener {
+public class ActivityStartup extends FragmentActivity implements OnFunLoginListener {
 
 	private final int MESSAGE_ENTER_MAINMENU = 0x100;
 	private final int MESSAGE_LOGIN_FUNISHED = 0x101;
@@ -21,8 +21,6 @@ public class ActivityStartup extends Activity implements OnFunLoginListener {
 	
 	private boolean mLoginHasFinished = false;
 	private boolean mWaitTimeout = false;
-	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
