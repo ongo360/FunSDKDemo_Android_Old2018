@@ -287,7 +287,7 @@
             android:background="@drawable/common_button_selector_blue"
             android:padding="5dp"
             android:singleLine="true"
-            android:text="@string/wake_up_device"
+            android:text="@string/low_power_dev"
             android:textColor="@color/white"
             android:textSize="14dp" />
     </LinearLayout>

@@ -20,7 +20,7 @@ import com.basic.G;
 import com.example.funsdkdemo.ListAdapterFunDevice.OnFunDeviceItemClickListener;
 import com.example.funsdkdemo.devices.ActivityGuideDeviceAlarmResult;
 import com.example.funsdkdemo.devices.ActivityGuideDeviceTransCom;
-import com.example.funsdkdemo.devices.wakeup.DevWakeUpActivity;
+import com.example.funsdkdemo.devices.lowpower.LowPowerDevActivity;
 import com.lib.MsgContent;
 import com.lib.funsdk.support.FunError;
 import com.lib.funsdk.support.FunSupport;
@@ -450,7 +450,7 @@ public class ActivityGuideDeviceList extends ActivityDemo
     @Override
     public void onFunDeviceWakeUp(FunDevice funDevice) {
         Intent intent = new Intent();
-        intent.setClass(this, DevWakeUpActivity.class);
+        intent.setClass(this, LowPowerDevActivity.class);
         intent.putExtra("FUN_DEVICE_ID", funDevice.getId());
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

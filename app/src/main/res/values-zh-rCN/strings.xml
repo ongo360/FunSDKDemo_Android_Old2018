@@ -685,4 +685,11 @@
     <string name="get_yuv_data">获取YUV数据</string>
     <string name="permission_request">权限申请</string>
     <string name="all_permission">授权SD卡读写权限、定位（用于快速配置获取WiFi）权限、摄像头权限和录音（用于对讲）权限</string>
+    <string name="start_receive_battery_level">开始电量实时上报</string>
+    <string name="stop_receive_battery_level">结束电量实时上报</string>
+    <string name="battery_level">电量等级</string>
+    <string name="low_power_dev">低功耗设备</string>
+    <string name="dev_prompt_tone">设备提示音</string>
+    <string name="set_config_s">设置成功</string>
+    <string name="set_config_f">设置失败</string>
 </resources>

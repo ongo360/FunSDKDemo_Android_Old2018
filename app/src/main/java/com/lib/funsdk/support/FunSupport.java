@@ -50,6 +50,7 @@ import com.lib.funsdk.support.utils.StringUtils;
 import com.lib.sdk.bean.DSTimeBean;
 import com.lib.sdk.bean.DayLightTimeBean;
 import com.lib.sdk.bean.DownloadInfo;
+import com.lib.sdk.bean.ElectCapacityBean;
 import com.lib.sdk.bean.HandleConfigData;
 import com.lib.sdk.bean.JsonConfig;
 import com.lib.sdk.bean.LocationBean;
@@ -65,6 +66,9 @@ import com.lib.sdk.struct.SDK_ChannelNameConfigAll;
 import com.lib.sdk.struct.SDK_SearchByTime;
 import com.lib.sdk.struct.SDK_TitleDot;
 import com.lib.sdk.struct.SInitParam;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -417,6 +421,12 @@ public class FunSupport implements IFunSDKResult {
         }
     }
 
+    public void registerOnFunDevBatteryLevelListener(OnFunDevBatteryLevelListener ls) {
+        if (!mListeners.contains(ls)) {
+            mListeners.add(ls);
+        }
+    }
+
     public void removeOnFunLoginListener(OnFunLoginListener l) {
         if (mListeners.contains(l)) {
             mListeners.remove(l);
@@ -520,6 +530,12 @@ public class FunSupport implements IFunSDKResult {
     }
 
     public void removeOnFunDeviceWakeUpListener(OnFunDeviceWakeUpListener ls) {
+        if (!mListeners.contains(ls)) {
+            mListeners.remove(ls);
+        }
+    }
+
+    public void removeOnFunDevBatteryLevelListener(OnFunDevBatteryLevelListener ls) {
         if (!mListeners.contains(ls)) {
             mListeners.remove(ls);
         }
@@ -2308,6 +2324,20 @@ public class FunSupport implements IFunSDKResult {
         }
     }
 
+    public void requestRegisterDevBatteryLevel(FunDevice funDevice) {
+        if (null != funDevice) {
+            FunSDK.DevStartUploadData(getHandler(), funDevice.getDevSn(),
+                    SDKCONST.UploadDataType.SDK_ELECT_STATE, 3);
+        }
+    }
+
+    public void requestCancelDevBatteryLevel(FunDevice funDevice) {
+        if (null != funDevice) {
+            FunSDK.DevStopUploadData(getHandler(), funDevice.getDevSn(),
+                    SDKCONST.UploadDataType.SDK_ELECT_STATE, 0);
+        }
+    }
+
     //同步时区
     public void requestSyncDevZone(FunDevice funDevice,int zone) {
         TimeZoneBean timeZoneBean = new TimeZoneBean();
@@ -2321,6 +2351,29 @@ public class FunSupport implements IFunSDKResult {
         FunSDK.DevGetConfigByJson(getHandler(),funDevice.getDevSn(),
                 JsonConfig.GENERAL_LOCATION,
                 1024,-1,5000,funDevice.getId());
+    }
+
+    private void parseBatteryState(String jsonStr) {
+        if (TextUtils.isEmpty(jsonStr))
+            return;
+        try {
+            JSONObject jsonObject = new JSONObject(jsonStr);
+            jsonObject = jsonObject.optJSONObject(ElectCapacityBean.CLASSNAME);
+            ElectCapacityBean electCapacityBean = new ElectCapacityBean();
+            electCapacityBean.devStorageStatus = jsonObject.optInt("DevStorageStatus", -2);
+            electCapacityBean.electable = jsonObject.optInt("electable", 3);
+            electCapacityBean.percent = jsonObject.optInt("percent", 4);
+            for (OnFunListener l : mListeners) {
+                if (l instanceof OnFunDevBatteryLevelListener) {
+                    ((OnFunDevBatteryLevelListener) l).onBatteryLevel(
+                            electCapacityBean.devStorageStatus,
+                            electCapacityBean.electable,
+                            electCapacityBean.percent);
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -3452,6 +3505,18 @@ public class FunSupport implements IFunSDKResult {
                     }
                 }
             }
+                break;
+            case EUIMSG.EMSG_DEV_START_UPLOAD_DATA:
+                for (OnFunListener l : mListeners) {
+                    if (l instanceof OnFunDevBatteryLevelListener) {
+                        ((OnFunDevBatteryLevelListener) l).onRegister(msg.arg1 >= 0);
+                    }
+                }
+                break;
+            case EUIMSG.EMSG_DEV_STOP_UPLOAD_DATA:
+                break;
+            case EUIMSG.EMSG_DEV_ON_UPLOAD_DATA:
+                parseBatteryState(G.ToString(msgContent.pData));
                 break;
             default:
                 break;

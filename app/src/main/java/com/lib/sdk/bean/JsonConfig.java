@@ -76,9 +76,28 @@ public class JsonConfig {
 	public static final String OPERATION_NEW_START_UPGRADE = "OPStartUpgradeReq";// ÐÂ°æ±¾ÔÆÉý¼¶ÏÂÔØÇëÇó
 	public static final String OPERATION_FTPTEST = "OPFTPTest";
 	public static final String OPERATION_SET_LOGO = "OPLogoSetting";
+	//以下为智联中心相关命令
 	public static final String OPERATION_CONSUMER_PRO_CMD = "OPConsumerProCmd";
+	public static final String OPERATION_CMD_GET = "GetAllDevList";
+	public static final String OPERATION_CMD_ADD = "StartAddDev";
+	public static final String OPERATION_CMD_STOP = "StopAddDev";
+	public static final String OPERATION_CMD_DEL = "DeleteDev";
+	public static final String OPERATION_CMD_RENAME = "ChangeDevName";
+	public static final String OPERATION_CMD_STATUS = "ChangeDevStatus";
+	public static final String OPERATION_CMD_CUR_MODE = "GetModeConfig"; //获取当前模式下传感器
+	public static final String OPERATION_CMD_MODE_LIST = "GetAllModeList";//获取所模式列表
+	public static final String OPERATION_CMD_MODE_RENAME = "ChangeModeName";
+	public static final String OPERATION_CMD_CHANGE_MODE = "ChangeMode";
+	public static final String OPERATION_CMD_GET_LINK_STATE = "GetLinkState";  //获取在线设备
+	public static final String OPERATION_CMD_INQUIRY_STATUS = "InquiryStatus"; //获取信息
+	public static final String OPERATION_CMD_CONSOR_ALARM = "SetConsSensorAlarm";//设置智联设备报警联动
+	public static final String OPERATION_CMD_GET_CONSOR_ALARM = "Consumer.SensorAlarm";//获取智联报警联动
+	public static final String OPERATION_CMD_SET_SWITCH_STATE = "ChangeSwitchState";//改变墙壁开关状态
+	public static final String OPERATION_CMD_SET_CURTAIN_STATE = "ChangeCurtainState";//改变窗帘状态
+	//---
+
 	public static final String OPERATION_DDNSAPPLY = "OPDDNSAPPLY"; // ddns
-																	// apply°´¼ü¹¦ÄÜ
+	// apply°´¼ü¹¦ÄÜ
 	public static final String OPERATION_OPMACHINE = "OPMachine";// 重启/关闭操作
 
 	public static final String OPEARTION_CALENDAR = "OPSCalendar";
@@ -107,11 +126,54 @@ public class JsonConfig {
 	public static final String OPTALK = "OPTalk";// 对讲控制
 	public static final String OPCOMPRESSPIC = "OPCompressPic";
 	public static final String CFG_DETECT_ANALYZE = "Detect.Analyze";
+	public static final String CFG_PMS = "NetWork.PMS";
+	public static final String DETECT_ANALYZE = "Detect.Analyze";
+	public static final String NET_COMMON = "NetWork.NetCommon";
+	public static final String WHITE_LIGHT = "Camera.WhiteLight";
+	public static final String NETWORK_MODE = "System.NetWorkMode";
+	public static final String DEVICE__SUPPORT_LANGUAGE = "MultiLanguage";
+	public static final String DEVICE_LANGUAGE = "General.Location.Language";
+	public static final String PRODUCTION_ADDRESS = "Camera.FishLensParam";
+	public static final String NETWORK_WIFI = "NetWork.Wifi";
+	public static final String NETWORK_MESSAGE_PUSH = "NetWork.PMS";
+	public static final String SYSTEM_MANAGE_SHUTDOWN = "System.ManageShutDown";
+	public static final String ALARM_PIR = "Alarm.PIR";
+	public static final String WIFI_ROUTE_INFO = "WifiRouteInfo";
 
+	public static final String SMATR_H264 = "AVEnc.SmartH264";
+	public static final String ENCODE_264_ABILITY = "Encode264ability";
+	public static final String SMART_H264V2 = "AVEnc.SmartH264V2";
+	public static final String DETECT_LOCAL_ALARM ="Alarm.WifiAlarm";
+
+	public static final String OPENBREATH ="System.OpenBreathLamp";
+	public static final String CAPTURE_PRIORITY="WorkMode.CapturePriority"; //拍照优先级
+	public static final String WIFI_WAKEUP="NetWork.WifiWakeupType";//wifi唤醒
+	public static final String PUSH_MSG="NetWork.PushMsg";//电量低推送
+	public static final String SET_ENABLE_VIDEO = "NetWork.SetEnableVideo";//录像本地保存
+	public static final String STORAGE_SNAPSHOT= "Storage.Snapshot";//拍照本地保存
+	//门锁，在app上视为433智联的一种，因此除了下面这几种，也同时又智联中心相关命令（line 77）
 	public static final String DOOR_LOCK_CMD = "OPDoorLockProCmd"; //配置头Name,与普通433区分（见OPERATION_CONSUMER_PRO_CMD）
 	public static final String DOOR_LOCK_SET_TEMP_PSD= "SetTmpPasswd";//设置临时密码
 	public static final String DOOR_LOCK_UNLOCK = "RemoteUnlock";//远程开锁
 	public static final String DOOR_LOCK_USER_INFO= "GetUsrInfo";//门锁密码、指纹、门卡等用户信息
 	public static final String DOOR_LOCK_CHANGE_NAME = "ChangeUsrName";//修改密码、指纹、门卡的用户昵称
 	public static final String DOOR_LOCK_IS_ADDED = "Consumer.IsDoorLockAdded"; //是否已添加门铃
+
+	public static final String IDR_RESERVE_WAKE_UP = "Consumer.ReserveWakeUp"; //门铃来电预约
+	public static final String IDR_NO_DISTURB = "Consumer.NoDisturbing";//免打扰
+	public static final String OPERATION_ELEC_PTZ = "OPElecPTZControl";
+	public static final String INTERVAL_WAKE_UP = "Consumer.IntervalWakeUp";//录像间隔
+	public static final String CHANGE_MSG_PUSH_AUTH = "ChangeMessagePushAuth";//修改消息推送权限
+	public static final String SET_MSG_STATISTICS = "SetMessageStatistics";//设置消息统计开关
+	public static final String CFG_DETECT_TRACK = "Detect.DetectTrack";//人形跟随
+	public static final String CFG_DEV_RING_CTRL = "Consumer.DevRingControl";//设备响铃控制
+	public static final String CFG_FORCE_SHUT_DOWN_MODE = "Consumer.ForceShutDownMode";//关机控制
+	public static final String CFG_NOTIFY_LIGHT = "Consumer.NotifyLight";//设备呼吸灯
+	public static final String CFG_DEV_HORN_VOLUME = "fVideo.Volume";//设备喇叭音量
+	public static final String CFG_DEV_MIC_VOLUME = "fVideo.InVolume";//设备Mic音量
+	public static final String CFG_DEV_APP_BIND_FLAG ="General.AppBindFlag";//获取设备是否处于初始化状态
+	public static final String CMD_SYSTEM_INFO_EX = "SystemInfoEx";//扩展系统信息 包括了单片机版本号
+	public static final String CMD_ENCYPT_CHIP_INFO = "EncyptChipInfo";//加密芯片信息
+	public static final String CFG_VOICE_TIP_TYPE = "Ability.VoiceTipType";//获取报警声种类
+	public static final String CFG_BROWSER_LANGUAGE = "BrowserLanguage";//设置报警声音的语言
 }

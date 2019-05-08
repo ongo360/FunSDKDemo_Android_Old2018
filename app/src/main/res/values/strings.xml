@@ -677,4 +677,11 @@
     <string name="get_yuv_data">Get YUV Data</string>
     <string name="permission_request">Permission Request</string>
     <string name="all_permission">Authorize SD Card Read and Write Rights, Location (Used for Fast Configuration to Acquire WiFi) Rights, Camera Rights and Recording (Used for Interview) Rights</string>
+    <string name="start_receive_battery_level">Start receive battery level </string>
+    <string name="stop_receive_battery_level">Stop receive battery level</string>
+    <string name="battery_level">Battery Level</string>
+    <string name="low_power_dev">Low Power Device</string>
+    <string name="dev_prompt_tone">Device Prompt Tone</string>
+    <string name="set_config_s">Set success</string>
+    <string name="set_config_f">Set failed</string>
 </resources>

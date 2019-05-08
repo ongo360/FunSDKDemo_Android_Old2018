@@ -390,7 +390,7 @@
             android:theme="@android:style/Theme.Holo.Light.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".devices.wakeup.DevWakeUpActivity"
+        <activity android:name=".devices.lowpower.LowPowerDevActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".devices.settings.ActivityGuideDeviceSmart433" />
         <activity android:name=".devices.settings.ActivityGuideDeviceDoorLock" />
