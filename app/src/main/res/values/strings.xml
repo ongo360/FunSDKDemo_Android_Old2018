@@ -684,4 +684,6 @@
     <string name="dev_prompt_tone">Device Prompt Tone</string>
     <string name="set_config_s">Set success</string>
     <string name="set_config_f">Set failed</string>
+    <string name="download_s">Download Success</string>
+    <string name="download_f">Download Failed</string>
 </resources>

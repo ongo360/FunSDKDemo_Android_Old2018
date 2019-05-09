@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONObject;
 import com.basic.G;
 import com.example.funsdkdemo.ListAdapterFunDevice.OnFunDeviceItemClickListener;
-import com.example.funsdkdemo.devices.ActivityGuideDeviceAlarmResult;
+import com.example.funsdkdemo.alarm.ActivityGuideDeviceAlarmResult;
 import com.example.funsdkdemo.devices.ActivityGuideDeviceTransCom;
 import com.example.funsdkdemo.devices.lowpower.LowPowerDevActivity;
 import com.lib.MsgContent;

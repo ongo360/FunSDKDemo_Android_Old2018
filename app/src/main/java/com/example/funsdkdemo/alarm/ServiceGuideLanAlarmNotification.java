@@ -11,7 +11,6 @@ import android.os.IBinder;
 import android.os.Message;
 
 import com.example.funsdkdemo.R;
-import com.example.funsdkdemo.devices.ActivityGuideDeviceAlarmResult;
 import com.lib.funsdk.support.FunLog;
 import com.lib.funsdk.support.FunSupport;
 import com.lib.funsdk.support.OnFunDeviceAlarmListener;

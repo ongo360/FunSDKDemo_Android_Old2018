@@ -193,7 +193,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.ActivityGuideDeviceAlarmResult"
+            android:name="com.example.funsdkdemo.alarm.ActivityGuideDeviceAlarmResult"
             android:screenOrientation="portrait"
             >
             <intent-filter>

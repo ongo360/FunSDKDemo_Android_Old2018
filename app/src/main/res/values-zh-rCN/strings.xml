@@ -692,4 +692,6 @@
     <string name="dev_prompt_tone">设备提示音</string>
     <string name="set_config_s">设置成功</string>
     <string name="set_config_f">设置失败</string>
+    <string name="download_s">下载成功</string>
+    <string name="download_f">下载失败</string>
 </resources>

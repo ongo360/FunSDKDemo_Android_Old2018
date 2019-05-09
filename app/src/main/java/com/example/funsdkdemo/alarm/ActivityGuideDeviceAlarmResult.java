@@ -1,10 +1,12 @@
-package com.example.funsdkdemo.devices;
+package com.example.funsdkdemo.alarm;
 
 
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,8 +22,14 @@ import com.basic.G;
 import com.example.funsdkdemo.ActivityDemo;
 import com.example.funsdkdemo.ListAdapterDeviceAlarmInfo;
 import com.example.funsdkdemo.R;
+import com.example.funsdkdemo.devices.ActivityGuideDeviceLanAlarm;
 import com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupAlarm;
+import com.lib.EUIMSG;
+import com.lib.FunSDK;
+import com.lib.IFunSDKResult;
+import com.lib.Mps.MpsClient;
 import com.lib.Mps.XPMS_SEARCH_ALARMINFO_REQ;
+import com.lib.MsgContent;
 import com.lib.funsdk.support.FunAlarmNotification;
 import com.lib.funsdk.support.FunError;
 import com.lib.funsdk.support.FunSupport;
@@ -29,13 +37,15 @@ import com.lib.funsdk.support.OnFunDeviceAlarmListener;
 import com.lib.funsdk.support.config.AlarmInfo;
 import com.lib.funsdk.support.models.FunDevice;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 
-public class ActivityGuideDeviceAlarmResult extends ActivityDemo implements OnClickListener, OnFunDeviceAlarmListener, OnItemClickListener {
+public class ActivityGuideDeviceAlarmResult extends ActivityDemo implements OnClickListener,
+		OnFunDeviceAlarmListener, OnItemClickListener,IFunSDKResult {
 
 	
 	private TextView mTextTitle = null;
@@ -53,7 +63,8 @@ public class ActivityGuideDeviceAlarmResult extends ActivityDemo implements OnCl
 	private FunDevice mFunDevice = null;
 	
 	private String mCurrDate = null;
-	
+
+	private int userId;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -100,6 +111,8 @@ public class ActivityGuideDeviceAlarmResult extends ActivityDemo implements OnCl
 		
 		// 搜索当天的报警消息
 		trySearchAlarm(null);
+
+		userId = FunSDK.GetId(userId,this);
 	}
 	
 
@@ -297,6 +310,16 @@ public class ActivityGuideDeviceAlarmResult extends ActivityDemo implements OnCl
 		if ( arg0 == mListView && null != mAdapter ) {
 			AlarmInfo alarmInfo = mAdapter.getAlarmInfo(position);
 			if ( null != alarmInfo ) {
+				String savePicPath = Environment.getExternalStorageDirectory() + File.separator + System.currentTimeMillis() + ".jpg";
+				MpsClient.DownloadAlarmImage(userId
+						,mFunDevice.getDevSn()
+						,savePicPath
+						,alarmInfo.getOriginJson()
+						,0
+						,0
+						,position);
+
+				//目前云存储上的图片没有url地址
 				String picUrl = alarmInfo.getPic();
 				if ( null == picUrl ) {
 					picUrl = "";
@@ -308,4 +331,17 @@ public class ActivityGuideDeviceAlarmResult extends ActivityDemo implements OnCl
 	}
 
 
+	@Override
+	public int OnFunSDKResult(Message message, MsgContent msgContent) {
+		switch (message.what) {
+			case EUIMSG.MC_SearchAlarmPic:
+				if (message.arg1 >= 0) {
+					showToast(R.string.download_s);
+				}else {
+					showToast(R.string.download_f);
+				}
+				break;
+		}
+		return 0;
+	}
 }

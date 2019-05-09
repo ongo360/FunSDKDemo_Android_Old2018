@@ -4,7 +4,6 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -13,8 +12,6 @@ import android.os.Message;
 import android.widget.Toast;
 
 import com.example.funsdkdemo.R;
-import com.example.funsdkdemo.devices.ActivityGuideDeviceAlarmResult;
-import com.lib.FunSDK;
 import com.lib.funsdk.support.FunAlarmNotification;
 import com.lib.funsdk.support.FunLog;
 import com.lib.funsdk.support.FunSupport;
@@ -22,8 +19,6 @@ import com.lib.funsdk.support.OnFunDeviceAlarmListener;
 import com.lib.funsdk.support.OnFunLoginListener;
 import com.lib.funsdk.support.config.AlarmInfo;
 import com.lib.funsdk.support.models.FunDevice;
-import com.lib.funsdk.support.utils.Define;
-import com.lib.funsdk.support.utils.SPUtil;
 import com.lib.sdk.bean.StringUtils;
 
 import java.util.ArrayList;
