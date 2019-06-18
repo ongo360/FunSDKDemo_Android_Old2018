@@ -1,5 +1,7 @@
 package com.example.funsdkdemo.utils;
 
+import android.text.TextUtils;
+
 import com.lib.sdk.bean.DayLightTimeBean;
 
 import java.text.SimpleDateFormat;
@@ -89,5 +91,73 @@ public class XUtils {
             }
         }
         return dltInfo;
+    }
+
+    /**
+     * 0  TYPE_NO_PASSWORD,1,TYPE_WPA,2,TYPE_WEB
+     *
+     * @param capabilities
+     * @return
+     */
+    public static final int getCapabilities(String capabilities) {
+        if (!TextUtils.isEmpty(capabilities)) {
+            if (capabilities.contains("WPA") || capabilities.contains("wpa")) {
+                return 1;
+            } else if (capabilities.contains("WEP") || capabilities.contains("wep")) {
+                return 2;
+            } else {
+                return 0;
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * @param capabilities
+     * @return
+     */
+    public static int getEncrypPasswordType(String capabilities) {
+        if (capabilities.contains("WPA2") && capabilities.contains("CCMP")) {
+            // sEncrypType = "AES";
+            // sAuth = "WPA2";
+            return 1;
+        } else if (capabilities.contains("WPA2") && capabilities.contains("TKIP")) {
+            // sEncrypType = "TKIP";
+            // sAuth = "WPA2";
+            return 2;
+        } else if (capabilities.contains("WPA") && capabilities.contains("TKIP")) {
+            // EncrypType = "TKIP";
+            // sAuth = "WPA";
+            return 2;
+        } else if (capabilities.contains("WPA") && capabilities.contains("CCMP")) {
+            // sEncrypType = "AES";
+            // sAuth = "WPA";
+            return 1;
+        } else if (capabilities.contains("WEP")) {
+            return 3;
+        } else {
+            // sEncrypType = "NONE";
+            // sAuth = "OPEN";
+            return 0;
+        }
+    }
+
+    /**
+     * Ascii码值转成字符串
+     *
+     * @param value
+     * @return
+     */
+    public static String asciiToString(String value) {
+        StringBuffer sbu = new StringBuffer();
+        int pos = 0;
+        int length = value.length();
+        String str = null;
+        do {
+            str = value.substring(pos, pos + 2);
+            sbu.append((char) Integer.parseInt(str, 16));
+            pos += 2;
+        } while (pos <= (length - 2));
+        return sbu.toString();
     }
 }

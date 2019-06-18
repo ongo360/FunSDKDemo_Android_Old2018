@@ -2,7 +2,7 @@ package com.example.funsdkdemo;
 
 
 import android.content.Intent;
-import android.net.NetworkInfo.State;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -287,29 +287,6 @@ public class ActivityGuideDeviceListAP extends ActivityDemo implements OnClickLi
 	}
 
 
-	// WifiStateListener
-	@Override
-	public void onNetWorkState(State state, int type, String ssid) {
-		Log.d("test", "onNetWorkState : " + state + ", " + type + ", " + ssid);
-		
-		if ( state == State.CONNECTED ) {
-			
-			FunDevice funDev = FunSupport.getInstance().findAPDevice(ssid);
-			if ( null != funDev ) {
-				funDev.devIp = FunSupport.getInstance().getDeviceWifiManager().getGatewayIp();
-			}
-			
-			if ( null != mCurrSelectedDevice
-					&& ssid.equals(mCurrSelectedDevice.devName )) {
-				tryOpenDevice(mCurrSelectedDevice);
-			}
-		}
-		
-		if ( null != mAdapter ) {
-			mAdapter.notifyDataSetChanged();
-		}
-	}
-
 
 	/* (non-Javadoc)
 	 * @see com.example.funsdkdemo.ListAdapterFunDevice.OnFunDeviceItemClickListener#onFunDevice433Control(com.lib.funsdk.support.models.FunDevice)
@@ -377,5 +354,37 @@ public class ActivityGuideDeviceListAP extends ActivityDemo implements OnClickLi
 			Toast.makeText(this, "添加子设备成功", Toast.LENGTH_SHORT).show();
 		}
 		hideWaitDialog();
+	}
+
+	@Override
+	public void onNetWorkState(NetworkInfo.DetailedState state, int type, String ssid) {
+		Log.d("test", "onNetWorkState : " + state + ", " + type + ", " + ssid);
+
+		if ( state == NetworkInfo.DetailedState.CONNECTED ) {
+
+			FunDevice funDev = FunSupport.getInstance().findAPDevice(ssid);
+			if ( null != funDev ) {
+				funDev.devIp = FunSupport.getInstance().getDeviceWifiManager().getGatewayIp();
+			}
+
+			if ( null != mCurrSelectedDevice
+					&& ssid.equals(mCurrSelectedDevice.devName )) {
+				tryOpenDevice(mCurrSelectedDevice);
+			}
+		}
+
+		if ( null != mAdapter ) {
+			mAdapter.notifyDataSetChanged();
+		}
+	}
+
+	@Override
+	public void onIsWiFiAvailable(boolean isWiFiAvailable) {
+
+	}
+
+	@Override
+	public void onNetWorkChange(NetworkInfo.DetailedState state, int type, String SSid) {
+
 	}
 }

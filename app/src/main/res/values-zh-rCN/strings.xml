@@ -683,6 +683,7 @@
     <string name="get_buffer_failed">缓冲数据失败</string>
     <string name="save_yuv">保存YUV数据到</string>
     <string name="get_yuv_data">获取YUV数据</string>
+    <string name="ap_to_wifi">WiFi配置</string>
     <string name="permission_request">权限申请</string>
     <string name="all_permission">授权SD卡读写权限、定位（用于快速配置获取WiFi）权限、摄像头权限和录音（用于对讲）权限</string>
     <string name="start_receive_battery_level">开始电量实时上报</string>
@@ -694,4 +695,22 @@
     <string name="set_config_f">设置失败</string>
     <string name="download_s">下载成功</string>
     <string name="download_f">下载失败</string>
+    <string name="ap_to_wifi_f">配网失败</string>
+    <string name="Ap_model">AP热点单机模式</string>
+    <string name="Router_model">路由器网络模式</string>
+    <string name="Wifi_list">WIFI列表</string>
+    <string name="Need_ap_config_network">是否进行AP配网</string>
+    <string name="AP_model_tip">设备即将切换到AP热点单机模式，是否继续？此模式下，手机只能直接连接设备共享热点进行访问，无法外网访问，请慎重！</string>
+    <string name="AP_config_NetWork_tip">* 注:如果找不到要连接设备的热点，请刷新列表 *</string>
+    <string name="Select_wifi">请从下面列表中选择设备要连接的WiFi</string>
+    <string name="save">保存</string>
+    <string name="password">密码</string>
+    <string name="Frequency_support">很抱歉，暂不支持 5.8GHz WiFi，请使用 2.4GHz WiFi</string>
+    <string name="Enter_link_wifi">输入要连接的WiFi</string>
+    <string name="Select_switch_model">请选择模式</string>
+    <string name="Current_link_model_ap">当前AP模式</string>
+    <string name="Current_link_model_router">当前路由模式</string>
+    <string name="Save_Success">保存成功</string>
+    <string name="Save_Failed">保存失败</string>
+    <string name="AP_model_Back_tip">点击“保存”可将设备切换到AP热点单机模式，此模式下无法进行外网访问！</string>
 </resources>

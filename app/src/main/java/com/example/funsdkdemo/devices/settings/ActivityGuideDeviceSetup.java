@@ -86,6 +86,9 @@ public class ActivityGuideDeviceSetup extends ActivityGuide {
 
 		//获取YUV数据
 		mGuideModules.add(new DemoModule(-1,R.string.get_yuv_data,-1,ActivityGuideDeviceGetYUVData.class));
+
+		//AP模式配置到路由模式
+		mGuideModules.add(new DemoModule(-1,R.string.ap_to_wifi,-1,ActivityGuideDeviceAPToWiFi.class));
 	}
 
 	@Override

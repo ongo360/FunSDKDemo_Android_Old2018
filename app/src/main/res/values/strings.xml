@@ -675,6 +675,7 @@
     <string name="get_buffer_failed">Get Buffer Failed</string>
     <string name="save_yuv">Save YUV Data into</string>
     <string name="get_yuv_data">Get YUV Data</string>
+    <string name="ap_to_wifi">WiFi config</string>
     <string name="permission_request">Permission Request</string>
     <string name="all_permission">Authorize SD Card Read and Write Rights, Location (Used for Fast Configuration to Acquire WiFi) Rights, Camera Rights and Recording (Used for Interview) Rights</string>
     <string name="start_receive_battery_level">Start receive battery level </string>
@@ -686,4 +687,22 @@
     <string name="set_config_f">Set failed</string>
     <string name="download_s">Download Success</string>
     <string name="download_f">Download Failed</string>
+    <string name="ap_to_wifi_f">AP to wifi failed</string>
+    <string name="Ap_model">AP Mode</string>
+    <string name="Router_model">Routing Mode</string>
+    <string name="Wifi_list">WIFI list</string>
+    <string name="Need_ap_config_network">whether the AP distribution network</string>
+    <string name="AP_model_tip">Does the device switch to AP hotspot stand-alone mode and continue? In this mode, the phone can only be directly connected to the device to share hot spots to access, can not be outside the network visit, please be careful!</string>
+    <string name="AP_config_NetWork_tip">* Note: If you can not find a hotspot to connect to your device, refresh the list *</string>
+    <string name="Select_wifi">select the WiFi to which the device is connected from the list below</string>
+    <string name="save">Save</string>
+    <string name="password">password</string>
+    <string name="Frequency_support">Sorry, don't support the WiFi 5.8GHz, please use the WiFi 2.4GHz</string>
+    <string name="Enter_link_wifi">enter the WiFi to connect to</string>
+    <string name="Select_switch_model">please select mode</string>
+    <string name="Current_link_model_ap">current AP mode</string>
+    <string name="Current_link_model_router">current routing mode</string>
+    <string name="Save_Success">Saving Successfully</string>
+    <string name="Save_Failed">Save Failed,Please try again.</string>
+    <string name="AP_model_Back_tip">Click "Save" to switch the device to AP hotspot stand-alone mode, this mode can not be outside the network access!</string>
 </resources>

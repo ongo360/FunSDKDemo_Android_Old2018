@@ -31,4 +31,11 @@
     <dimen name="dimen_size_15">15.0dip</dimen>
     <dimen name="normal_text_size">16.5sp</dimen>
 
+    <dimen name="title_text_size">17sp</dimen>
+    <dimen name="middle_text_size">16sp</dimen>
+    <dimen name="too_middle_text_size">16.5sp</dimen>
+    <dimen name="small_text_size">14sp</dimen>
+    <dimen name="to_small_text_size">12sp</dimen>
+    <dimen name="super_small_text_size">7sp</dimen>
+    <dimen name="big_text_size">22sp</dimen>
 </resources>

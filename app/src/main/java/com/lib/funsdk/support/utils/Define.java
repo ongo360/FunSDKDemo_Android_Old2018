@@ -1,6 +1,7 @@
 package com.lib.funsdk.support.utils;
 
-import com.lib.funsdk.support.utils.DeviceWifiManager.DEVICE_TYPE;
+
+import com.lib.SDKCONST.DEVICE_TYPE;
 
 public class Define {
 
