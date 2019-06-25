@@ -464,13 +464,16 @@ public class ListAdapterFunDevice extends BaseExpandableListAdapter {
 				StringBuffer sb = new StringBuffer();
 				sb.append(mContext.getString(R.string.cloud_using));
 
-				long expireTime = funDevice.getCloudExpired() * 1000L;
-				Calendar calendar = Calendar.getInstance();
-				calendar.setTimeInMillis(expireTime);
-				SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+				if (funDevice.getCloudExpired() > 0) {
+					long expireTime = funDevice.getCloudExpired() * 1000L;
+					Calendar calendar = Calendar.getInstance();
+					calendar.setTimeInMillis(expireTime);
+					SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 
-				sb.append(mContext.getString(R.string.cloud_expire) +
-						":" + format.format(calendar.getTime()));
+					sb.append(mContext.getString(R.string.cloud_expire) +
+							":" + format.format(calendar.getTime()));
+				}
+
 				viewHolder.tvCloud.setText(sb.toString());
 				break;
 			case CLOUD_EXPIRED: //支持已开通，服务到期

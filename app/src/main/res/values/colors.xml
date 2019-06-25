@@ -72,4 +72,6 @@
     <color name="login_page_color">#353535</color>
     <color name="line_color">#dddddd</color>
     <color name="hint_color">#818181</color>
+    <color name="whitebg_text">#666666</color>
+    <color name="light_gray">#c5c5c5</color>
 </resources>

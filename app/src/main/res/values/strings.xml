@@ -164,6 +164,7 @@
     <string name="device_opt_set_wifi_success">device [%s] WiFi configure success</string>
     <string name="device_opt_set_preset">Set preset point</string>
     <string name="device_opt_get_preset">List of preset point</string>
+    <string name="device_opt_tour">Tour</string>
     <string name="device_opt_change_name">Rename</string>
     <string name="device_opt_change_name_tip">New device name:</string>
     <string name="device_opt_change_name_success">Modify success</string>
@@ -710,4 +711,18 @@
     <string name="cloud_warning">Overdue service</string>
     <string name="cloud_unsupport">Unsupport</string>
     <string name="cloud_not_opend">Not in service</string>
+    <string name="tour_added">add tour point success</string>
+    <string name="reset_s">Reset success</string>
+    <string name="sure_reset">Reset</string>
+    <string name="delete_preset">Delete this preset</string>
+    <string name="make_sure_delet_preset">Are you sure to delete this preset?</string>
+    <string name="tour">tour</string>
+    <string name="diy_tour">custom tour point:</string>
+    <string name="start_tour">start tour</string>
+    <string name="reset_tour">reset tour point</string>
+    <string name="delete_tour">delete tour point</string>
+    <string name="stop_tour_first">please stop tour first</string>
+    <string name="stop_360tour_first">please stop 360°tour first</string>
+    <string name="request_data">Get the data...</string>
+    <string name="preset_tour">Tour</string>
 </resources>

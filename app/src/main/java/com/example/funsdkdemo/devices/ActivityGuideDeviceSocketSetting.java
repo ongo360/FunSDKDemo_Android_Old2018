@@ -1,8 +1,5 @@
 package com.example.funsdkdemo.devices;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +15,9 @@ import com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupCamera;
 import com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSystemInfo;
 import com.lib.funsdk.support.FunSupport;
 import com.lib.funsdk.support.models.FunDevice;
+
+import java.util.ArrayList;
+import java.util.List;
 /*
  * 插座的設置配置界面
  * 

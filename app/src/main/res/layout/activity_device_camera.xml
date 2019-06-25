@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white" 
+    android:background="@color/white"
     android:longClickable="true">
 
     <RelativeLayout
@@ -15,7 +15,7 @@
         <com.lib.funsdk.support.widget.FunVideoView
             android:id="@+id/funVideoView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" 
+            android:layout_height="match_parent"
             />
 
         <TextView
@@ -241,7 +241,8 @@
             android:layout_below="@+id/relativeLayout1"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
-            android:visibility="gone" >
+            android:visibility="gone"
+            >
 
             <ImageButton
                 android:id="@+id/ptz_left"

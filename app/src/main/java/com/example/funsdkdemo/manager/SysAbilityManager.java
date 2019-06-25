@@ -10,8 +10,6 @@ import com.lib.IFunSDKResult;
 import com.lib.MsgContent;
 import com.lib.sdk.bean.SysDevAbilityInfoBean;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -94,9 +92,8 @@ public class SysAbilityManager implements IFunSDKResult {
                 }else {
                     SysDevAbilityInfoBean bean = sysDevAbilityInfoBeanMap.get(devId);
                     if (bean != null) {
-                        Map isSupports = bean.isConfigSupports();
                         if (lisener != null) {
-                            lisener.onSupportResult(isSupports);
+                            lisener.onSupportResult(bean.getDevAbilityMap());
                         }
                     }
                     if (isRefreshDataFromService) {
@@ -149,23 +146,7 @@ public class SysAbilityManager implements IFunSDKResult {
                         bean.parseJson(msgContent.str);
                         OnSysAbilityResultLisener lisener = lisenerMap.get(devId);
                         if (lisener != null) {
-                            Type[] interfaces  = lisener.getClass().getGenericInterfaces();
-                            if (interfaces != null) {
-                                try {
-                                    Type type = ((ParameterizedType) interfaces[0]).getActualTypeArguments()[0];
-                                    if (type != null) {
-                                        if (type == Boolean.class) {
-                                            lisener.onSupportResult(bean.isConfigSupport());
-                                        }else {
-                                            lisener.onSupportResult(bean.isConfigSupports());
-                                        }
-                                    }
-
-                                }catch (Exception e) {
-
-                                }
-                            }
-
+                            lisener.onSupportResult(bean.getDevAbilityMap());
                         }
                     }
                 }

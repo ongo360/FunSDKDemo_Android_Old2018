@@ -398,6 +398,7 @@
         <activity android:name=".devices.settings.ActivityGuideDeviceAPToWiFi" />
         <activity android:name=".cloud.ActivityDevCloudPlayBack" />
         <activity android:name=".cloud.ActivityDevCloudDate" />
+        <activity android:name=".devices.tour.view.TourActivity" />
 
 
         <service android:name="com.example.funsdkdemo.alarm.ServiceGuidePushAlarmNotification">

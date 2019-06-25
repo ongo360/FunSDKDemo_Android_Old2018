@@ -164,6 +164,7 @@
     <string name="device_opt_set_wifi_success">设备[%s]WiFi配置成功</string>
     <string name="device_opt_set_preset">设置预设点</string>
     <string name="device_opt_get_preset">预设点列表</string>
+    <string name="device_opt_tour">巡航操作</string>
     <string name="device_opt_change_name">设备重命名</string>
     <string name="device_opt_change_name_tip">请输入新的设备名称:</string>
     <string name="device_opt_change_name_success">设备信息修改成功</string>
@@ -718,4 +719,20 @@
     <string name="cloud_warning">已过期</string>
     <string name="cloud_unsupport">不支持</string>
     <string name="cloud_not_opend">未开通</string>
+    <string name="preset">预置点</string>
+    <string name="request_data_error">获取数据失败</string>
+    <string name="tour_added">巡航点添加成功</string>
+    <string name="reset_s">重置成功</string>
+    <string name="sure_reset">确定重置</string>
+    <string name="delete_preset">删除该预置点</string>
+    <string name="make_sure_delet_preset">确定要删除该预置点吗?</string>
+    <string name="tour">巡航</string>
+    <string name="diy_tour">自定义巡航点:</string>
+    <string name="start_tour">开始巡航</string>
+    <string name="reset_tour">重置巡航点</string>
+    <string name="delete_tour">删除巡航点</string>
+    <string name="stop_tour_first">请先停止巡航</string>
+    <string name="stop_360tour_first">请先停止360°巡航</string>
+    <string name="request_data">获取数据....</string>
+    <string name="preset_tour">预置点巡航</string>
 </resources>

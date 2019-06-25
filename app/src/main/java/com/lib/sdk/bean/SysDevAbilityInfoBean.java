@@ -8,7 +8,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.funsdkdemo.utils.XUtils;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 服务器端提供的设备能力集信息
@@ -46,6 +45,7 @@ public class SysDevAbilityInfoBean {
             sendObj.put("sn", sn);//设备序列号
             sendObj.put("caps",devAbilityNames);
             sendObj.put("appType", XUtils.getPackageName(context));//APP 包名需要填写
+            sendObj.put("ver",2);
             for (String devAbilityName : devAbilityNames) {
                 devAbilityMap.put(devAbilityName,false);
             }
@@ -94,17 +94,8 @@ public class SysDevAbilityInfoBean {
         return (boolean) devAbilityMap.get(key);
     }
 
-    public Map<String, Boolean> isConfigSupports() {
-        if (null == devAbilityMap) {
-            return null;
-        }
-        Map<String, Boolean> supports = new HashMap<>();
-        for(Map.Entry<String, Object> entry: devAbilityMap.entrySet()) {
-            String key = entry.getKey();
-            if (entry.getValue() instanceof  Boolean) {
-                supports.put(key, (Boolean) entry.getValue());
-            }
-        }
-        return supports;
+    public HashMap<String,Object> getDevAbilityMap() {
+        return devAbilityMap;
     }
+
 }

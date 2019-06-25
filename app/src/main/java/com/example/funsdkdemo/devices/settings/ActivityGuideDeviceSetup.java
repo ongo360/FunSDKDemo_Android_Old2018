@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import com.example.funsdkdemo.ActivityGuide;
 import com.example.funsdkdemo.DemoModule;
 import com.example.funsdkdemo.R;
+import com.example.funsdkdemo.devices.tour.view.TourActivity;
 import com.lib.funsdk.support.FunSupport;
 import com.lib.funsdk.support.config.SystemInfo;
 import com.lib.funsdk.support.models.FunDevice;
@@ -89,6 +90,9 @@ public class ActivityGuideDeviceSetup extends ActivityGuide {
 
 		//AP模式配置到路由模式
 		mGuideModules.add(new DemoModule(-1,R.string.ap_to_wifi,-1,ActivityGuideDeviceAPToWiFi.class));
+
+		//巡航操作
+		mGuideModules.add(new DemoModule(-1, R.string.device_opt_tour, -1, TourActivity.class));
 	}
 
 	@Override

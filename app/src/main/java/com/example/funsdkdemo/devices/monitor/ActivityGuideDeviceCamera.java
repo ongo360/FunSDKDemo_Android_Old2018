@@ -17,6 +17,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
@@ -47,8 +49,8 @@ import com.example.funsdkdemo.devices.ActivityDeviceFishEyeInfo;
 import com.example.funsdkdemo.devices.ActivityGuideDevicePictureList;
 import com.example.funsdkdemo.devices.ActivityGuideDeviceRecordList;
 import com.example.funsdkdemo.devices.ActivityGuideDeviceSportPicList;
-import com.example.funsdkdemo.devices.monitor.ActivityGuideDevicePreview;
 import com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetup;
+import com.example.funsdkdemo.devices.tour.view.TourActivity;
 import com.lib.EPTZCMD;
 import com.lib.FunSDK;
 import com.lib.funsdk.support.FunDevicePassword;
@@ -149,6 +151,7 @@ public class ActivityGuideDeviceCamera
 
 	public String NativeLoginPsw; //本地密码
 	private boolean mIsDoubleTalkPress;
+	private TourActivity mTourFragment;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -198,6 +201,7 @@ public class ActivityGuideDeviceCamera
 		mBtnDevRecord = (ImageButton) findViewById(R.id.btnDevRecord);
 		mBtnGetPreset = (Button) findViewById(R.id.btnGetPreset);
 		mBtnSetPreset = (Button) findViewById(R.id.btnSetPreset);
+
 		mSplitView = findViewById(R.id.splitView);
 		mCbDoubleTalk = findViewById(R.id.cb_double_talk_switch);
 
@@ -214,6 +218,7 @@ public class ActivityGuideDeviceCamera
 		mBtnDevRecord.setOnClickListener(this);
 		mBtnGetPreset.setOnClickListener(this);
 		mBtnSetPreset.setOnClickListener(this);
+
 		mCbDoubleTalk.setOnClickListener(this);
 		mPtz_up.setOnTouchListener(onPtz_up);
 		mPtz_down.setOnTouchListener(onPtz_down);
@@ -1458,5 +1463,4 @@ public class ActivityGuideDeviceCamera
 		// TODO Auto-generated method stub
 		
 	}	
-
 }

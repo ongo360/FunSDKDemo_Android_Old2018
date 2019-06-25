@@ -90,4 +90,8 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:backgroundDimAmount">0.6</item>
     </style>
+    <style name="corner_popwindow_anim_style">
+        <item name="android:windowEnterAnimation">@anim/quick_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/quick_bottom_out</item>
+    </style>
 </resources>
