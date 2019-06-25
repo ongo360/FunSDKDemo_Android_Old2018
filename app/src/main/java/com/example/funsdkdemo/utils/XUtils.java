@@ -1,5 +1,8 @@
 package com.example.funsdkdemo.utils;
 
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.text.TextUtils;
 
 import com.lib.sdk.bean.DayLightTimeBean;
@@ -159,5 +162,24 @@ public class XUtils {
             pos += 2;
         } while (pos <= (length - 2));
         return sbu.toString();
+    }
+
+    /**
+     * 获取版本号
+     *
+     * @return 当前应用的包名
+     */
+    public static String getPackageName(Context context) {
+        if (context == null)
+            return null;
+        try {
+            PackageManager manager = context.getPackageManager();
+            PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
+            String version = info.packageName;
+            return version;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Unkown";
+        }
     }
 }

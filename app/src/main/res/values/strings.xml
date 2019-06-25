@@ -705,4 +705,9 @@
     <string name="Save_Success">Saving Successfully</string>
     <string name="Save_Failed">Save Failed,Please try again.</string>
     <string name="AP_model_Back_tip">Click "Save" to switch the device to AP hotspot stand-alone mode, this mode can not be outside the network access!</string>
+    <string name="cloud_using">Normal Use</string>
+    <string name="cloud_expire">Deadline</string>
+    <string name="cloud_warning">Overdue service</string>
+    <string name="cloud_unsupport">Unsupport</string>
+    <string name="cloud_not_opend">Not in service</string>
 </resources>

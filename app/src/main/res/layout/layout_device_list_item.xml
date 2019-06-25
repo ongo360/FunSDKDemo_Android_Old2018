@@ -54,7 +54,6 @@
             android:textColor="@drawable/common_desc_color"
             android:textSize="14dp" />
 
-        
     </LinearLayout>
 
 </RelativeLayout>

@@ -49,7 +49,11 @@ public class FunDevice {
     
     // 保存设备连接状态, 记录的是：EUIMSG.DEV_ON_RECONNECT和EUIMSG.DEV_ON_DISCONNECT
     private boolean mHasConnected = false;	
-	
+
+    //云存储状态
+    private int cloudState;
+
+    private long cloudExpired;//到期时间 单位秒
 	public FunDevice() {
 		
     }
@@ -425,5 +429,21 @@ public class FunDevice {
 	
 	public void setConnected(boolean connected) {
 		mHasConnected = connected;
+	}
+
+	public int getCloudState() {
+		return cloudState;
+	}
+
+	public void setCloudState(int cloudState) {
+		this.cloudState = cloudState;
+	}
+
+	public long getCloudExpired() {
+		return cloudExpired;
+	}
+
+	public void setCloudExpired(long cloudExpired) {
+		this.cloudExpired = cloudExpired;
 	}
 }

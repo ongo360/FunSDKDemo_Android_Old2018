@@ -317,6 +317,11 @@ public class ActivityGuideDeviceListAP extends ActivityDemo implements OnClickLi
 		startActivity(intent);
 	}
 
+	@Override
+	public void onFunDeviceCloud(FunDevice funDevice) {
+
+	}
+
 
 	/* (non-Javadoc)
 	 * @see com.example.funsdkdemo.ListAdapterFunDevice.OnFunDeviceItemClickListener#onFunDevice433AddSub(com.lib.funsdk.support.models.FunDevice)

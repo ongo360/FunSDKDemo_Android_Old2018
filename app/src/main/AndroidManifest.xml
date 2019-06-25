@@ -396,6 +396,8 @@
         <activity android:name=".devices.settings.ActivityGuideDeviceDoorLock" />
         <activity android:name=".devices.settings.ActivityGuideDeviceGetYUVData" />
         <activity android:name=".devices.settings.ActivityGuideDeviceAPToWiFi" />
+        <activity android:name=".cloud.ActivityDevCloudPlayBack" />
+        <activity android:name=".cloud.ActivityDevCloudDate" />
 
 
         <service android:name="com.example.funsdkdemo.alarm.ServiceGuidePushAlarmNotification">

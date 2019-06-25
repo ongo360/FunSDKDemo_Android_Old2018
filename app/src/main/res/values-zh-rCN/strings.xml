@@ -713,4 +713,9 @@
     <string name="Save_Success">保存成功</string>
     <string name="Save_Failed">保存失败</string>
     <string name="AP_model_Back_tip">点击“保存”可将设备切换到AP热点单机模式，此模式下无法进行外网访问！</string>
+    <string name="cloud_using">正常使用</string>
+    <string name="cloud_expire">到期时间</string>
+    <string name="cloud_warning">已过期</string>
+    <string name="cloud_unsupport">不支持</string>
+    <string name="cloud_not_opend">未开通</string>
 </resources>
