@@ -175,3 +175,181 @@ case EUIMSG.ON_YUV_DATA:
   //Todo         
   break;
 ```
+
+## 获取云存储状态
+
+<table >
+<tr><td style="background-color:#ccc;text-align:center;width:35px;">定义</td><td colspan="2">int SysGetDevAbilitySetFromServer(int hUser, String sendJson, int  nSeq)</td></tr>
+<tr><td style="background-color:#ccc;text-align:center">描述</td><td colspan="2">从服务器获取设备的能力集 
+*服务器默认ip/port可以通过SysSetServerIPPort设置：参数"CAPS_SERVER"，否则默认：caps.xmcsrv.net:80
+</td></tr>
+<tr><td rowspan="3" style="background-color:#ccc;text-align:center">参数说明</td><td style="background-color:#ccc;text-align:center;width:20%;">名称</td><td style="background-color:#ccc;text-align:center">说明</td></tr>
+<tr><td style="text-align:center">sendJson</td>
+<td>请求Json数据 例如:{"appType":"com.example.funsdkdemo","caps":["xmc.service"],"sn":"1234567890123456","tp":0}</td></tr>
+<tr><td style="text-align:center">nSeq</td>
+<td>操作序列号（用户自定义）</td></tr>
+<tr><td style="background-color:#ccc;text-align:center">返回</td>
+<td colspan="2">devSysInfo传NULL/””，返回 -99999 参数错误</td></tr>
+<tr><td rowspan="5" style="background-color:#ccc;text-align:center">结果消息
+</td><td style="background-color:#ccc;text-align:center;width:20%;">名称</td><td style="background-color:#ccc;text-align:center;">说明
+</td></tr>
+<tr><td style="text-align:center">id</td>
+<td>消息值：EUIMSG   .EMSG_START_PLAY</td></tr>
+<tr><td style="text-align:center">arg1
+</td><td>==EE_OK：成功；<0：失败，详见错误码说明</td></tr>
+<tr><td style="text-align:center">Str
+</td><td>服务器返回的json信息里面的"caps"</td></tr>
+<tr><td style="text-align:center">pData
+</td><td>设备序列号</td></tr>
+</table>
+
+## FunSDKDemo例子：
+参考代码:com.example.funsdkdemo.ListAdapterFunDevice
+```
+String sendJson = "{"appType":"com.example.funsdkdemo","caps":["xmc.service"],"sn":"1234567890123456","tp":0}"
+
+FunSDK.SysGetDevAbilitySetFromServer(userId,sendJson,0);
+```
+
+```
+case EUIMSG.SYS_GET_ABILITY_SET:
+        String devId = G.ToString(msgContent.pData);//设备序列号
+        String resultJson = msgContent.str;//返回的json数据
+        //Todo
+    break;
+```
+
+## 查询云存储日历
+<table >
+<tr><td style="background-color:#ccc;text-align:center;width:35px;">定义</td><td colspan="2">int SearchMediaByMoth(int hUser, String devId, int nChannel, String  sStreamType, int nDate, int nSeq)</td></tr>
+<tr><td style="background-color:#ccc;text-align:center">描述</td><td colspan="2">查询视频日历节点</td></tr>
+<tr><td rowspan="5" style="background-color:#ccc;text-align:center">参数说明</td><td style="background-color:#ccc;text-align:center;width:20%;">名称</td><td style="background-color:#ccc;text-align:center">说明</td></tr>
+<tr><td style="text-align:center">devId</td>
+<td>序列号</td></tr>
+<tr><td style="text-align:center">nChnId</td>
+<td>通道号</td></tr>
+<tr><td style="text-align:center">nStreamType</td>
+<td>码流类型 "Main" 副码流"Sub"</td></tr>
+<tr><td style="text-align:center">date</td>
+<td>日期</td></tr>
+<tr><td style="background-color:#ccc;text-align:center">返回</td>
+<td colspan="2"></td></tr>
+<tr><td rowspan="3" style="background-color:#ccc;text-align:center">结果消息
+</td><td style="background-color:#ccc;text-align:center;width:20%;">名称</td><td style="background-color:#ccc;text-align:center;">说明
+</td></tr>
+<tr><td style="text-align:center">id</td>
+<td>消息值：EUIMSG   .EMSG_START_PLAY</td></tr>
+<tr><td style="text-align:center">arg1
+</td><td>==EE_OK：成功；<0：失败，详见错误码说明</td></tr>
+</table>
+
+## FunSDKDemo例子：
+参考代码：com.example.funsdkdemo.cloud.ActivityDevCloudDate
+```
+Calendar calendar = Calendar.getInstance();
+int times = FunSDK.ToTimeType(new int[]{calendar.get(Calendar.YEAR),
+                    (calendar.get(Calendar.MONTH) + 1),
+                    (calendar.get(Calendar.DAY_OF_MONTH)), 0, 0, 0});
+                    
+CloudDirectory.SearchMediaByMoth(userId,funDevice.getDevSn() , 0, "Main", times, 0);
+```
+```
+case EUIMSG.MC_SearchMediaByMoth:
+    String resultJson = msgContent.str;//查询返回的json数据
+    break;
+```
+
+## 云存储录像查询
+<table >
+<tr><td style="background-color:#ccc;text-align:center;width:35px;">定义</td><td colspan="2">int SearchMediaByTime(int hUser, String devId, int nChannel, String  sStreamType, int nStartTime, int nEndTime, int nSeq)</td></tr>
+<tr><td style="background-color:#ccc;text-align:center">描述</td><td colspan="2">获取报警录像通过指定时间</td></tr>
+<tr><td rowspan="6" style="background-color:#ccc;text-align:center">参数说明</td><td style="background-color:#ccc;text-align:center;width:20%;">名称</td><td style="background-color:#ccc;text-align:center">说明</td></tr>
+<tr><td style="text-align:center">devId</td>
+<td>序列号</td></tr>
+<tr><td style="text-align:center">nChnId</td>
+<td>通道号</td></tr>
+<tr><td style="text-align:center">nStreamType</td>
+<td>码流类型 "Main" 副码流"Sub"</td></tr>
+<tr><td style="text-align:center">nStartTime</td>
+<td>开始时间</td></tr>
+<tr><td style="text-align:center">nEndTime</td>
+<td>结束时间</td></tr>
+<tr><td style="background-color:#ccc;text-align:center">返回</td>
+<td colspan="2"></td></tr>
+<tr><td rowspan="4" style="background-color:#ccc;text-align:center">结果消息
+</td><td style="background-color:#ccc;text-align:center;width:20%;">名称</td><td style="background-color:#ccc;text-align:center;">说明
+</td></tr>
+<tr><td style="text-align:center">id</td>
+<td>消息值：EUIMSG . MC_SearchMediaByTime</td></tr>
+<tr><td style="text-align:center">arg1
+</td><td>==EE_OK：成功；<0：失败，详见错误码说明</td></tr>
+<tr><td style="text-align:center">Str
+</td><td>获取到的信息 Json格式数据</td></tr>
+</table>
+
+## FunSDKDemo例子:
+参考代码:com.example.funsdkdemo.cloud.ActivityDevCloudPlayBack
+```
+Calendar calendar = Calendar.getInstance();
+
+int begin[] = { calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH) + 1,
+                calendar.get(Calendar.DATE), 0, 0, 0 };
+                
+int end[] = { calendar.get(Calendar.YEAR),
+        calendar.get(Calendar.MONTH) + 1,
+        calendar.get(Calendar.DATE), 23, 59, 59 };
+        
+CloudDirectory.SearchMediaByTime(userId,"1234567890123456",0, "", FunSDK.ToTimeType(begin),FunSDK.ToTimeType(end),0);
+```
+```
+case EUIMSG.MC_SearchMediaByTime:
+    String resultJson = msgContent.str;//返回的json数据
+    break;
+```
+
+## 云存储录像回放
+<table >
+<tr><td style="background-color:#ccc;text-align:center;width:35px;">定义</td><td colspan="2">int MediaCloudRecordPlay(int hUser, String szDevId, int nChannel, String sStreamType, int nStartTime, int nEndTime, Object hWnd, int nSeq)</td></tr>
+<tr><td style="background-color:#ccc;text-align:center">描述</td><td colspan="2">云录像播放</td></tr>
+<tr><td rowspan="7" style="background-color:#ccc;text-align:center">参数说明</td><td style="background-color:#ccc;text-align:center;width:20%;">名称</td><td style="background-color:#ccc;text-align:center">说明</td></tr>
+<tr><td style="text-align:center">szDevId</td>
+<td>序列号</td></tr>
+<tr><td style="text-align:center">nChannel</td>
+<td>通道号</td></tr>
+<tr><td style="text-align:center">sStreamType</td>
+<td>码流类型 "Main" 副码流"Sub"</td></tr>
+<tr><td style="text-align:center">nStartTime</td>
+<td>开始时间</td></tr>
+<tr><td style="text-align:center">nEndTime</td>
+<td>结束时间</td></tr>
+<tr><td style="text-align:center">hWnd</td>
+<td>显示窗口GLSurfaceView20对象</td></tr>
+<tr><td style="background-color:#ccc;text-align:center">返回</td>
+<td colspan="2"></td></tr>
+<tr><td rowspan="3" style="background-color:#ccc;text-align:center">结果消息
+</td><td style="background-color:#ccc;text-align:center;width:20%;">名称</td><td style="background-color:#ccc;text-align:center;">说明
+</td></tr>
+<tr><td style="text-align:center">id</td>
+<td>消息值：EUIMSG . START_PLAY
+回放过程中的信息通过“EUIMSG . ON_PLAY_INFO”消息定时通知
+回放结束时通过消息“EUIMSG . ON_PLAY_END”通知
+</td></tr>
+<tr><td style="text-align:center">arg1
+</td><td>==EE_OK：成功；<0：失败，详见错误码说明</td></tr>
+</table>
+
+## FunSDKDemo例子:
+参考代码:com.example.funsdkdemo.cloud.ActivityDevCloudPlayBack
+```
+Calendar calendar = Calendar.getInstance();
+int[] endTime = {calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1,
+        calendar.get(Calendar.DAY_OF_MONTH), 23, 59, 59};
+        
+int endTimes = FunSDK.ToTimeType(endTime);
+
+playHandle = FunSDK
+        .MediaCloudRecordPlay(userId,
+                funDevice.getDevSn(),0,"Main",absTime,endTimes,
+                playSurfaceView, 0);//主码流 Main 副码流 Sub
+```
