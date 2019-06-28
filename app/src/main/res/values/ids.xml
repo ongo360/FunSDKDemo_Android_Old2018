@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="selected_view" type="id"/>
+
+    <!-- start zxing -->
+    <!-- Messages IDs -->
+    <item name="auto_focus" type="id"/>
+    <item name="decode" type="id"/>
+    <item name="decode_failed" type="id"/>
+    <item name="decode_succeeded" type="id"/>
+    <item name="encode_failed" type="id"/>
+    <item name="encode_succeeded" type="id"/>
+    <item name="launch_product_query" type="id"/>
+    <item name="quit" type="id"/>
+    <item name="restart_preview" type="id"/>
+    <item name="return_scan_result" type="id"/>
+    <item name="search_book_contents_failed" type="id"/>
+    <item name="search_book_contents_succeeded" type="id"/>
+    <!-- end zxing -->
+
+
+    <!-- recyclerView  item_touch_helper -->
+    <item name="item_touch_helper_previous_elevation" type="id"/>
+
+    <!-- Just adding these so I wont have to remove a lot of code from NumberPicker.java. -->
+    <item name="np__increment" type="id" />
+    <item name="np__decrement" type="id" />
+    
+</resources>

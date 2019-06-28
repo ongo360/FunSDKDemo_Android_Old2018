@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.zxing.activity.CaptureActivity;
 import com.lib.FunSDK;
 import com.lib.funsdk.support.FunDevicePassword;
 import com.lib.funsdk.support.FunSupport;
@@ -23,7 +24,6 @@ import com.lib.funsdk.support.models.FunDevStatus;
 import com.lib.funsdk.support.models.FunDevType;
 import com.lib.funsdk.support.models.FunDevice;
 import com.lib.funsdk.support.models.FunLoginType;
-import com.zbar.lib.CaptureActivity;
 
 public class ActivityGuideDeviceSNLogin extends ActivityDemo
 		implements OnClickListener, OnFunDeviceListener, OnItemSelectedListener {
@@ -331,10 +331,10 @@ public class ActivityGuideDeviceSNLogin extends ActivityDemo
 
 	@Override
 	protected void onActivityResult(int requestCode, int responseCode, Intent data) {
-		if (requestCode == 1 && responseCode == 1) {
+		if (requestCode == 1 && responseCode == RESULT_OK) {
 			// Demo, 扫描二维码的结果
 			if (null != data) {
-				String deviceSn = data.getStringExtra("SN");
+				String deviceSn = data.getStringExtra("result");
 				if (null != deviceSn && null != mEditDevSN) {
 					mEditDevSN.setText(deviceSn);
 				}

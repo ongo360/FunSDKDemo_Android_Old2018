@@ -370,7 +370,7 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name="com.zbar.lib.CaptureActivity"
+        <activity android:name="com.google.zxing.activity.CaptureActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity android:name="com.example.funsdkdemo.devices.ActivityGuideDevicesSocketSetTask" >
