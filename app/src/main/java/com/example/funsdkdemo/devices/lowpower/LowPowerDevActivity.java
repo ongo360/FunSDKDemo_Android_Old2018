@@ -24,10 +24,10 @@ import com.lib.funsdk.support.OnFunDevBatteryLevelListener;
 import com.lib.funsdk.support.OnFunDeviceWakeUpListener;
 import com.lib.funsdk.support.models.FunDevStatus;
 import com.lib.funsdk.support.models.FunDevice;
-import com.lib.sdk.bean.DevRingControlBean;
 import com.lib.sdk.bean.HandleConfigData;
 import com.lib.sdk.bean.JsonConfig;
 import com.lib.sdk.bean.StringUtils;
+import com.lib.sdk.bean.idr.DevRingControlBean;
 
 /**
  * @author hws

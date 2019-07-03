@@ -93,7 +93,7 @@ public class SysAbilityManager implements IFunSDKResult {
                     SysDevAbilityInfoBean bean = sysDevAbilityInfoBeanMap.get(devId);
                     if (bean != null) {
                         if (lisener != null) {
-                            lisener.onSupportResult(bean.getDevAbilityMap());
+                            lisener.onSupportResult(bean.isConfigSupports());
                         }
                     }
                     if (isRefreshDataFromService) {
@@ -146,7 +146,7 @@ public class SysAbilityManager implements IFunSDKResult {
                         bean.parseJson(msgContent.str);
                         OnSysAbilityResultLisener lisener = lisenerMap.get(devId);
                         if (lisener != null) {
-                            lisener.onSupportResult(bean.getDevAbilityMap());
+                            lisener.onSupportResult(bean.isConfigSupports());
                         }
                     }
                 }

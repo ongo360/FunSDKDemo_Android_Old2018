@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.basic.G;
 import com.example.funsdkdemo.MyApplication;
+import com.example.funsdkdemo.entity.DownloadInfo;
 import com.example.funsdkdemo.utils.XUtils;
 import com.lib.ECONFIG;
 import com.lib.EDEV_ATTR;
@@ -47,9 +48,9 @@ import com.lib.funsdk.support.utils.DeviceWifiManager;
 import com.lib.funsdk.support.utils.MyUtils;
 import com.lib.funsdk.support.utils.SharedParamMng;
 import com.lib.funsdk.support.utils.StringUtils;
+import com.lib.sdk.bean.AlarmInfoBean;
 import com.lib.sdk.bean.DSTimeBean;
 import com.lib.sdk.bean.DayLightTimeBean;
-import com.lib.sdk.bean.DownloadInfo;
 import com.lib.sdk.bean.ElectCapacityBean;
 import com.lib.sdk.bean.HandleConfigData;
 import com.lib.sdk.bean.JsonConfig;
@@ -143,6 +144,7 @@ public class FunSupport implements IFunSDKResult {
     // 当前登录的或者使用的设备
     public FunDevice mCurrDevice = null;
 
+    public AlarmInfoBean mAlarmInfoBean; //移动侦测报警info
     // 内部使用消息定义
     private final int MESSAGE_AP_DEVICE_LIST_CHANGED = 0x1000;
     private final int MESSAGE_GET_DEVICE_CONFIG = 0x1001;

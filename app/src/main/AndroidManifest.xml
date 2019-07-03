@@ -209,7 +209,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupAlarm"
+            android:name="com.example.funsdkdemo.devices.settings.alarm.ActivityGuideDeviceSetupAlarm"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -293,7 +293,7 @@
             </intent-filter>
         </activity>
          <activity
-            android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupAlarmCenter"
+            android:name="com.example.funsdkdemo.devices.settings.alarm.ActivityGuideDeviceSetupAlarmCenter"
             android:screenOrientation="portrait"
             >
             <intent-filter>
@@ -399,6 +399,10 @@
         <activity android:name=".cloud.ActivityDevCloudPlayBack" />
         <activity android:name=".cloud.ActivityDevCloudDate" />
         <activity android:name=".devices.tour.view.TourActivity" />
+        <activity android:name=".devices.settings.alarm.ActivityAlarmTimeSet" />
+        <activity android:name=".devices.settings.alarm.ActivityAlarmSettingLabel" />
+        <activity android:name=".devices.settings.alarm.ActivityWeekSelect" />
+        <activity android:name=".devices.settings.ActivityHumanDetect" />
 
 
         <service android:name="com.example.funsdkdemo.alarm.ServiceGuidePushAlarmNotification">

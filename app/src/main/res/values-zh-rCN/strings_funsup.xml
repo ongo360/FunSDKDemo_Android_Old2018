@@ -33,4 +33,5 @@
     <string name="device_stauts_sleep">休眠</string>
     <string name="device_can_not_wake_up">不可唤醒</string>
     <string name="the_device_is_not_wakeup">当前设备处于离线或者是不可唤醒状态</string>
+    <string name="not_support">不支持</string>
 </resources>

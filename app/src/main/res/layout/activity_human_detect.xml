@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:uilib="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layoutRoot"
+    android:orientation="vertical"
+    android:background="#f8f8f8">
+
+    <com.xm.ui.widget.XTitleBar
+        android:id="@+id/human_detect_title"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/theme_color"
+        uilib:LeftBtn_Nor="@drawable/icon_back_normal"
+        uilib:LeftBtn_Sel="@drawable/icon_back_pressed"
+        uilib:RightBtn_Nor="@drawable/icon_save_normal"
+        uilib:RightBtn_Sel="@drawable/icon_save_pressed"
+        uilib:RightTextColor="@color/white"
+        uilib:TitleText="@string/human_detect"
+        uilib:TitleTextColor="@color/white">
+    </com.xm.ui.widget.XTitleBar>
+
+    <com.xm.ui.widget.ListSelectItem
+        android:id="@+id/lsi_human_detect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        uilib:Title="@string/human_detect"
+        uilib:ItemTitleColor="@color/demo_title"
+        uilib:ItemTitleSize="14dp"
+        uilib:ImageRight1="@drawable/icon_checked_no"
+        uilib:ImageRight2="@drawable/icon_checked_yes"
+        uilib:LineColor="@color/line_color"/>
+</LinearLayout>

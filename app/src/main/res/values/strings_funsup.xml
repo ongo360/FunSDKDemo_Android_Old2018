@@ -33,4 +33,5 @@
 	<string name="device_stauts_sleep">Sleep</string>
 	<string name="device_can_not_wake_up">Can not wake up</string>
 	<string name="the_device_is_not_wakeup">The current device is offline or not awake</string>
+	<string name="not_support">Not support</string>
 </resources>

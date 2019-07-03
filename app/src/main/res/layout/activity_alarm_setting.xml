@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:uilib="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layoutRoot"
+    android:orientation="vertical" >
+
+    <com.xm.ui.widget.XTitleBar
+        android:id="@+id/alarm_setting_title"
+        android:layout_width="wrap_content"
+        android:layout_height="49dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/theme_color"
+        uilib:LeftBtn_Nor="@drawable/icon_back_normal"
+        uilib:LeftBtn_Sel="@drawable/icon_back_pressed"
+        uilib:RightBtn_Nor="@drawable/icon_save_normal"
+        uilib:RightBtn_Sel="@drawable/icon_save_pressed"
+        uilib:RightTextColor="@color/white"
+        uilib:TitleText="@string/alarm_time_set"
+        uilib:TitleTextColor="@color/white">
+    </com.xm.ui.widget.XTitleBar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/alarm_setting_title"
+        android:background="@color/white"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/set_open" >
+                </TextView>
+
+                <com.xm.ui.widget.ButtonCheck
+                    android:id="@+id/alarm_setting_open"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    uilib:NormalBkg="@drawable/icon_checked_no"
+                    uilib:SelectedBkg="@drawable/icon_checked_yes"
+                    uilib:TextNormalColor="@color/hint_color"
+                    uilib:TextSelectedColor="@color/hint_color" >
+                </com.xm.ui.widget.ButtonCheck>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line_color" />
+
+            <RelativeLayout
+                android:id="@+id/edit_rl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/set_edit" >
+                </TextView>
+
+                <com.xm.ui.widget.ButtonCheck
+                    android:id="@+id/alarm_setting_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    uilib:NormalBkg="@drawable/local_next"
+                    uilib:SelectedBkg="@drawable/pop_nor"
+                    uilib:TextNormalColor="@color/hint_color"
+                    uilib:TextSelectedColor="@color/hint_color">
+                </com.xm.ui.widget.ButtonCheck>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line_color" />
+
+            <LinearLayout
+                android:id="@+id/edit_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+               	<com.example.funsdkdemo.widget.PercentRelativeLayout
+                    android:id="@+id/alarm_setting_date_rl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/set_week" >
+                    </TextView>
+					
+                    <com.xm.ui.widget.ScrollForeverTextView
+				        android:id="@+id/alarm_setting_date"
+				        android:layout_width="0dip"
+				        android:layout_height="wrap_content"
+				        uilib:layout_widthPercent="70%"
+				        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+				        android:drawableRight="@drawable/local_next"
+                        android:drawableEnd="@drawable/local_next"
+				        android:text=""
+				        android:singleLine="true"
+				        android:ellipsize="marquee"
+				        android:layout_marginLeft="20dip"
+                        android:layout_marginStart="20dip"
+				        android:drawablePadding="5dp"
+				        android:gravity="end"/>
+                    
+                </com.example.funsdkdemo.widget.PercentRelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/line_color" />
+
+                <RelativeLayout
+                    android:id="@+id/alarm_setting_start_time_rl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/set_start" >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/alarm_setting_start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@drawable/local_next"
+                        android:drawableEnd="@drawable/local_next"
+                        android:text="06:00" >
+                    </TextView>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/line_color" />
+
+                <RelativeLayout
+                    android:id="@+id/alarm_setting_stop_time_rl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp" >
+
+                    <TextView             
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/set_finish" >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/alarm_setting_stop_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@drawable/local_next"
+                        android:drawableEnd="@drawable/local_next"
+                        android:text="19:00" >
+                    </TextView>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/line_color"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp" 
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/set_repeat" >
+                    </TextView>
+
+                    <com.xm.ui.widget.ButtonCheck
+                        android:id="@+id/alarm_setting_Repeat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        uilib:NormalBkg="@drawable/icon_checked_no"
+                        uilib:SelectedBkg="@drawable/icon_checked_yes"
+                        uilib:TextNormalColor="@color/hint_color"
+                        uilib:TextSelectedColor="@color/hint_color" >
+                    </com.xm.ui.widget.ButtonCheck>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/line_color" />
+
+                <RelativeLayout
+                    android:id="@+id/alarm_setting_Label_rl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/set_tip" >
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/tv_label_show"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="15dp"
+                        android:paddingEnd="15dp"
+                        android:text="@string/set_tip">"
+                    </TextView>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <include
+        android:id="@+id/alarm_setting_buttom_timepick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        layout="@layout/activity_taskadd_timepicker"
+        android:visibility="gone" />
+</RelativeLayout>

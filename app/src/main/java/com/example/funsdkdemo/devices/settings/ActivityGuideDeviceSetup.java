@@ -7,6 +7,8 @@ import android.widget.AdapterView;
 import com.example.funsdkdemo.ActivityGuide;
 import com.example.funsdkdemo.DemoModule;
 import com.example.funsdkdemo.R;
+import com.example.funsdkdemo.devices.settings.alarm.ActivityGuideDeviceSetupAlarm;
+import com.example.funsdkdemo.devices.settings.alarm.ActivityGuideDeviceSetupAlarmCenter;
 import com.example.funsdkdemo.devices.tour.view.TourActivity;
 import com.lib.funsdk.support.FunSupport;
 import com.lib.funsdk.support.config.SystemInfo;
@@ -93,6 +95,9 @@ public class ActivityGuideDeviceSetup extends ActivityGuide {
 
 		//巡航操作
 		mGuideModules.add(new DemoModule(-1, R.string.device_opt_tour, -1, TourActivity.class));
+
+		//人形检测
+		mGuideModules.add(new DemoModule(-1,R.string.human_detect,-1,ActivityHumanDetect.class));
 	}
 
 	@Override

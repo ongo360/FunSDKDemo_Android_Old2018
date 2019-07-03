@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:uilib="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f8f8"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/alarm_period_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">"
+
+        <com.xm.ui.widget.XTitleBar
+            android:id="@+id/alarm_period_title"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/theme_color"
+            uilib:LeftBtn_Nor="@drawable/icon_back_normal"
+            uilib:LeftBtn_Sel="@drawable/icon_back_pressed"
+            uilib:RightBtn_Nor="@drawable/icon_save_normal"
+            uilib:RightBtn_Sel="@drawable/icon_save_pressed"
+            uilib:RightTextColor="@color/white"
+            uilib:TitleText="@string/alarm_time"
+            uilib:TitleTextColor="@color/white" >
+        </com.xm.ui.widget.XTitleBar>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <RadioGroup
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <RadioButton
+                    android:id="@+id/time_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:drawablePadding="5dip"
+                    android:text="@string/time_day"
+                    android:textColor="@color/login_page_color"
+                    android:textSize="@dimen/small_text_size" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/line_color" />
+
+                <RadioButton
+                    android:id="@+id/time_diy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:drawablePadding="5dip"
+                    android:text="@string/time_diy"
+                    android:textColor="@color/login_page_color"
+                    android:textSize="@dimen/small_text_size" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/add_time"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="添加"
+                android:textSize="@dimen/middle_text_size"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line_color" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/show_task_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/alarm_period_head"
+        android:visibility="gone">
+    </ListView>
+
+    <TextView
+        android:id="@+id/delete_alarm_item"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:background="@color/line_color"
+        android:textColor="@color/theme_color"
+        android:textSize="20dp"
+        android:text="删除"
+        android:visibility="gone" >
+    </TextView>
+
+</RelativeLayout>
