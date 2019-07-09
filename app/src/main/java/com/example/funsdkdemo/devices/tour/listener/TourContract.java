@@ -47,6 +47,10 @@ public class TourContract {
 
         void onFailed(Message msg, MsgContent ex, String extraStr);
 
+        void onTmimgPtzTourResult(boolean isEnable,int timeInterval);
+
+        void onSaveTimimgPtzTourResult(boolean isSuccess);
+
     }
 
 
@@ -120,6 +124,10 @@ public class TourContract {
         void setTourState(TourState state);
 
         TourState getTourState();
+
+        void getTimimgPtzTour();
+
+        void setTimingPtzTour(boolean isEnable,int timeInterval);
 
     }
 }

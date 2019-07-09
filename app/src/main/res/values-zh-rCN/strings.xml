@@ -766,4 +766,8 @@
     <string name="alarm_interval">报警间隔</string>
     <string name="second">秒</string>
     <string name="human_detect">人形检测</string>
+    <string name="timimg_ptz_tour_interval">定时巡航间隔</string>
+    <string name="timimg_ptz_tour_enable">定时巡航</string>
+    <string name="One_Key_Mask_Video">一键遮蔽</string>
+    <string name="Open_Shelter">开启遮蔽</string>
 </resources>

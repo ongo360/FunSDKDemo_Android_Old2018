@@ -14,6 +14,7 @@ import com.lib.EUIMSG;
 import com.lib.FunSDK;
 import com.lib.IFunSDKResult;
 import com.lib.MsgContent;
+import com.lib.funsdk.support.config.TimimgPtzTourBean;
 import com.lib.funsdk.support.models.FunDevice;
 import com.lib.sdk.bean.HandleConfigData;
 import com.lib.sdk.bean.OPPTZControlBean;
@@ -103,7 +104,7 @@ public class TourRepository implements TourDataSource, IFunSDKResult {
         bean.Command = cmd;
         bean.Parameter.Preset = presetId;
         bean.Parameter.Tour = tourId;
-        bean.Parameter.Step = 3;  //默认3秒
+        bean.Parameter.Step = 10;  //默认10秒
         bean.Parameter.TourTimes = 1; //默认1次
 
         FunSDK.DevCmdGeneral(userId
@@ -126,7 +127,7 @@ public class TourRepository implements TourDataSource, IFunSDKResult {
         bean.Parameter.Preset = presetId;
         bean.Parameter.Tour = tourId;
         bean.Parameter.PresetIndex = presetIndex;
-        bean.Parameter.Step = 3;  //默认3秒
+        bean.Parameter.Step = 10;  //默认10秒
         bean.Parameter.TourTimes = 1; //默认1次
 
         FunSDK.DevCmdGeneral(userId
@@ -175,6 +176,23 @@ public class TourRepository implements TourDataSource, IFunSDKResult {
     @Override
     public void removeAllCallback() {
         listeners.clear();
+    }
+
+    @Override
+    public void getTimimgPtzTour(TourCallback callback) {
+        listeners.put(TimimgPtzTourBean.JSON_NAME + "_Get",callback);
+        FunSDK.DevGetConfigByJson(userId,funDevice.getDevSn(), TimimgPtzTourBean.JSON_NAME,
+                2048
+                , 0
+                , 5000
+                , 0);
+    }
+
+    @Override
+    public void setTimingPtzTour(TimimgPtzTourBean timingPtzTour,TourCallback callback) {
+        listeners.put(TimimgPtzTourBean.JSON_NAME + "_Set",callback);
+        FunSDK.DevSetConfigByJson(userId,funDevice.getDevSn(),TimimgPtzTourBean.JSON_NAME,
+                HandleConfigData.getSendData(HandleConfigData.getFullName(TimimgPtzTourBean.JSON_NAME,0),"0x08",timingPtzTour),0,5000,0);
     }
 
     @Override
@@ -233,6 +251,39 @@ public class TourRepository implements TourDataSource, IFunSDKResult {
                             }
                         }
                         break;
+                    case TimimgPtzTourBean.JSON_NAME:
+                        if(msg.arg1 < 0){
+                            if (listeners.get(TimimgPtzTourBean.JSON_NAME + "_Get") != null) {
+                                listeners.get(TimimgPtzTourBean.JSON_NAME + "_Get").onError(msg,ex,"");
+                            }
+                            return 0;
+                        }
+                        try {
+                            if (handleConfigData.getDataObj(G.ToString(ex.pData), TimimgPtzTourBean.class)) {
+                                TimimgPtzTourBean timimgPtzTourBean = (TimimgPtzTourBean) handleConfigData.getObj();
+                                if (listeners.get(TimimgPtzTourBean.JSON_NAME + "_Get") != null) {
+                                    listeners.get(TimimgPtzTourBean.JSON_NAME + "_Get").onSuccess(timimgPtzTourBean);
+                                }
+                            }
+                        } catch (Exception e) {
+                            //可能是ex.pData 为空，也可能强转出错
+                            if (listeners.get(TimimgPtzTourBean.JSON_NAME) != null) {
+                                listeners.get(TimimgPtzTourBean.JSON_NAME).onError(null, null, context.getString(R.string.request_data_error));
+                            }
+                        }
+                        break;
+                }
+                break;
+            case EUIMSG.DEV_SET_JSON:
+                if(msg.arg1 < 0){
+                    if (listeners.get(TimimgPtzTourBean.JSON_NAME + "_Set") != null) {
+                        listeners.get(TimimgPtzTourBean.JSON_NAME + "_Set").onError(msg,ex,"");
+                    }
+                    return 0;
+                }
+
+                if (listeners.get(TimimgPtzTourBean.JSON_NAME + "_Set") != null) {
+                    listeners.get(TimimgPtzTourBean.JSON_NAME + "_Set").onSuccess(true);
                 }
                 break;
             case EUIMSG.DEV_CMD_EN: //处理“操作巡航线”、“操作预置点”

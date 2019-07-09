@@ -3,10 +3,6 @@ package com.lib.funsdk.support.config;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
-
-import com.lib.funsdk.support.models.FunDevice;
-
 public class OPPTZControl extends DevCmdGeneral{
 
 	public static final String CONFIG_NAME = "OPPTZControl";
@@ -104,7 +100,7 @@ public class OPPTZControl extends DevCmdGeneral{
             
             paramObj.put("Pattern", "SetBegin");
             paramObj.put("Preset", mPreset);
-            paramObj.put("Step", 0);
+            paramObj.put("Step", 10);
             paramObj.put("Tour", 0);
             
             b_jsonObj.put("Parameter", paramObj);

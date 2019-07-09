@@ -16,10 +16,9 @@ import com.lib.IFunSDKResult;
 import com.lib.MsgContent;
 import com.lib.SDKCONST;
 import com.lib.funsdk.support.FunSupport;
+import com.lib.funsdk.support.config.OPOneKeyMaskVideoBean;
 import com.lib.funsdk.support.models.FunDevice;
 import com.lib.sdk.bean.HandleConfigData;
-import com.lib.sdk.bean.HumanDetectionBean;
-import com.lib.sdk.bean.JsonConfig;
 import com.lib.sdk.bean.StringUtils;
 import com.xm.ui.widget.ListSelectItem;
 import com.xm.ui.widget.XTitleBar;
@@ -28,50 +27,47 @@ import com.xm.ui.widget.XTitleBar;
  * @author Administrator
  * @name FunSDKDemo_Android_Old2018
  * @class name：com.example.funsdkdemo.devices.settings
- * @class 人形检测
+ * @class 一键遮蔽
  * @time 2019-07-03 17:03
- * @change
- * @chang time
- * @class describe
  */
-public class ActivityHumanDetect extends ActivityDemo implements IFunSDKResult{
-    private ListSelectItem lsiHumanDetect;
+public class ActivityOneKeyMaskVideo extends ActivityDemo implements IFunSDKResult{
+    private ListSelectItem lsiOpenShelter;
     private FunDevice funDevice;
     private int userId;
-    private HumanDetectionBean humanDetectionBean;
+    private OPOneKeyMaskVideoBean opOneKeyMaskVideoBean;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_human_detect);
+        setContentView(R.layout.activity_one_key_shading);
         initView();
         initData();
     }
 
     private void initView() {
-        ((XTitleBar)findViewById(R.id.human_detect_title)).setLeftClick(new XTitleBar.OnLeftClickListener() {
+        ((XTitleBar)findViewById(R.id.one_key_shading_title)).setLeftClick(new XTitleBar.OnLeftClickListener() {
             @Override
             public void onLeftclick() {
                 finish();
             }
         });
 
-        ((XTitleBar)findViewById(R.id.human_detect_title)).setRightIvClick(new XTitleBar.OnRightClickListener() {
+        ((XTitleBar)findViewById(R.id.one_key_shading_title)).setRightIvClick(new XTitleBar.OnRightClickListener() {
             @Override
             public void onRightClick() {
-                if (humanDetectionBean == null) {
+                if (opOneKeyMaskVideoBean == null) {
                     return;
                 }
-                FunSDK.DevSetConfigByJson(userId,funDevice.getDevSn(),JsonConfig.DETECT_HUMAN_DETECTION,
-                        HandleConfigData.getSendData(HandleConfigData.getFullName(JsonConfig.DETECT_HUMAN_DETECTION,0),"0x08",humanDetectionBean),
+                FunSDK.DevSetConfigByJson(userId,funDevice.getDevSn(),OPOneKeyMaskVideoBean.JSON_NAME,
+                        HandleConfigData.getSendData(HandleConfigData.getFullName(OPOneKeyMaskVideoBean.JSON_NAME,0),"0x08",opOneKeyMaskVideoBean),
                         0,5000,0);
             }
         });
-        lsiHumanDetect = findViewById(R.id.lsi_human_detect);
-        lsiHumanDetect.setOnRightClick(new ListSelectItem.OnRightImageClickListener() {
+        lsiOpenShelter = findViewById(R.id.open_shelter);
+        lsiOpenShelter.setOnRightClick(new ListSelectItem.OnRightImageClickListener() {
             @Override
             public void onClick(ListSelectItem listSelectItem, View view) {
-                if (humanDetectionBean != null) {
-                    humanDetectionBean.setEnable(listSelectItem.getRightValue() == SDKCONST.Switch.Open);
+                if (opOneKeyMaskVideoBean != null) {
+                    opOneKeyMaskVideoBean.setEnable(listSelectItem.getRightValue() == SDKCONST.Switch.Open);
                 }
             }
         });
@@ -89,7 +85,7 @@ public class ActivityHumanDetect extends ActivityDemo implements IFunSDKResult{
         int devId = getIntent().getIntExtra("FUN_DEVICE_ID", 0);
         funDevice = FunSupport.getInstance().findDeviceById(devId);
 
-        FunSDK.DevGetConfigByJson(userId, funDevice.getDevSn(), JsonConfig.DETECT_HUMAN_DETECTION,
+        FunSDK.DevGetConfigByJson(userId, funDevice.getDevSn(), OPOneKeyMaskVideoBean.JSON_NAME,
                 4096,0,5000,0);
         showWaitDialog();
     }
@@ -104,13 +100,13 @@ public class ActivityHumanDetect extends ActivityDemo implements IFunSDKResult{
                     finish();
                     return 0;
                 }
-                if (StringUtils.contrast(msgContent.str, JsonConfig.DETECT_HUMAN_DETECTION)) {
+                if (StringUtils.contrast(msgContent.str, OPOneKeyMaskVideoBean.JSON_NAME)) {
                     if (msgContent.pData != null) {
                         HandleConfigData handleConfigData = new HandleConfigData();
-                        if (handleConfigData.getDataObj(G.ToString(msgContent.pData), HumanDetectionBean.class)) {
-                            humanDetectionBean = (HumanDetectionBean) handleConfigData.getObj();
-                            if (humanDetectionBean != null) {
-                                lsiHumanDetect.setRightImage(humanDetectionBean.isEnable() ? SDKCONST.Switch.Open : SDKCONST.Switch.Close);
+                        if (handleConfigData.getDataObj(G.ToString(msgContent.pData), OPOneKeyMaskVideoBean.class)) {
+                            opOneKeyMaskVideoBean = (OPOneKeyMaskVideoBean) handleConfigData.getObj();
+                            if (opOneKeyMaskVideoBean != null) {
+                                lsiOpenShelter.setRightImage(opOneKeyMaskVideoBean.isEnable() ? SDKCONST.Switch.Open : SDKCONST.Switch.Close);
                                 break;
                             }
                         }

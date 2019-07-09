@@ -756,4 +756,8 @@
     <string name="alarm_interval">Interval</string>
     <string name="second">Second</string>
     <string name="human_detect">Human Detect</string>
+    <string name="timimg_ptz_tour_interval">Timimg Tour Interval</string>
+    <string name="timimg_ptz_tour_enable">Timimg Tour</string>
+    <string name="One_Key_Mask_Video">One Key Shading</string>
+    <string name="Open_Shelter">Open Shelter</string>
 </resources>

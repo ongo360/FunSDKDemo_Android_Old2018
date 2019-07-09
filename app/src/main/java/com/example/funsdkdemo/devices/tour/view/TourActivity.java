@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,10 +16,14 @@ import com.example.funsdkdemo.devices.tour.listener.TourContract;
 import com.example.funsdkdemo.devices.tour.model.bean.PTZTourBean;
 import com.example.funsdkdemo.devices.tour.model.bean.TourBean;
 import com.example.funsdkdemo.devices.tour.presenter.TourPresenter;
+import com.lib.FunSDK;
 import com.lib.MsgContent;
+import com.lib.SDKCONST;
 import com.lib.funsdk.support.FunSupport;
 import com.lib.funsdk.support.models.FunDevice;
+import com.lib.funsdk.support.utils.TimeUtils;
 import com.lib.funsdk.support.widget.CornerPopupWindow;
+import com.xm.ui.widget.ListSelectItem;
 
 
 /**
@@ -55,6 +60,11 @@ public class TourActivity extends ActivityDemo implements TourContract.ITourView
     private boolean is360Touring = false; //360巡航中
     private DialogWaitting waitDialog = null;
     private FunDevice funDevice;
+
+    private ListSelectItem lsiTimimgPtzTourEnable;
+    private SeekBar sbTimimgPtzTourInterval;
+    private ListSelectItem lsiTimimgPtzTourInterval;
+    private TextView tvTimimgPtzTourSupport;
     public static TourActivity newInstance() {
         return new TourActivity();
     }
@@ -93,6 +103,46 @@ public class TourActivity extends ActivityDemo implements TourContract.ITourView
         tour2.setOnLongClickListener(this);
         tour3.setOnLongClickListener(this);
 
+        lsiTimimgPtzTourInterval = findViewById(R.id.lsi_timimg_ptz_tour_interval);
+        sbTimimgPtzTourInterval = lsiTimimgPtzTourInterval.getExtraSeekbar();
+        sbTimimgPtzTourInterval.setMax(60);
+        sbTimimgPtzTourInterval.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int prgress, boolean bUser) {
+                if (bUser) {
+                    lsiTimimgPtzTourInterval.setRightText(TimeUtils.formatTimes(prgress));
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                tourPresenter.setTimingPtzTour(lsiTimimgPtzTourEnable.getRightValue() == SDKCONST.Switch.Open,
+                        sbTimimgPtzTourInterval.getProgress() * 60);
+            }
+        });
+
+        lsiTimimgPtzTourEnable = findViewById(R.id.lsi_timimg_ptz_tour_enable);
+        lsiTimimgPtzTourEnable.setOnRightClick(new ListSelectItem.OnRightImageClickListener() {
+            @Override
+            public void onClick(ListSelectItem listSelectItem, View view) {
+                tourPresenter.setTimingPtzTour(listSelectItem.getRightValue() == SDKCONST.Switch.Open,
+                        sbTimimgPtzTourInterval.getProgress() * 60);
+            }
+        });
+
+        lsiTimimgPtzTourInterval.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lsiTimimgPtzTourInterval.toggleExtraView();
+            }
+        });
+
+        tvTimimgPtzTourSupport = findViewById(R.id.tv_timimg_ptz_tour_support);
     }
 
     @Override
@@ -135,8 +185,14 @@ public class TourActivity extends ActivityDemo implements TourContract.ITourView
 
         tourPresenter = new TourPresenter(this, this,funDevice);
         tourPresenter.getTour();
-    }
+        tourPresenter.getTimimgPtzTour();
 
+        if (FunSDK.GetDevAbility(funDevice.getDevSn(),"OtherFunction/SupportTimingPtzTour") > 0) {
+            tvTimimgPtzTourSupport.setText("定时巡航功能是支持的，可以正常操作");
+        }else {
+            tvTimimgPtzTourSupport.setText("定时巡航功能是不支持，不可以操作");
+        }
+    }
     public void addTours(TextView v) {
 
         if (isTouring) {
@@ -413,6 +469,20 @@ public class TourActivity extends ActivityDemo implements TourContract.ITourView
             Toast.makeText(this, "操作错误" + msg.arg1, Toast.LENGTH_LONG).show();
         } else if (extraStr != null) {
             Toast.makeText(this, extraStr, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onTmimgPtzTourResult(boolean isEnable, int timeInterval) {
+        lsiTimimgPtzTourEnable.setRightImage(isEnable ? SDKCONST.Switch.Open : SDKCONST.Switch.Close);
+        sbTimimgPtzTourInterval.setProgress(timeInterval / 60);
+        lsiTimimgPtzTourInterval.setRightText(TimeUtils.formatTimes(timeInterval / 60));
+    }
+
+    @Override
+    public void onSaveTimimgPtzTourResult(boolean isSuccess) {
+        if (isSuccess) {
+            showToast(R.string.set_config_s);
         }
     }
 }

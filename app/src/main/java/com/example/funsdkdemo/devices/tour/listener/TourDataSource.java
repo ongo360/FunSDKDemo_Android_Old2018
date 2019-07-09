@@ -4,6 +4,7 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 
 import com.lib.MsgContent;
+import com.lib.funsdk.support.config.TimimgPtzTourBean;
 
 /**
  * Created by ccy on 2017-09-28.
@@ -77,5 +78,8 @@ public interface TourDataSource {
 
     void removeAllCallback();
 
+    void getTimimgPtzTour(TourCallback callback);
+
+    void setTimingPtzTour(TimimgPtzTourBean timingPtzTour,TourCallback callback);
 
 }

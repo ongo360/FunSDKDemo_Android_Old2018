@@ -13,6 +13,7 @@ import com.example.funsdkdemo.devices.tour.model.bean.PTZTourBean;
 import com.example.funsdkdemo.devices.tour.model.bean.TourBean;
 import com.example.funsdkdemo.devices.tour.model.bean.TourState;
 import com.lib.MsgContent;
+import com.lib.funsdk.support.config.TimimgPtzTourBean;
 import com.lib.funsdk.support.models.FunDevice;
 import com.lib.sdk.bean.OPPTZControlBean;
 
@@ -30,6 +31,7 @@ public class TourPresenter implements TourContract.ITourPresenter{
     private TourContract.ITourView tourView; // 持有V
     private TourDataSource dataSource;      //持有M
     private TourState mCurrentTourState = TourState.IDLE; //当前巡航状态
+    private TimimgPtzTourBean timimgPtzTourBean;
     public TourPresenter(Context context, TourContract.ITourView tourView,FunDevice funDevice) {
         this.context = context;
         this.tourView = tourView;
@@ -240,6 +242,49 @@ public class TourPresenter implements TourContract.ITourPresenter{
     @Override
     public TourState getTourState() {
         return mCurrentTourState;
+    }
+
+    @Override
+    public void getTimimgPtzTour() {
+        dataSource.getTimimgPtzTour(new TourDataSource.TourCallback() {
+            @Override
+            public void onSuccess(@Nullable Object result) {
+                timimgPtzTourBean = (TimimgPtzTourBean) result;
+                if (tourView != null && timimgPtzTourBean != null) {
+                    tourView.onTmimgPtzTourResult(timimgPtzTourBean.isEnable(),timimgPtzTourBean.getTimeInterval());
+                }
+            }
+
+            @Override
+            public void onError(Message msg, MsgContent ex, String extraStr) {
+                if (tourView != null) {
+                    tourView.onFailed(msg,ex,extraStr);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void setTimingPtzTour(boolean isEnable, int timeInterval) {
+        if (timimgPtzTourBean != null) {
+            timimgPtzTourBean.setEnable(isEnable);
+            timimgPtzTourBean.setTimeInterval(timeInterval);
+            dataSource.setTimingPtzTour(timimgPtzTourBean, new TourDataSource.TourCallback() {
+                @Override
+                public void onSuccess(@Nullable Object o) {
+                    if (tourView != null) {
+                        tourView.onSaveTimimgPtzTourResult(true);
+                    }
+                }
+
+                @Override
+                public void onError(Message msg, MsgContent ex, String extraStr) {
+                    if (tourView != null) {
+                        tourView.onFailed(msg,ex,extraStr);
+                    }
+                }
+            });
+        }
     }
 
 
