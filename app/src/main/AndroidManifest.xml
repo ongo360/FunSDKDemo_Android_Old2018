@@ -4,9 +4,7 @@
     android:versionCode="140"
     android:versionName="1.4.0" >
 
-    <uses-sdk
-        android:minSdkVersion="17"
-        android:targetSdkVersion="25" />
+    <uses-sdk/>
 
     <!-- <uses-permission android:name="com.example.permission.RECEIVE_MY_BROADCAST" /> -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -200,7 +198,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity 
+        <activity
             android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupEncode"
             android:screenOrientation="portrait"
             >
@@ -381,7 +379,7 @@
         <activity android:name="com.example.funsdkdemo.devices.settings.ActivityGuideDeviceSetupJson"></activity>
 	<activity android:name="com.example.funsdkdemo.devices.ActivityGuideDevicesSettingStatusLed"></activity>
         <activity android:name="com.example.funsdkdemo.devices.ActivityGuideDevicesSocketSensitiveSetting"></activity>
-        
+
         <activity android:name="com.example.funsdkdemo.devices.ActivityDeviceFishEyeInfo"
             android:screenOrientation="portrait">
         </activity>
@@ -413,7 +411,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </service>
-        
+
         <service android:name="com.example.funsdkdemo.alarm.ServiceGuideLanAlarmNotification">
             <intent-filter>
                 <action android:name="com.example.funsdkdemo.ServiceGuideLanAlarmNotification" >

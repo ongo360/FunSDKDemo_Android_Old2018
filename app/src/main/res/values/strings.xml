@@ -698,7 +698,7 @@
     <string name="Select_wifi">select the WiFi to which the device is connected from the list below</string>
     <string name="save">Save</string>
     <string name="password">password</string>
-    <string name="Frequency_support">Sorry, don't support the WiFi 5.8GHz, please use the WiFi 2.4GHz</string>
+    <string name="Frequency_support">Sorry, dont support the WiFi 5.8GHz, please use the WiFi 2.4GHz</string>
     <string name="Enter_link_wifi">enter the WiFi to connect to</string>
     <string name="Select_switch_model">please select mode</string>
     <string name="Current_link_model_ap">current AP mode</string>
